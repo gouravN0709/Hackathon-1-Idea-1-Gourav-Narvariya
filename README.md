@@ -2,7 +2,7 @@
 
 Next.js (App Router) site with TypeScript, Tailwind CSS, guest booking APIs, manage-booking, and staff operations backed by Supabase PostgreSQL.
 
-## Prerequisites
+## Prerequisite
 
 - Node.js 20.19+ (or 22.13+)
 - A [Supabase](https://supabase.com) project
