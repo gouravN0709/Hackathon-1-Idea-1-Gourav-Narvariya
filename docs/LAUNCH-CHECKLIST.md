@@ -58,7 +58,7 @@ Expect `booking` readiness false until operational data and active shifts are ap
 
 ## Technical pre-launch (Cursor / CI)
 
-- [ ] `npm run test`, `npm run lint`, `npx tsc --noEmit`, `npm run build` pass on release commit
+- [x] `npm run test`, `npm run lint`, `npx tsc --noEmit`, `npm run build` pass on release commit (verified 2026-10-27; removed accidental `__MACOSX` zip artifacts that broke Vitest/ESLint)
 - [ ] Migration applied on target Supabase project (reviewed, not reset)
 - [ ] RLS and staff bootstrap verified (owner can sign in; `/staff/operations` loads)
 - [ ] `GET /api/health` → publishable + secret configured; `rateLimit.mode` understood for your host
@@ -87,7 +87,7 @@ Expect `booking` readiness false until operational data and active shifts are ap
 3. Add any **special closures** for known closed dates.
 4. When ready, **activate** Thu–Sun shifts (one day at a time is fine).
 5. Confirm `GET /api/bookings/status` → `{ "live": true, "reason": null }`.
-6. One test booking on `/book` in staging; lookup and eligible cancel on `/manage-booking`.
+6. One test booking on `/book` in staging; lookup and eligible cancel on `/manage-booking` (full script: [STAGING-E2E-TEST-PLAN.md](./STAGING-E2E-TEST-PLAN.md)).
 7. Staff confirms reservation appears on `/staff/reservations`.
 
 Do **not** skip step 5. The app intentionally blocks `POST /api/bookings` until readiness is live.
