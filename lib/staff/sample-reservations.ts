@@ -1,0 +1,68 @@
+import type { StaffReservationRow } from "@/lib/staff/types";
+
+/**
+ * Fictional reservations for the staff dashboard prototype.
+ * Names and references are not linked to live database rows.
+ */
+export const sampleStaffReservations: StaffReservationRow[] = [
+  {
+    id: "sample-1",
+    reference: "ITU-84920",
+    guestDisplayName: "Leire A. (sample)",
+    serviceDate: "2026-11-07",
+    arrivalTime: "13:30:00",
+    adultCount: 4,
+    childCount: 1,
+    partySize: 5,
+    status: "confirmed",
+    tableLabels: ["DEMO-3", "DEMO-4"],
+    notes: "Sample note — gluten-free request.",
+    shiftName: "Lunch",
+    updatedAt: "2026-10-01T12:00:00.000Z",
+  },
+  {
+    id: "sample-2",
+    reference: "ITU-7F2A91",
+    guestDisplayName: "Jon M. (sample)",
+    serviceDate: "2026-11-07",
+    arrivalTime: "14:00:00",
+    adultCount: 2,
+    childCount: 0,
+    partySize: 2,
+    status: "pending",
+    tableLabels: ["DEMO-1"],
+    notes: null,
+    shiftName: "Lunch",
+    updatedAt: "2026-10-01T12:00:00.000Z",
+  },
+  {
+    id: "sample-3",
+    reference: "ITU-B104CC",
+    guestDisplayName: "Ane S. (sample)",
+    serviceDate: "2026-11-08",
+    arrivalTime: "13:00:00",
+    adultCount: 6,
+    childCount: 0,
+    partySize: 6,
+    status: "seated",
+    tableLabels: ["DEMO-5", "DEMO-6"],
+    notes: "Sample — txotx pacing.",
+    shiftName: "Lunch",
+    updatedAt: "2026-10-01T12:00:00.000Z",
+  },
+  {
+    id: "sample-4",
+    reference: "ITU-44E0D9",
+    guestDisplayName: "Markel T. (sample)",
+    serviceDate: "2026-11-06",
+    arrivalTime: "13:30:00",
+    adultCount: 3,
+    childCount: 2,
+    partySize: 5,
+    status: "cancelled",
+    tableLabels: [],
+    notes: "Sample cancellation.",
+    shiftName: "Lunch",
+    updatedAt: "2026-10-01T12:00:00.000Z",
+  },
+];

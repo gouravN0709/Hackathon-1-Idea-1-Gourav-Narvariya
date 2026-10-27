@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+:root {
+  --iturrieta-surface: #fff8f0;
+  --iturrieta-on-surface: #1e1b13;
+  --iturrieta-primary: #132f1d;
+  --iturrieta-primary-container: #294632;
+  --iturrieta-secondary: #875124;
+}
+
+@theme inline {
+  --color-tertiary: #272b20;
+  --color-secondary-fixed-dim: #ffb781;
+  --color-error-container: #ffdad6;
+  --color-on-secondary: #ffffff;
+  --color-secondary-fixed: #ffdcc4;
+  --color-on-error: #ffffff;
+  --color-inverse-surface: #343027;
+  --color-surface: #fff8f0;
+  --color-surface-container-highest: #e9e2d4;
+  --color-on-primary-fixed: #032110;
+  --color-on-surface-variant: #424842;
+  --color-on-tertiary-fixed-variant: #44483c;
+  --color-primary-container: #294632;
+  --color-on-error-container: #93000a;
+  --color-outline-variant: #c2c8c0;
+  --color-primary-fixed-dim: #adcfb4;
+  --color-on-surface: #1e1b13;
+  --color-inverse-on-surface: #f8f0e2;
+  --color-on-secondary-container: #794619;
+  --color-surface-tint: #47654f;
+  --color-surface-container-low: #fbf3e5;
+  --color-surface-container-high: #efe7d9;
+  --color-tertiary-fixed: #e0e4d3;
+  --color-secondary-container: #ffb781;
+  --color-tertiary-fixed-dim: #c4c8b8;
+  --color-on-primary-container: #93b39a;
+  --color-on-secondary-fixed: #2f1400;
+  --color-surface-dim: #e1d9cb;
+  --color-secondary: #875124;
+  --color-primary-fixed: #c9ebcf;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-background: #1e1b13;
+  --color-on-tertiary: #ffffff;
+  --color-surface-bright: #fff8f0;
+  --color-on-tertiary-fixed: #191d13;
+  --color-tertiary-container: #3d4135;
+  --color-error: #ba1a1a;
+  --color-on-primary-fixed-variant: #304d39;
+  --color-on-secondary-fixed-variant: #6b3a0e;
+  --color-surface-variant: #e9e2d4;
+  --color-on-tertiary-container: #a9ad9d;
+  --color-background: #fff8f0;
+  --color-on-primary: #ffffff;
+  --color-primary: #132f1d;
+  --color-outline: #727972;
+  --color-surface-container: #f5eddf;
+  --color-inverse-primary: #adcfb4;
+
+  --radius-sm: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 9999px;
+
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.75rem;
+  --spacing-space-xl: 3rem;
+  --spacing-space-2xl: 5rem;
+  --spacing-gutter: 2rem;
+  --spacing-gutter-mobile: 1rem;
+  --spacing-margin: 4rem;
+  --spacing-margin-tablet: 2.5rem;
+  --spacing-margin-mobile: 1.25rem;
+
+  --font-display-hero: var(--font-newsreader), "Times New Roman", serif;
+  --font-display-hero-mobile: var(--font-newsreader), "Times New Roman", serif;
+  --font-headline-lg: var(--font-newsreader), "Times New Roman", serif;
+  --font-headline-lg-mobile: var(--font-newsreader), "Times New Roman", serif;
+  --font-headline-md: var(--font-newsreader), "Times New Roman", serif;
+  --font-headline-sm: var(--font-newsreader), "Times New Roman", serif;
+  --font-title-editorial: var(--font-newsreader), "Times New Roman", serif;
+  --font-label-sm: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-label-lg: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-body-sm: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-body-md: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-body-lg: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), "Times New Roman", serif;
+
+  --text-headline-lg-mobile: 32px;
+  --text-headline-lg-mobile--line-height: 40px;
+  --text-headline-lg-mobile--letter-spacing: -0.01em;
+  --text-headline-lg-mobile--font-weight: 400;
+  --text-headline-lg: 44px;
+  --text-headline-lg--line-height: 52px;
+  --text-headline-lg--letter-spacing: -0.015em;
+  --text-headline-lg--font-weight: 400;
+  --text-headline-md: 30px;
+  --text-headline-md--line-height: 38px;
+  --text-headline-md--font-weight: 400;
+  --text-display-hero-mobile: 40px;
+  --text-display-hero-mobile--line-height: 48px;
+  --text-display-hero-mobile--letter-spacing: -0.01em;
+  --text-display-hero-mobile--font-weight: 400;
+  --text-label-sm: 11px;
+  --text-label-sm--line-height: 16px;
+  --text-label-sm--letter-spacing: 0.08em;
+  --text-label-sm--font-weight: 600;
+  --text-display-hero: 64px;
+  --text-display-hero--line-height: 72px;
+  --text-display-hero--letter-spacing: -0.02em;
+  --text-display-hero--font-weight: 400;
+  --text-headline-sm: 22px;
+  --text-headline-sm--line-height: 30px;
+  --text-headline-sm--font-weight: 500;
+  --text-body-sm: 13px;
+  --text-body-sm--line-height: 20px;
+  --text-body-sm--font-weight: 400;
+  --text-body-md: 15px;
+  --text-body-md--line-height: 24px;
+  --text-body-md--font-weight: 400;
+  --text-label-lg: 13px;
+  --text-label-lg--line-height: 18px;
+  --text-label-lg--letter-spacing: 0.06em;
+  --text-label-lg--font-weight: 600;
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 30px;
+  --text-body-lg--font-weight: 400;
+  --text-title-editorial: 18px;
+  --text-title-editorial--line-height: 26px;
+  --text-title-editorial--letter-spacing: 0.02em;
+  --text-title-editorial--font-weight: 400;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary-container);
+    outline-offset: 3px;
+  }
+}
