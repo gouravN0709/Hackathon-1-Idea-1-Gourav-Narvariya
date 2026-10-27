@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import Link from "next/link";
 import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
@@ -28,7 +29,7 @@ export function HeritageSection() {
               <div className="flex items-center gap-space-sm text-secondary">
                 <Icon name="history" className="h-6 w-6 shrink-0" />
                 <span className="font-label-sm text-label-sm font-semibold tracking-wider uppercase">
-                  Orchard Ledger 1998
+                  <TxServer>Orchard Ledger 1998</TxServer>
                 </span>
               </div>
               <p className="mt-space-xs font-body-sm text-body-sm text-on-surface-variant">
@@ -44,12 +45,12 @@ export function HeritageSection() {
                 Chapter I · The Heritage
               </span>
               <h2 className="font-headline-lg text-headline-lg-mobile leading-tight font-normal text-balance text-primary md:text-headline-lg">
-                A family vision born among the misty orchards in 1998.
+                <TxServer>A family vision born among the misty orchards in 1998.</TxServer>
               </h2>
             </div>
             <p className="font-body-lg text-body-lg leading-relaxed text-on-surface">
               Founded in 1998 in the fertile, microclimate-rich valley of
-              Aramaio—often called the <em>Basque Switzerland</em>—Iturrieta
+              Aramaio—often called the <em><TxServer>Basque Switzerland</TxServer></em>—Iturrieta
               Sagardotegia was created with an unwavering reverence for
               traditional agroecology.
             </p>
@@ -57,7 +58,7 @@ export function HeritageSection() {
               What began as an intimate family commitment to rehabilitate
               neglected heirloom cider apple varieties quickly deepened into a
               working farmhouse sanctuary. We recognized that true Basque cider
-              (<em>sagardoa</em>) does not happen in industrial stainless vats;
+              (<em><TxServer>sagardoa</TxServer></em>) does not happen in industrial stainless vats;
               it is born from cold mountain soil, humid coastal winds caught in
               the mountain cirque, and the intuitive hands of those who live
               beside the trees year-round.
@@ -66,7 +67,7 @@ export function HeritageSection() {
               <div className="flex items-center gap-2 font-medium text-primary">
                 <Icon name="droplet" className="h-5 w-5 text-secondary" />
                 <span className="font-title-editorial text-title-editorial">
-                  Pure Valley Microclimate
+                  <TxServer>Pure Valley Microclimate</TxServer>
                 </span>
               </div>
               <p className="font-body-sm text-body-sm text-on-surface-variant">
@@ -81,7 +82,7 @@ export function HeritageSection() {
                 href="#custodians"
                 className="inline-flex items-center gap-1 font-label-lg text-label-lg text-primary underline decoration-secondary/60 underline-offset-8 transition-colors hover:text-secondary"
               >
-                Read our full estate chronicles
+                <TxServer>Read our full estate chronicles</TxServer>
                 <Icon name="arrow-up-right" className="h-4 w-4" />
               </Link>
             </div>

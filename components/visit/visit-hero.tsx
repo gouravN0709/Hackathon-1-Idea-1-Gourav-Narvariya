@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { SiteContainer } from "@/components/ui/site-container";
@@ -46,7 +47,7 @@ export function VisitHero() {
               Aramaio Valley · Estate Sanctuary
             </p>
             <h1 className="font-display-hero text-display-hero-mobile leading-[1.08] font-light tracking-tight text-balance text-surface md:text-[68px]">
-              Your Table Awaits in the Basque Country.
+              <TxServer>Your Table Awaits in the Basque Country.</TxServer>
             </h1>
             <p className="max-w-2xl font-body-lg text-body-lg font-light text-surface-container-high/90">
               Experience the living rhythm of our family cider house in the
@@ -59,14 +60,14 @@ export function VisitHero() {
                 href="#contact"
                 className="inline-flex min-h-11 items-center justify-center rounded bg-secondary px-space-xl py-space-md font-label-lg text-label-lg tracking-widest text-surface uppercase shadow-md transition-colors hover:bg-on-secondary-container"
               >
-                Plan a visit
+                <TxServer>Plan a visit</TxServer>
               </a>
               <a
                 href="#directions"
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded bg-surface/10 px-space-xl py-space-md font-label-lg text-label-lg tracking-widest text-surface uppercase backdrop-blur-sm transition-colors hover:bg-surface/20"
               >
                 <Icon name="map-pin" className="h-[18px] w-[18px]" />
-                Get directions
+                <TxServer>Get directions</TxServer>
               </a>
             </div>
           </div>

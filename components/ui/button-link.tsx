@@ -1,5 +1,7 @@
-import Link from "next/link";
+"use client";
+
 import type { ReactNode } from "react";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 
 const variants = {
@@ -19,7 +21,7 @@ const variants = {
   underline:
     "inline-flex items-center gap-space-xs font-label-lg text-label-lg uppercase tracking-wider text-secondary underline decoration-secondary underline-offset-4 transition-colors hover:text-primary",
   editorial:
-    "inline-flex items-center gap-space-sm font-label-lg text-label-lg uppercase tracking-wider text-primary underline decoration-secondary underline-offset-8 transition-colors hover:text-secondary",
+    "inline-flex items-center gap-space-xs font-label-lg text-label-lg uppercase tracking-wider text-primary underline decoration-secondary underline-offset-8 transition-colors hover:text-secondary",
 } as const;
 
 type ButtonLinkProps = {

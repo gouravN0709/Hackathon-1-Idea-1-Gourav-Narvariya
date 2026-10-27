@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
@@ -18,10 +19,10 @@ export function VisitInvitation() {
       <SiteContainer className="relative z-10 flex flex-col items-center gap-space-lg text-center">
         <div className="flex max-w-2xl flex-col gap-space-xs">
           <span className="font-label-sm text-label-sm font-semibold tracking-[0.2em] text-secondary-fixed uppercase">
-            Hospitality in the Valley
+            <TxServer>Hospitality in the Valley</TxServer>
           </span>
           <h2 className="font-headline-lg text-headline-lg-mobile leading-tight font-normal text-balance text-surface-container-lowest md:text-headline-lg">
-            Experience the rhythm of our farm.
+            <TxServer>Experience the rhythm of our farm.</TxServer>
           </h2>
           <p className="mt-space-xs font-body-lg text-body-lg font-light text-surface-container-highest/90">
             We open our doors and cellars during txotx season and year-round for
@@ -30,17 +31,17 @@ export function VisitInvitation() {
         </div>
         <div className="flex w-full flex-col items-stretch justify-center gap-space-md sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
           <ButtonLink href="/book" variant="hero" className="w-full sm:w-auto">
-            Book a Visit & Table
+            <TxServer>Book a Visit & Table</TxServer>
           </ButtonLink>
           <ButtonLink href="/#menu" variant="glass" className="w-full sm:w-auto">
-            Explore Our Cider
+            <TxServer>Explore Our Cider</TxServer>
             <Icon name="arrow-right" className="h-4 w-4" />
           </ButtonLink>
         </div>
         <div className="flex flex-col items-center gap-space-sm border-t border-outline/30 pt-space-md text-center font-body-sm text-body-sm text-surface-container-highest/80 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-space-md">
           <span className="inline-flex items-center gap-1.5">
             <Icon name="map-pin" className="h-[18px] w-[18px] text-secondary-fixed" />
-            Barrio Barajuen, Aramaio Valley, Álava
+            <TxServer>Barrio Barajuen, Aramaio Valley, Álava</TxServer>
           </span>
           <span className="hidden sm:inline" aria-hidden="true">
             ·

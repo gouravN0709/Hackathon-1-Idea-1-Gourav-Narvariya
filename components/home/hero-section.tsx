@@ -1,4 +1,6 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { ButtonLink } from "@/components/ui/button-link";
+import { getTranslations } from "next-intl/server";
 import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { SiteContainer } from "@/components/ui/site-container";
@@ -21,7 +23,8 @@ const stats = [
   },
 ] as const;
 
-export function HeroSection() {
+export async function HeroSection() {
+  const t = await getTranslations("home.hero");
   return (
     <section className="relative flex min-h-[92vh] w-full -mt-20 flex-col justify-between overflow-hidden bg-primary pt-20">
       <div className="pointer-events-none absolute inset-0">
@@ -44,10 +47,10 @@ export function HeroSection() {
             </span>
           </div>
           <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-balance font-normal leading-tight text-surface">
-            From our apple trees
+            <TxServer>From our apple trees</TxServer>
             <br />
             <span className="font-display-hero font-normal text-surface-container-high italic">
-              to your table.
+              <TxServer>to your table.</TxServer>
             </span>
           </h1>
           <p className="max-w-xl font-body-lg text-body-lg font-light text-surface-container-high">
@@ -57,10 +60,10 @@ export function HeroSection() {
           </p>
           <div className="flex flex-wrap items-center gap-space-md pt-space-sm">
             <ButtonLink href="/book" variant="hero">
-              Book a Visit
+              {t("bookCta")}
             </ButtonLink>
             <ButtonLink href="/#story" variant="ghost">
-              Discover Our Story
+              <TxServer>Discover Our Story</TxServer>
               <Icon
                 name="arrow-right"
                 className="h-[18px] w-[18px] motion-safe:transition-transform motion-safe:group-hover:translate-x-1"

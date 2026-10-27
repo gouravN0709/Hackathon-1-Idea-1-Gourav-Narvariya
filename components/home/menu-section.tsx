@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Icon } from "@/components/ui/icon";
 import { SiteContainer } from "@/components/ui/site-container";
@@ -9,10 +10,10 @@ export function MenuSection() {
       <SiteContainer className="flex flex-col gap-space-2xl">
         <div className="mx-auto flex max-w-2xl flex-col items-center gap-space-xs text-center">
           <span className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-            Fire & Orchard Feasts
+            <TxServer>Fire & Orchard Feasts</TxServer>
           </span>
           <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg leading-tight font-normal text-primary">
-            Good food. Natural cider. Time together.
+            <TxServer>Good food. Natural cider. Time together.</TxServer>
           </h2>
           <p className="mt-space-xs max-w-lg font-body-md text-body-md text-on-surface-variant">
             Served at hand-hewn oak trestles beside glowing vine embers. Our menu
@@ -26,10 +27,10 @@ export function MenuSection() {
               <div className="flex flex-col justify-between gap-space-xs pb-space-sm sm:flex-row sm:items-baseline">
                 <div>
                   <span className="font-label-sm text-label-sm font-bold tracking-widest text-secondary uppercase">
-                    The Authentic Rite
+                    <TxServer>The Authentic Rite</TxServer>
                   </span>
                   <h3 className="font-headline-md text-headline-md text-primary">
-                    Traditional Sagardotegi Menu
+                    <TxServer>Traditional Sagardotegi Menu</TxServer>
                   </h3>
                 </div>
                 <div className="flex items-baseline gap-1">
@@ -65,11 +66,11 @@ export function MenuSection() {
                   <div className="flex items-center gap-space-sm">
                     <Icon name="wine" className="h-5 w-5 text-secondary-fixed" />
                     <span className="font-body-md text-body-md font-medium">
-                      Unlimited Txotx Barrel Pouring Throughout Meal
+                      <TxServer>Unlimited Txotx Barrel Pouring Throughout Meal</TxServer>
                     </span>
                   </div>
                   <span className="font-label-sm text-label-sm tracking-widest text-secondary-fixed uppercase">
-                    Included
+                    <TxServer>Included</TxServer>
                   </span>
                 </div>
               </div>
@@ -77,10 +78,10 @@ export function MenuSection() {
 
             <div className="flex flex-col items-center justify-between gap-space-md pt-space-lg sm:flex-row">
               <span className="font-body-sm text-body-sm text-on-surface-variant">
-                Wood-fired sourdough bread & spring water always provided.
+                <TxServer>Wood-fired sourdough bread & spring water always provided.</TxServer>
               </span>
               <ButtonLink href="/#menu" variant="underline">
-                View Detailed Beverage & Cellar List
+                <TxServer>View Detailed Beverage & Cellar List</TxServer>
                 <Icon name="arrow-right" className="h-4 w-4" />
               </ButtonLink>
             </div>
@@ -90,7 +91,7 @@ export function MenuSection() {
             <div className="flex flex-1 flex-col justify-between rounded-xl bg-surface p-space-lg shadow-md">
               <div className="flex flex-col gap-space-sm">
                 <span className="font-label-sm text-label-sm font-bold tracking-widest text-secondary uppercase">
-                  Young Apprentices
+                  <TxServer>Young Apprentices</TxServer>
                 </span>
                 <div className="flex items-baseline justify-between gap-space-sm">
                   <h3 className="font-headline-sm text-headline-sm text-primary">
@@ -115,7 +116,7 @@ export function MenuSection() {
               </div>
               <div className="pt-space-md">
                 <ButtonLink href="/book" variant="soft" className="w-full">
-                  Reserve Lunch or Dinner
+                  <TxServer>Reserve Lunch or Dinner</TxServer>
                 </ButtonLink>
               </div>
             </div>
@@ -123,7 +124,7 @@ export function MenuSection() {
             <div className="flex flex-col gap-space-xs rounded-xl bg-surface-container-highest/60 p-space-lg shadow-sm">
               <div className="flex items-center gap-space-xs font-headline-sm text-headline-sm text-primary">
                 <Icon name="grill" className="h-5 w-5 text-secondary" />
-                <span>The Asador Wood Fire</span>
+                <span><TxServer>The Asador Wood Fire</TxServer></span>
               </div>
               <p className="font-body-sm text-body-sm leading-relaxed text-on-surface-variant">
                 We never use charcoal. Our grills burn trimmed apple orchard

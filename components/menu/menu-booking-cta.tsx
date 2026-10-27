@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import Link from "next/link";
 import { Icon } from "@/components/ui/icon";
 import { SiteContainer } from "@/components/ui/site-container";
@@ -10,13 +11,13 @@ export function MenuBookingCta() {
       <SiteContainer className="relative z-10">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-space-md rounded-2xl bg-primary-container/80 p-space-lg text-center shadow-2xl backdrop-blur-md md:p-space-2xl">
           <span className="font-label-sm text-label-sm font-semibold tracking-[0.2em] text-secondary-fixed uppercase">
-            Reservations & Hospitality
+            <TxServer>Reservations & Hospitality</TxServer>
           </span>
           <h2 className="font-display-hero text-display-hero-mobile leading-[1.1] font-normal tracking-tight text-balance text-surface sm:text-display-hero">
-            Come Hungry.
+            <TxServer>Come Hungry.</TxServer>
             <br />
             <span className="font-normal text-secondary-fixed italic">
-              Leave with a Story.
+              <TxServer>Leave with a Story.</TxServer>
             </span>
           </h2>
           <p className="max-w-2xl font-body-lg text-body-lg text-on-primary-container">
@@ -36,7 +37,7 @@ export function MenuBookingCta() {
               className="inline-flex min-h-11 items-center justify-center gap-space-xs px-space-lg py-3.5 font-label-lg text-label-lg tracking-wider text-surface uppercase transition-colors hover:text-secondary-fixed"
             >
               <Icon name="mail" className="h-[18px] w-[18px]" />
-              Contact Farm Concierge
+              <TxServer>Contact Farm Concierge</TxServer>
             </a>
           </div>
           <div className="mt-space-sm flex w-full flex-col items-center justify-center gap-space-md border-t border-surface/10 pt-space-md font-body-sm text-body-sm text-on-primary-container sm:flex-row">
@@ -52,7 +53,7 @@ export function MenuBookingCta() {
             </span>
             <p className="flex items-center gap-space-xs">
               <Icon name="map-pin" className="h-[18px] w-[18px] shrink-0 text-secondary-fixed" />
-              <span>Barrio Barajuen, Aramaio Valley, Álava</span>
+              <span><TxServer>Barrio Barajuen, Aramaio Valley, Álava</TxServer></span>
             </p>
           </div>
         </div>

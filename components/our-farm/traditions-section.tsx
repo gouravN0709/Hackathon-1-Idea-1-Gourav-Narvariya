@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { Icon } from "@/components/ui/icon";
 import { SiteContainer } from "@/components/ui/site-container";
@@ -16,7 +17,7 @@ export function TraditionsSection() {
                 Chapter IV · Communal Fellowship
               </span>
               <h2 className="font-headline-lg text-headline-lg-mobile leading-tight font-normal text-balance text-surface-container-lowest md:text-headline-lg">
-                The Ancient Cry:
+                <TxServer>The Ancient Cry:</TxServer>
                 <br />
                 <em className="text-secondary-fixed italic">¡Txotx!</em> and Table
                 Fellowship.
@@ -28,7 +29,7 @@ export function TraditionsSection() {
             </p>
             <p className="font-body-md text-body-md leading-relaxed text-surface-variant/80">
               Originally, the ritual began when buyers and neighboring farmers
-              traveled to the <em>sagardotegi</em> in late winter to sample
+              traveled to the <em><TxServer>sagardotegi</TxServer></em> in late winter to sample
               individual barrels before choosing what to purchase. They brought
               cod omelets and steaks to cook over wood coals to balance the brisk
               acidity of fresh unbottled cider.
@@ -42,19 +43,19 @@ export function TraditionsSection() {
             <div className="flex flex-wrap items-center gap-space-md pt-space-sm">
               <div className="flex flex-col">
                 <span className="font-headline-sm text-headline-sm text-secondary-fixed">
-                  January — April
+                  <TxServer>January — April</TxServer>
                 </span>
                 <span className="font-label-sm text-label-sm tracking-wider text-surface-container-highest uppercase">
-                  Peak Txotx Season
+                  <TxServer>Peak Txotx Season</TxServer>
                 </span>
               </div>
               <div className="hidden h-10 w-px bg-outline/40 sm:block" />
               <div className="flex flex-col">
                 <span className="font-headline-sm text-headline-sm text-secondary-fixed">
-                  All Year Round
+                  <TxServer>All Year Round</TxServer>
                 </span>
                 <span className="font-label-sm text-label-sm tracking-wider text-surface-container-highest uppercase">
-                  Cellar Tastings & Visits
+                  <TxServer>Cellar Tastings & Visits</TxServer>
                 </span>
               </div>
             </div>
@@ -77,7 +78,7 @@ export function TraditionsSection() {
                     Barrel Room Kupela Nº 07
                   </span>
                   <p className="font-title-editorial text-title-editorial italic">
-                    The aerating arc unlocks natural carbonic bite & wild aromas.
+                    <TxServer>The aerating arc unlocks natural carbonic bite & wild aromas.</TxServer>
                   </p>
                 </div>
                 <Icon name="wine-glass" className="h-8 w-8 shrink-0 text-secondary-fixed" />

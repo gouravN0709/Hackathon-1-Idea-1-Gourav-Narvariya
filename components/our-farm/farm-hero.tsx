@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
@@ -34,14 +35,14 @@ export function FarmHero() {
               </span>
               <span className="hidden items-center gap-1 font-label-sm text-label-sm tracking-wider text-primary-fixed-dim uppercase md:inline-flex">
                 <Icon name="eco" className="h-3.5 w-3.5" />
-                Euskal Sagardoa DOP
+                <TxServer>Euskal Sagardoa DOP</TxServer>
               </span>
             </div>
             <h1 className="font-display-hero text-display-hero-mobile leading-[1.15] font-normal tracking-tight text-balance text-surface-container-lowest md:text-[68px] md:leading-[1.1]">
-              Rooted in Our Land.
+              <TxServer>Rooted in Our Land.</TxServer>
               <br />
               <em className="font-display-hero text-secondary-fixed italic">
-                Made by Our Family.
+                <TxServer>Made by Our Family.</TxServer>
               </em>
             </h1>
             <p className="max-w-2xl font-body-lg text-body-lg font-light text-surface-container-highest/90">
@@ -51,14 +52,14 @@ export function FarmHero() {
             </p>
             <div className="flex flex-col items-stretch gap-space-md pt-space-sm sm:flex-row sm:flex-wrap sm:items-center">
               <ButtonLink href="/book" variant="hero" className="w-full sm:w-auto">
-                Book an Estate Visit
+                <TxServer>Book an Estate Visit</TxServer>
               </ButtonLink>
               <ButtonLink
                 href="/#menu"
                 variant="glass"
                 className="w-full sm:w-auto"
               >
-                Explore Our Cider
+                <TxServer>Explore Our Cider</TxServer>
                 <Icon name="arrow-right" className="h-4 w-4" />
               </ButtonLink>
             </div>

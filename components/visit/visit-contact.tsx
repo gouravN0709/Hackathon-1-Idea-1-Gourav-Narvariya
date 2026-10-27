@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import Link from "next/link";
 import { VisitInquiryForm } from "@/components/visit/visit-inquiry-form";
 import { Icon, type IconName } from "@/components/ui/icon";
@@ -47,7 +48,7 @@ export function VisitContact() {
             Direct enquiries · Caserío Goikola
           </p>
           <h2 className="font-headline-lg text-headline-lg-mobile tracking-tight text-primary md:text-headline-lg">
-            Get in Touch
+            <TxServer>Get in Touch</TxServer>
           </h2>
           <p className="pt-space-xs font-body-lg text-body-lg text-on-surface-variant">
             Questions about the menu, a group, or finding the farm can go
@@ -90,7 +91,7 @@ export function VisitContact() {
         <p className="font-body-sm text-body-sm text-on-surface-variant">
           Published menus are on{" "}
           <Link href="/menu" className="text-primary underline underline-offset-4">
-            Menu & Cider
+            <TxServer>Menu & Cider</TxServer>
           </Link>
           . Longer answers are on the{" "}
           <Link href="/faq" className="text-primary underline underline-offset-4">

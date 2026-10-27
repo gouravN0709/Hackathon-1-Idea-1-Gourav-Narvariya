@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import Link from "next/link";
 import { Icon, type IconName } from "@/components/ui/icon";
 import { SiteContainer } from "@/components/ui/site-container";
@@ -34,10 +35,10 @@ export function ManageSupport() {
         <div className="grid grid-cols-1 items-center gap-gutter lg:grid-cols-12">
           <div className="flex flex-col gap-space-md lg:col-span-5">
             <p className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-              Bespoke hospitality
+              <TxServer>Bespoke hospitality</TxServer>
             </p>
             <h2 className="font-headline-lg text-headline-lg-mobile text-primary md:text-headline-lg">
-              Need a Hand?
+              <TxServer>Need a Hand?</TxServer>
             </h2>
             <p className="font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
               Party numbers, the drive into the valley, and dietary notes belong
@@ -47,7 +48,7 @@ export function ManageSupport() {
               href="/visit"
               className="inline-flex min-h-11 w-fit items-center gap-2 font-label-lg text-label-lg font-semibold tracking-wider text-secondary uppercase hover:text-on-secondary-container"
             >
-              View arrival & visit guide
+              <TxServer>View arrival & visit guide</TxServer>
               <Icon name="arrow-right" className="h-4 w-4" />
             </Link>
           </div>

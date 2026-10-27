@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
@@ -19,10 +20,10 @@ export function FarmStorySection() {
             </div>
             <div className="relative z-10 mt-space-md flex max-w-xs flex-col rounded bg-surface-container-low p-space-lg shadow-md sm:absolute sm:-right-4 sm:-bottom-6 lg:-right-6">
               <span className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-                Caserío Goikola
+                <TxServer>Caserío Goikola</TxServer>
               </span>
               <span className="mt-1 font-title-editorial text-title-editorial text-primary">
-                Mikel & Ane Goikoetxea
+                <TxServer>Mikel & Ane Goikoetxea</TxServer>
               </span>
               <span className="mt-space-xs font-body-sm text-body-sm text-on-surface-variant">
                 4th & 5th Generation Sagardogileak
@@ -38,7 +39,7 @@ export function FarmStorySection() {
               </span>
             </div>
             <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg leading-tight font-normal text-primary">
-              A place shaped by family, land, and the rhythm of rain.
+              <TxServer>A place shaped by family, land, and the rhythm of rain.</TxServer>
             </h2>
             <p className="font-body-lg text-body-lg font-light text-on-surface-variant">
               In the secluded amphitheater of the Aramaio Valley, cider is not
@@ -56,12 +57,12 @@ export function FarmStorySection() {
             </p>
             <div className="flex flex-wrap items-center gap-space-lg pt-space-md">
               <ButtonLink href="/#orchard" variant="editorial">
-                Meet Our Farm & Orchards
+                <TxServer>Meet Our Farm & Orchards</TxServer>
                 <Icon name="arrow-right" className="h-[18px] w-[18px]" />
               </ButtonLink>
               <span className="font-light text-outline-variant">·</span>
               <span className="font-body-sm text-body-sm text-on-surface-variant italic">
-                Barrio Barajuen, Aramaio
+                <TxServer>Barrio Barajuen, Aramaio</TxServer>
               </span>
             </div>
           </div>

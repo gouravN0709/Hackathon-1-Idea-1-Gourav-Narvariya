@@ -1,10 +1,12 @@
 "use client";
+import { Tx } from "@/components/i18n/tx";
 
 import { useActionState, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   initialStaffReservationMutationState,
   runStaffReservationMutation,
+  type StaffReservationMutationState,
 } from "@/app/staff/reservations/actions";
 import { proposedReservationActions } from "@/lib/staff/reservation-actions";
 import type { StaffReservationActionId } from "@/lib/staff/reservation-actions";
@@ -19,8 +21,18 @@ import type { ReservationStatus, StaffReservationRow } from "@/lib/staff/types";
 import { reservationStatuses } from "@/lib/staff/types";
 import { cn } from "@/lib/cn";
 
+export type ReservationDashboardRow = StaffReservationRow & {
+  guestEmail?: string | null;
+  guestPhone?: string | null;
+};
+
+type ReservationMutationAction = (
+  prevState: StaffReservationMutationState,
+  formData: FormData,
+) => Promise<StaffReservationMutationState>;
+
 type StaffReservationsDashboardProps = {
-  rows: StaffReservationRow[];
+  rows: ReservationDashboardRow[];
   initialServiceDate: string;
   initialStatus: ReservationStatus | "all";
   initialReference: string;
@@ -28,6 +40,12 @@ type StaffReservationsDashboardProps = {
   guestLabel?: string;
   /** When false, actions stay disabled (demo / preview). */
   enableMutations?: boolean;
+  /** When false, rows are already filtered on the server (admin list). */
+  clientSideFilter?: boolean;
+  showGuestContact?: boolean;
+  referenceFieldLabel?: string;
+  reservationMutationAction?: ReservationMutationAction;
+  reservationMutationInitialState?: StaffReservationMutationState;
 };
 
 function actionRequiresNote(actionId: StaffReservationActionId): boolean {
@@ -42,6 +60,11 @@ export function StaffReservationsDashboard({
   emptyMessage = "No reservations match these filters.",
   guestLabel = "Guest",
   enableMutations = false,
+  clientSideFilter = true,
+  showGuestContact = false,
+  referenceFieldLabel = "Reference",
+  reservationMutationAction = runStaffReservationMutation,
+  reservationMutationInitialState = initialStaffReservationMutationState,
 }: StaffReservationsDashboardProps) {
   const router = useRouter();
   const [serviceDate, setServiceDate] = useState(initialServiceDate);
@@ -53,11 +76,14 @@ export function StaffReservationsDashboard({
   const [actionNote, setActionNote] = useState("");
 
   const [mutationState, mutationAction, mutationPending] = useActionState(
-    runStaffReservationMutation,
-    initialStaffReservationMutationState,
+    reservationMutationAction,
+    reservationMutationInitialState,
   );
 
   const filtered = useMemo(() => {
+    if (!clientSideFilter) {
+      return rows;
+    }
     return rows.filter((row) => {
       if (serviceDate && row.serviceDate !== serviceDate) {
         return false;
@@ -70,7 +96,7 @@ export function StaffReservationsDashboard({
       }
       return true;
     });
-  }, [rows, serviceDate, status, reference]);
+  }, [clientSideFilter, rows, serviceDate, status, reference]);
 
   const selected =
     filtered.find((row) => row.id === selectedId) ?? filtered[0] ?? null;
@@ -100,7 +126,7 @@ export function StaffReservationsDashboard({
         >
           <label className="flex flex-col gap-space-xs">
             <span className="font-label-sm text-label-sm font-semibold uppercase tracking-wide text-on-surface-variant">
-              Service date
+              <Tx>Service date</Tx>
             </span>
             <input
               type="date"
@@ -120,7 +146,7 @@ export function StaffReservationsDashboard({
                 setStatus(event.target.value as ReservationStatus | "all")
               }
             >
-              <option value="all">All statuses</option>
+              <option value="all"><Tx>All statuses</Tx></option>
               {reservationStatuses.map((value) => (
                 <option key={value} value={value}>
                   {statusLabels[value]}
@@ -130,7 +156,7 @@ export function StaffReservationsDashboard({
           </label>
           <label className="flex flex-col gap-space-xs sm:col-span-2 lg:col-span-1">
             <span className="font-label-sm text-label-sm font-semibold uppercase tracking-wide text-on-surface-variant">
-              Reference
+              {referenceFieldLabel}
             </span>
             <input
               type="search"
@@ -146,7 +172,7 @@ export function StaffReservationsDashboard({
           <table className="w-full min-w-[640px] border-collapse text-left font-body-md text-body-md">
             <thead>
               <tr className="border-b border-outline-variant/40 text-on-surface-variant">
-                <th className="py-space-sm pr-space-md font-semibold">Reference</th>
+                <th className="py-space-sm pr-space-md font-semibold"><Tx>Reference</Tx></th>
                 <th className="py-space-sm pr-space-md font-semibold">Date</th>
                 <th className="py-space-sm pr-space-md font-semibold">Time</th>
                 <th className="py-space-sm pr-space-md font-semibold">Party</th>
@@ -212,16 +238,16 @@ export function StaffReservationsDashboard({
 
       <aside className="w-full shrink-0 rounded-2xl border border-outline-variant/30 bg-surface-container-low p-space-lg lg:max-w-md">
         <h2 className="font-headline-sm text-headline-sm text-primary">
-          Reservation detail
+          <Tx>Reservation detail</Tx>
         </h2>
         {!selected ? (
           <p className="mt-space-md text-on-surface-variant">
-            Select a row to inspect status and actions.
+            <Tx>Select a row to inspect status and actions.</Tx>
           </p>
         ) : (
           <dl className="mt-space-md flex flex-col gap-space-sm font-body-md text-body-md">
             <div>
-              <dt className="text-on-surface-variant">Reference</dt>
+              <dt className="text-on-surface-variant"><Tx>Reference</Tx></dt>
               <dd className="font-semibold text-primary">{selected.reference}</dd>
             </div>
             <div>
@@ -270,6 +296,36 @@ export function StaffReservationsDashboard({
               <dt className="text-on-surface-variant">{guestLabel}</dt>
               <dd>{selected.guestDisplayName}</dd>
             </div>
+            {showGuestContact && selected.guestEmail ? (
+              <div>
+                <dt className="text-on-surface-variant">Email</dt>
+                <dd>
+                  <a
+                    href={`mailto:${selected.guestEmail}`}
+                    className="text-primary underline-offset-2 hover:underline"
+                  >
+                    {selected.guestEmail}
+                  </a>
+                </dd>
+              </div>
+            ) : null}
+            {showGuestContact && selected.guestPhone ? (
+              <div>
+                <dt className="text-on-surface-variant">Phone</dt>
+                <dd>
+                  <a
+                    href={`tel:${selected.guestPhone}`}
+                    className="text-primary underline-offset-2 hover:underline"
+                  >
+                    {selected.guestPhone}
+                  </a>
+                </dd>
+              </div>
+            ) : null}
+            <div>
+              <dt className="text-on-surface-variant">Last updated</dt>
+              <dd className="text-on-surface-variant">{selected.updatedAt}</dd>
+            </div>
             {selected.notes ? (
               <div>
                 <dt className="text-on-surface-variant">Notes</dt>
@@ -299,7 +355,7 @@ export function StaffReservationsDashboard({
         {selected && enableMutations ? (
           <div className="mt-space-lg border-t border-outline-variant/30 pt-space-md">
             <h3 className="font-label-sm text-label-sm font-semibold uppercase tracking-wide text-on-surface-variant">
-              Staff notes
+              <Tx>Staff notes</Tx>
             </h3>
             <form
               key={`notes-${selected.id}-${selected.updatedAt}`}
@@ -341,7 +397,7 @@ export function StaffReservationsDashboard({
             {enableMutations && showActionNoteField ? (
               <label className="mt-space-sm flex flex-col gap-space-xs">
                 <span className="font-label-sm text-label-sm text-on-surface-variant">
-                  Note for cancel / no-show (required)
+                  <Tx>Note for cancel / no-show (required)</Tx>
                 </span>
                 <textarea
                   rows={3}

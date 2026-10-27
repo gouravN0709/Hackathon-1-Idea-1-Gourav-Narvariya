@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { Icon } from "@/components/ui/icon";
 import { SiteContainer } from "@/components/ui/site-container";
 import { diningHours, menuPrices, txotxSeasonLabel } from "@/lib/site-config";
@@ -48,7 +49,7 @@ export function BookHero({ bookingLive }: BookHeroProps) {
               Caserío Goikola · Dining in the orchards
             </p>
             <h1 className="font-headline-lg text-headline-lg-mobile tracking-tight text-primary md:text-headline-lg">
-              Your Table Awaits.
+              <TxServer>Your Table Awaits.</TxServer>
             </h1>
             <p className="max-w-2xl font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
               Prepare a seat request for the communal tables in Aramaio.{" "}
@@ -62,7 +63,7 @@ export function BookHero({ bookingLive }: BookHeroProps) {
             <div className="flex items-center gap-2 text-secondary">
               <Icon name="calendar" className="h-5 w-5" />
               <p className="font-label-sm text-label-sm font-semibold tracking-wider uppercase">
-                Before you start
+                <TxServer>Before you start</TxServer>
               </p>
             </div>
             <p className="font-body-sm text-body-sm leading-relaxed text-on-surface-variant">

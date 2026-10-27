@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { Icon, type IconName } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { SiteContainer } from "@/components/ui/site-container";
@@ -33,7 +34,7 @@ export function VisitDirections() {
             Estate Sanctuary · Journey to the Valley
           </p>
           <h2 className="font-headline-lg text-headline-lg-mobile tracking-tight text-primary md:text-headline-lg">
-            Come Find Us in the Valley of Aramaio.
+            <TxServer>Come Find Us in the Valley of Aramaio.</TxServer>
           </h2>
           <p className="pt-space-xs font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
             Iturrieta Sagardotegia is at Caserío Goikola in Barrio Barajuen,
@@ -75,7 +76,7 @@ export function VisitDirections() {
               rel="noopener noreferrer"
               className="inline-flex min-h-11 w-full items-center justify-between rounded bg-primary px-space-md py-space-md font-label-lg text-label-lg tracking-wider text-on-primary uppercase shadow-sm transition-colors hover:bg-primary-container"
             >
-              Open in Google Maps
+              <TxServer>Open in Google Maps</TxServer>
               <Icon name="external" className="h-[18px] w-[18px]" />
             </a>
           </div>
@@ -91,14 +92,14 @@ export function VisitDirections() {
               <div className="absolute inset-0 flex items-center justify-center p-space-md">
                 <p className="flex items-center gap-2 rounded bg-surface/95 px-space-md py-space-sm font-headline-sm text-headline-sm text-primary shadow-lg">
                   <span className="h-2.5 w-2.5 rounded-full bg-secondary motion-safe:animate-pulse" />
-                  Caserío Goikola
+                  <TxServer>Caserío Goikola</TxServer>
                 </p>
               </div>
             </div>
             <div className="mt-space-lg space-y-space-md">
               <div className="space-y-space-xs">
                 <h3 className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-                  Exact address
+                  <TxServer>Exact address</TxServer>
                 </h3>
                 <p className="font-title-editorial text-title-editorial text-on-surface italic">
                   {contact.gps}
@@ -113,7 +114,7 @@ export function VisitDirections() {
                   <Icon name="parking" className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                   <div>
                     <p className="font-label-sm text-label-sm font-semibold text-primary">
-                      Guest parking
+                      <TxServer>Guest parking</TxServer>
                     </p>
                     <p className="font-body-sm text-body-sm text-on-surface-variant">
                       On-site parking is available for diners and cellar guests,
@@ -125,7 +126,7 @@ export function VisitDirections() {
                   <Icon name="bolt" className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                   <div>
                     <p className="font-label-sm text-label-sm font-semibold text-primary">
-                      EV charging
+                      <TxServer>EV charging</TxServer>
                     </p>
                     <p className="font-body-sm text-body-sm text-on-surface-variant">
                       EV chargers are available with guest parking. Charger type

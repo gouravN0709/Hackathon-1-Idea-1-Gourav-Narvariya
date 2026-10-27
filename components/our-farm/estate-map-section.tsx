@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { SiteContainer } from "@/components/ui/site-container";
 
@@ -33,10 +34,10 @@ export function EstateMapSection() {
           <div className="flex flex-col justify-between gap-space-md border-b border-outline-variant/30 pb-space-md md:flex-row md:items-center">
             <div className="flex flex-col">
               <span className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-                Orchard Cartography
+                <TxServer>Orchard Cartography</TxServer>
               </span>
               <h2 className="font-headline-md text-headline-md font-normal text-primary">
-                Estate Geography & Plot Layout
+                <TxServer>Estate Geography & Plot Layout</TxServer>
               </h2>
             </div>
             <ul className="flex flex-wrap items-center gap-x-space-md gap-y-space-sm font-body-sm text-body-sm text-on-surface-variant">
@@ -64,7 +65,7 @@ export function EstateMapSection() {
                 <div className="absolute right-4 bottom-4 left-4 flex flex-col gap-1 rounded bg-surface-container-lowest/90 p-space-sm font-body-sm text-body-sm text-on-surface backdrop-blur-md sm:flex-row sm:items-center sm:justify-between">
                   <span>Coordinates: 43°03&apos;12.4&quot;N 2°34&apos;08.2&quot;W</span>
                   <span className="font-semibold text-primary">
-                    Barrio Barajuen, Aramaio
+                    <TxServer>Barrio Barajuen, Aramaio</TxServer>
                   </span>
                 </div>
               </div>

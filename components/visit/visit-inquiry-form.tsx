@@ -1,7 +1,10 @@
 "use client";
+import { Tx } from "@/components/i18n/tx";
 
 import Link from "next/link";
-import { useEffect, useId, useRef, useState, type FormEvent } from "react";
+import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
+import { buildValidationMessages } from "@/lib/validation-messages";
+import { adultMin, adultMax, childMin, childMax } from "@/lib/booking/constants";
 import { Icon } from "@/components/ui/icon";
 import { cn } from "@/lib/cn";
 import {
@@ -34,6 +37,16 @@ const fieldClass =
   "w-full min-h-11 appearance-none rounded-lg bg-surface-container-low px-space-md py-space-md pr-10 font-body-md text-body-md text-on-surface outline-none focus:bg-surface focus:ring-1 focus:ring-primary";
 
 export function VisitInquiryForm() {
+  const dateMessages = useMemo(
+    () =>
+      buildValidationMessages({
+        adultMin,
+        adultMax,
+        childMin,
+        childMax,
+      }),
+    [],
+  );
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const statusRef = useRef<HTMLDivElement>(null);
@@ -60,7 +73,11 @@ export function VisitInquiryForm() {
       nextErrors.service = "Choose what you would like to ask about.";
     }
 
-    const dateMessage = serviceDateError(dateValue);
+    const dateMessage = serviceDateError(dateValue, {
+      chooseArrivalDate: dateMessages.chooseArrivalDate,
+      datePast: dateMessages.datePast,
+      closedWeekdays: dateMessages.closedWeekdays,
+    });
     if (dateMessage) {
       nextErrors.date = dateMessage;
     }
@@ -92,14 +109,14 @@ export function VisitInquiryForm() {
       <div className="flex flex-col justify-between gap-space-md border-b border-outline-variant/40 pb-space-md md:flex-row md:items-center">
         <div className="space-y-1">
           <p className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-            Immediate dining enquiry
+            <Tx>Immediate dining enquiry</Tx>
           </p>
           <h3 className="font-headline-md text-headline-md text-primary">
-            Check a midday date
+            <Tx>Check a midday date</Tx>
           </h3>
         </div>
         <p className="font-label-sm text-label-sm text-on-surface-variant">
-          Does not reserve a table
+          <Tx>Does not reserve a table</Tx>
         </p>
       </div>
 
@@ -121,7 +138,7 @@ export function VisitInquiryForm() {
               className={cn(fieldClass, errors.guests && "ring-1 ring-error")}
             >
               <option value="" disabled>
-                Choose party size
+                <Tx>Choose party size</Tx>
               </option>
               {guestOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -146,7 +163,7 @@ export function VisitInquiryForm() {
             className="font-label-sm text-label-sm tracking-widest text-on-surface-variant uppercase"
             htmlFor="visit-service"
           >
-            Preference
+            <Tx>Preference</Tx>
           </label>
           <div className="relative">
             <select
@@ -158,7 +175,7 @@ export function VisitInquiryForm() {
               className={cn(fieldClass, errors.service && "ring-1 ring-error")}
             >
               <option value="" disabled>
-                Choose a preference
+                <Tx>Choose a preference</Tx>
               </option>
               {serviceOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -183,7 +200,7 @@ export function VisitInquiryForm() {
             className="font-label-sm text-label-sm tracking-widest text-on-surface-variant uppercase"
             htmlFor="visit-date"
           >
-            Arrival date
+            <Tx>Arrival date</Tx>
           </label>
           <input
             id="visit-date"
@@ -194,7 +211,7 @@ export function VisitInquiryForm() {
             className={cn(fieldClass, "pr-space-md", errors.date && "ring-1 ring-error")}
           />
           <p id="visit-date-hint" className="font-body-sm text-body-sm text-on-surface-variant">
-            Thursday to Sunday only.
+            <Tx>Thursday to Sunday only.</Tx>
           </p>
           {errors.date ? (
             <p id="visit-date-error" className="font-body-sm text-body-sm text-error">
@@ -208,7 +225,7 @@ export function VisitInquiryForm() {
             type="submit"
             className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-primary px-space-md py-space-md font-label-lg text-label-lg tracking-wider text-on-primary uppercase shadow-sm transition-colors hover:bg-primary-container"
           >
-            Check date
+            <Tx>Check date</Tx>
           </button>
         </div>
       </form>
@@ -227,7 +244,7 @@ export function VisitInquiryForm() {
               {feedback.date} · {feedback.guests} · {feedback.service}. This check
               stayed in your browser. No table was requested or reserved.{" "}
               <Link href="/book" className="underline underline-offset-4">
-                Continue to the booking form
+                <Tx>Continue to the booking form</Tx>
               </Link>
               , which also does not send a reservation.
             </p>

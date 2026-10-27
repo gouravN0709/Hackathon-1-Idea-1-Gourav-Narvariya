@@ -1,4 +1,5 @@
 "use client";
+import { Tx } from "@/components/i18n/tx";
 
 import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent, type RefObject } from "react";
@@ -190,7 +191,7 @@ export function ManageBookingPanel() {
           <div className="flex flex-col justify-between gap-space-lg lg:flex-row lg:items-end">
             <div className="flex max-w-2xl flex-col gap-space-sm">
               <p className="font-label-lg text-label-lg font-semibold tracking-widest text-secondary uppercase">
-                Your visit, your way
+                <Tx>Your visit, your way</Tx>
               </p>
               <h1 className="font-headline-lg text-headline-lg-mobile tracking-tight text-primary md:text-headline-lg">
                 Manage Your Booking.
@@ -204,7 +205,7 @@ export function ManageBookingPanel() {
             <aside className="flex max-w-md flex-col gap-2 rounded-xl bg-surface-container p-space-md">
               <p className="flex items-center gap-2 font-label-sm text-label-sm font-semibold tracking-wider text-primary uppercase">
                 <Icon name="help" className="h-[18px] w-[18px]" />
-                Need a change?
+                <Tx>Need a change?</Tx>
               </p>
               <p className="font-body-sm text-body-sm leading-relaxed text-on-surface-variant">
                 Date and party-size changes are not available online yet. Call{" "}
@@ -284,14 +285,14 @@ function SearchScreen({
     <div className="mx-auto flex max-w-3xl flex-col gap-space-xl">
       <div className="flex flex-col gap-space-sm text-center">
         <p className="font-label-lg text-label-lg tracking-wider text-secondary uppercase">
-          Caserío Goikola ledger
+          <Tx>Caserío Goikola ledger</Tx>
         </p>
         <h2
           ref={headingRef}
           tabIndex={-1}
           className="font-headline-lg text-headline-lg-mobile text-primary outline-none md:text-headline-lg"
         >
-          Look Up Your Table Request
+          <Tx>Look Up Your Table Request</Tx>
         </h2>
         <p className="mx-auto max-w-xl font-body-md text-body-md text-on-surface-variant">
           Enter the reference from your confirmation (ITU- and 10 characters) together
@@ -305,8 +306,8 @@ function SearchScreen({
               className="flex flex-col gap-1 font-label-lg text-label-lg tracking-wider text-primary uppercase sm:flex-row sm:items-center sm:justify-between"
               htmlFor="manage-reference"
             >
-              Booking reference
-              <span className="font-normal text-outline normal-case">ITU- and 10 characters</span>
+              <Tx>Booking reference</Tx>
+              <span className="font-normal text-outline normal-case"><Tx>ITU- and 10 characters</Tx></span>
             </label>
             <div className="relative">
               <input
@@ -332,7 +333,7 @@ function SearchScreen({
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-label-lg text-label-lg tracking-wider text-primary uppercase" htmlFor="manage-contact">
-              Email address or telephone
+              <Tx>Email address or telephone</Tx>
             </label>
             <div className="relative">
               <input
@@ -356,14 +357,14 @@ function SearchScreen({
             type="submit"
             className="inline-flex min-h-11 items-center justify-center gap-3 rounded-lg bg-primary-container px-space-lg py-3.5 font-label-lg text-label-lg tracking-wider text-surface uppercase hover:bg-primary"
           >
-            Find my booking
+            <Tx>Find my booking</Tx>
             <Icon name="arrow-right" className="h-[18px] w-[18px]" />
           </button>
         </form>
         <p className="flex flex-col justify-between gap-space-sm border-t border-outline-variant/40 pt-space-md font-body-sm text-body-sm text-on-surface-variant sm:flex-row sm:items-center">
           <span className="inline-flex items-center gap-1.5">
             <Icon name="help" className="h-[18px] w-[18px] text-secondary" />
-            We cannot look up a booking without both fields.
+            <Tx>We cannot look up a booking without both fields.</Tx>
           </span>
           <a href={contact.phoneHref} className="font-medium text-primary hover:text-secondary">
             Call the farm ({contact.phoneDisplay})
@@ -385,7 +386,7 @@ function LoadingScreen({ headingRef }: { headingRef: RefObject<HTMLHeadingElemen
         Looking up your booking…
       </h2>
       <p className="mt-space-sm font-body-md text-body-md text-on-surface-variant">
-        Verifying your reference and contact details.
+        <Tx>Verifying your reference and contact details.</Tx>
       </p>
     </div>
   );
@@ -402,7 +403,7 @@ function CancellingScreen({ headingRef }: { headingRef: RefObject<HTMLHeadingEle
         Cancelling your reservation…
       </h2>
       <p className="mt-space-sm font-body-md text-body-md text-on-surface-variant">
-        This may take a moment while tables and capacity are updated.
+        <Tx>This may take a moment while tables and capacity are updated.</Tx>
       </p>
     </div>
   );
@@ -447,7 +448,7 @@ function FoundScreen({
           className="min-h-11 font-label-sm text-label-sm tracking-wider text-secondary uppercase hover:text-primary"
           onClick={onSearchAgain}
         >
-          Look up another
+          <Tx>Look up another</Tx>
         </button>
       </div>
       {formError ? (
@@ -460,7 +461,7 @@ function FoundScreen({
           <article className="flex flex-col gap-space-lg rounded-xl bg-surface-container-low p-space-lg shadow-sm md:p-space-xl">
             <div className="flex flex-col justify-between gap-space-md sm:flex-row">
               <div>
-                <p className="font-label-sm text-label-sm tracking-wider text-secondary uppercase">Host name</p>
+                <p className="font-label-sm text-label-sm tracking-wider text-secondary uppercase"><Tx>Host name</Tx></p>
                 <h2
                   ref={headingRef}
                   tabIndex={-1}
@@ -493,7 +494,7 @@ function FoundScreen({
             </dl>
             <div className="flex flex-col gap-space-sm">
               <h3 className="font-label-lg text-label-lg tracking-wider text-primary uppercase">
-                Menu estimate
+                <Tx>Menu estimate</Tx>
               </h3>
               <div className="flex flex-col gap-3 rounded-lg bg-surface p-space-md">
                 <PriceRow
@@ -511,7 +512,7 @@ function FoundScreen({
                   />
                 ) : null}
                 <p className="flex items-center justify-between gap-space-md border-t border-outline-variant/40 pt-space-md font-semibold text-primary">
-                  <span className="font-label-lg text-label-lg tracking-wider uppercase">Estimate</span>
+                  <span className="font-label-lg text-label-lg tracking-wider uppercase"><Tx>Estimate</Tx></span>
                   <span className="font-headline-sm text-headline-sm">€{adultTotal + childTotal}</span>
                 </p>
               </div>
@@ -528,7 +529,7 @@ function FoundScreen({
                 onClick={onChange}
               >
                 <Icon name="edit" className="h-[18px] w-[18px]" />
-                Change date or party
+                <Tx>Change date or party</Tx>
               </button>
               <button
                 type="button"
@@ -537,7 +538,7 @@ function FoundScreen({
                 onClick={onCancel}
               >
                 <Icon name="close" className="h-[18px] w-[18px]" />
-                Cancel reservation
+                <Tx>Cancel reservation</Tx>
               </button>
             </div>
           </article>
@@ -552,8 +553,8 @@ function FoundScreen({
               />
             </div>
             <div className="flex flex-col gap-space-sm p-space-lg">
-              <p className="font-label-sm text-label-sm tracking-wider text-secondary uppercase">Cellar etiquette</p>
-              <h3 className="font-headline-sm text-headline-sm text-primary">The kupela ritual</h3>
+              <p className="font-label-sm text-label-sm tracking-wider text-secondary uppercase"><Tx>Cellar etiquette</Tx></p>
+              <h3 className="font-headline-sm text-headline-sm text-primary"><Tx>The kupela ritual</Tx></h3>
               <p className="font-body-sm text-body-sm leading-relaxed text-on-surface-variant">
                 During service the call is “Txotx!”. Guests step to the barrels for cider from the tap.
               </p>
@@ -582,7 +583,7 @@ function ChangeInfoScreen({
         onClick={onBack}
       >
         <Icon name="arrow-left" className="h-4 w-4" />
-        Back to booking
+        <Tx>Back to booking</Tx>
       </button>
       <article className="flex flex-col gap-space-md rounded-xl bg-surface-container-low p-space-lg shadow-sm md:p-space-xl">
         <h2
@@ -590,7 +591,7 @@ function ChangeInfoScreen({
           tabIndex={-1}
           className="font-headline-lg text-headline-lg-mobile text-primary outline-none md:text-headline-lg"
         >
-          Changing Your Visit
+          <Tx>Changing Your Visit</Tx>
         </h2>
         <p className="font-body-md text-body-md leading-relaxed text-on-surface-variant">
           Online changes to date or party size for reference{" "}
@@ -644,7 +645,7 @@ function CancelScreen({
         onClick={onBack}
       >
         <Icon name="arrow-left" className="h-4 w-4" />
-        Back to booking
+        <Tx>Back to booking</Tx>
       </button>
       <form
         className="flex flex-col gap-space-lg rounded-xl bg-surface-container-low p-space-lg shadow-sm md:p-space-xl"
@@ -653,14 +654,14 @@ function CancelScreen({
       >
         <div className="flex flex-col gap-space-sm">
           <p className="font-label-sm text-label-sm font-semibold tracking-wider text-error uppercase">
-            Confirm cancellation
+            <Tx>Confirm cancellation</Tx>
           </p>
           <h2
             ref={headingRef}
             tabIndex={-1}
             className="font-headline-lg text-headline-lg-mobile text-primary outline-none md:text-headline-lg"
           >
-            Cancel This Reservation
+            <Tx>Cancel This Reservation</Tx>
           </h2>
           <p className="font-body-md text-body-md leading-relaxed text-on-surface-variant">
             {reservation.serviceDateLabel} at {reservation.arrivalTime} · {reservation.partySize}{" "}
@@ -691,7 +692,7 @@ function CancelScreen({
         </div>
         <div className="flex flex-col gap-2">
           <label className="font-label-lg text-label-lg tracking-wider text-primary uppercase" htmlFor="manage-message">
-            Optional message
+            <Tx>Optional message</Tx>
           </label>
           <textarea
             id="manage-message"
@@ -710,14 +711,14 @@ function CancelScreen({
             className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-error px-space-lg py-3.5 font-label-lg text-label-lg tracking-wider text-on-error uppercase hover:opacity-90"
           >
             <Icon name="check" className="h-[18px] w-[18px]" />
-            Confirm cancellation
+            <Tx>Confirm cancellation</Tx>
           </button>
           <button
             type="button"
             className="min-h-11 rounded-lg bg-surface px-space-lg py-3.5 font-label-lg text-label-lg tracking-wider text-primary uppercase hover:bg-surface-container"
             onClick={onBack}
           >
-            Keep reservation
+            <Tx>Keep reservation</Tx>
           </button>
         </div>
       </form>
@@ -741,14 +742,14 @@ function CancelledScreen({
           <Icon name="check" className="h-9 w-9" />
         </span>
         <p className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-          Cancellation recorded
+          <Tx>Cancellation recorded</Tx>
         </p>
         <h2
           ref={headingRef}
           tabIndex={-1}
           className="font-headline-lg text-headline-lg-mobile text-primary outline-none md:text-headline-lg"
         >
-          Your table has been released
+          <Tx>Your table has been released</Tx>
         </h2>
         <p className="font-mono text-lg font-bold tracking-widest text-on-surface-variant">
           {reservation.reference}
@@ -763,13 +764,13 @@ function CancelledScreen({
             className="min-h-11 rounded-lg bg-primary px-space-lg py-3.5 font-label-lg text-label-lg tracking-wider text-on-primary uppercase hover:bg-primary-container"
             onClick={onDone}
           >
-            Look up another booking
+            <Tx>Look up another booking</Tx>
           </button>
           <Link
             href="/"
             className="inline-flex min-h-11 items-center rounded-lg bg-surface px-space-lg py-3.5 font-label-lg text-label-lg tracking-wider text-on-surface uppercase hover:bg-surface-container"
           >
-            Estate home
+            <Tx>Estate home</Tx>
           </Link>
         </div>
       </div>
@@ -797,7 +798,7 @@ function ErrorScreen({
               tabIndex={-1}
               className="font-headline-md text-headline-md text-primary outline-none"
             >
-              No matching booking found
+              <Tx>No matching booking found</Tx>
             </h2>
             <p className="font-body-md text-body-md leading-relaxed text-on-surface-variant">
               Check the reference and the email or telephone from your confirmation. If details are
@@ -811,13 +812,13 @@ function ErrorScreen({
             className="min-h-11 rounded-lg bg-primary px-space-lg py-3 font-label-lg text-label-lg tracking-wider text-on-primary uppercase hover:bg-primary-container"
             onClick={onRetry}
           >
-            Try again
+            <Tx>Try again</Tx>
           </button>
           <a
             href={contact.phoneHref}
             className="inline-flex min-h-11 items-center rounded-lg bg-surface-container px-space-md py-3 font-label-lg text-label-lg tracking-wider text-primary uppercase hover:bg-surface-container-high"
           >
-            Contact the farm
+            <Tx>Contact the farm</Tx>
           </a>
         </div>
       </div>
@@ -842,7 +843,7 @@ function ServerErrorScreen({
           tabIndex={-1}
           className="font-headline-md text-headline-md text-primary outline-none"
         >
-          Something went wrong
+          <Tx>Something went wrong</Tx>
         </h2>
         <p className="font-body-md text-body-md text-on-surface-variant">{message}</p>
         <button
@@ -850,7 +851,7 @@ function ServerErrorScreen({
           className="min-h-11 w-fit rounded-lg bg-primary px-space-lg py-3 font-label-lg text-label-lg tracking-wider text-on-primary uppercase"
           onClick={onRetry}
         >
-          Try again
+          <Tx>Try again</Tx>
         </button>
       </div>
     </div>

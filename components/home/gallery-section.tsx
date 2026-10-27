@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { SiteContainer } from "@/components/ui/site-container";
 import { galleryItems } from "@/lib/site-config";
@@ -15,10 +16,10 @@ export function GallerySection() {
       <SiteContainer className="flex flex-col gap-space-xl">
         <div className="mx-auto flex max-w-xl flex-col items-center gap-space-xs text-center">
           <span className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-            Estate Impressions
+            <TxServer>Estate Impressions</TxServer>
           </span>
           <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg leading-tight font-normal text-primary">
-            Moments from the Aramaio Valley.
+            <TxServer>Moments from the Aramaio Valley.</TxServer>
           </h2>
           <p className="font-body-sm text-body-sm text-on-surface-variant">
             Where steep mountain topography, Basque rainfall, and quiet

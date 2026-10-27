@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { SiteContainer } from "@/components/ui/site-container";
 
@@ -58,10 +59,10 @@ export function CompanyGallerySection() {
       <SiteContainer className="flex flex-col gap-space-xl">
         <div className="mx-auto flex max-w-xl flex-col items-center gap-space-xs text-center">
           <span className="font-label-sm text-label-sm font-semibold tracking-[0.2em] text-secondary uppercase">
-            Visual Chronicle
+            <TxServer>Visual Chronicle</TxServer>
           </span>
           <h2 className="font-headline-lg text-headline-lg-mobile leading-tight font-normal tracking-tight text-primary md:text-headline-lg">
-            Food, Cider & Company
+            <TxServer>Food, Cider & Company</TxServer>
           </h2>
           <p className="font-body-md text-body-md text-on-surface-variant">
             Snapshots of daily life at Caserío Goikola: where the smoke of the

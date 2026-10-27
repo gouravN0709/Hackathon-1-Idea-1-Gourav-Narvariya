@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import Link from "next/link";
 import { AccordionItem } from "@/components/ui/accordion-item";
 import { SiteContainer } from "@/components/ui/site-container";
@@ -28,7 +29,7 @@ export function FaqTopics({ bookingLive = false }: FaqTopicsProps) {
       >
         <SiteContainer className="flex items-center gap-space-md overflow-x-auto">
           <span className="hidden shrink-0 font-label-sm text-label-sm tracking-wider text-on-surface-variant uppercase md:inline">
-            Jump to topic:
+            <TxServer>Jump to topic:</TxServer>
           </span>
           <ul className="flex items-center gap-space-sm">
             {topics.map((topic) => (
@@ -74,7 +75,7 @@ export function FaqTopics({ bookingLive = false }: FaqTopicsProps) {
                   window, ask the farm what is being poured during the same
                   Thursday-to-Sunday service hours. The ritual is introduced on{" "}
                   <Link href="/#txotx" className="font-medium text-primary underline underline-offset-4">
-                    the homepage
+                    <TxServer>the homepage</TxServer>
                   </Link>
                   .
                 </p>
@@ -87,7 +88,7 @@ export function FaqTopics({ bookingLive = false }: FaqTopicsProps) {
                   Caserío Goikola, Barrio Barajuen, Aramaio (Álava). Driving times
                   from Vitoria-Gasteiz, Bilbao, and Donostia-San Sebastián are on{" "}
                   <Link href="/visit" className="font-medium text-primary underline underline-offset-4">
-                    Visit Us
+                    <TxServer>Visit Us</TxServer>
                   </Link>
                   .
                 </p>
@@ -117,7 +118,7 @@ export function FaqTopics({ bookingLive = false }: FaqTopicsProps) {
                   </a>
                   . Addresses and the map are on{" "}
                   <Link href="/visit" className="font-medium text-primary underline underline-offset-4">
-                    Visit Us
+                    <TxServer>Visit Us</TxServer>
                   </Link>
                   . This site does not list a WhatsApp number.
                 </p>
@@ -156,11 +157,11 @@ export function FaqTopics({ bookingLive = false }: FaqTopicsProps) {
                   gather at the chestnut barrels, and cider is caught straight
                   from the tap. Read more in{" "}
                   <Link href="/#experiences" className="font-medium text-primary underline underline-offset-4">
-                    Experiences
+                    <TxServer>Experiences</TxServer>
                   </Link>{" "}
                   and on{" "}
                   <Link href="/menu" className="font-medium text-primary underline underline-offset-4">
-                    Menu & Cider
+                    <TxServer>Menu & Cider</TxServer>
                   </Link>
                   .
                 </p>
@@ -172,7 +173,7 @@ export function FaqTopics({ bookingLive = false }: FaqTopicsProps) {
                 <p>
                   Courses, the children&apos;s menu, and the cider are on{" "}
                   <Link href="/menu" className="font-medium text-primary underline underline-offset-4">
-                    Menu & Cider
+                    <TxServer>Menu & Cider</TxServer>
                   </Link>
                   .
                 </p>
@@ -216,7 +217,7 @@ export function FaqTopics({ bookingLive = false }: FaqTopicsProps) {
                   is useful even in spring. Route times, parking, and the address
                   are on the{" "}
                   <Link href="/visit" className="font-medium text-primary underline underline-offset-4">
-                    Visit Us guide
+                    <TxServer>Visit Us guide</TxServer>
                   </Link>
                   . Service is {diningHours.hours}, {diningHours.openDays}.
                 </p>
@@ -228,13 +229,13 @@ export function FaqTopics({ bookingLive = false }: FaqTopicsProps) {
                 <p>
                   Add dietary or access notes on the{" "}
                   <Link href="/book" className="font-medium text-primary underline underline-offset-4">
-                    booking form
+                    <TxServer>booking form</TxServer>
                   </Link>{" "}
                   if you are preparing a request, and tell the farm directly by
                   phone or email. The form itself is not delivered to the cellar.
                   Contact details are on{" "}
                   <Link href="/visit" className="font-medium text-primary underline underline-offset-4">
-                    Visit Us
+                    <TxServer>Visit Us</TxServer>
                   </Link>
                   .
                 </p>

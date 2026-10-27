@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
@@ -20,7 +21,7 @@ export function TxotxSection() {
             <div className="flex items-center gap-space-xs text-secondary-fixed-dim">
               <Icon name="wine-glass" className="h-5 w-5" />
               <span className="font-label-sm text-label-sm font-semibold tracking-widest uppercase">
-                The Living Tradition
+                <TxServer>The Living Tradition</TxServer>
               </span>
             </div>
             <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg leading-tight font-normal text-surface">
@@ -41,10 +42,10 @@ export function TxotxSection() {
             </p>
             <div className="flex flex-col items-start gap-space-md pt-space-md sm:flex-row sm:items-center">
               <ButtonLink href="/#experiences" variant="amber">
-                Explore the Txotx Ritual
+                <TxServer>Explore the Txotx Ritual</TxServer>
               </ButtonLink>
               <span className="font-label-sm text-label-sm tracking-wider text-surface-container uppercase">
-                Season: Jan 15 – May 18
+                <TxServer>Season: Jan 15 – May 18</TxServer>
               </span>
             </div>
           </div>

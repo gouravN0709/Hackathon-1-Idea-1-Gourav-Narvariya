@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { connection } from "next/server";
 import { signOutStaff } from "@/app/staff/login/actions";
 import { StaffContextBanner } from "@/components/staff/staff-context-banner";
@@ -85,7 +86,7 @@ export async function StaffReservationsPageContent({
             type="submit"
             className="rounded-lg border border-outline-variant/50 px-space-md py-space-sm font-body-md text-body-md text-primary"
           >
-            Sign out
+            <TxServer>Sign out</TxServer>
           </button>
         </form>
       </SiteContainer>
@@ -117,7 +118,7 @@ export async function StaffReservationsPageContent({
               href={STAFF_OPERATIONS_PATH}
               className="rounded-lg border border-outline-variant/50 px-space-md py-space-sm font-body-md text-body-md text-primary"
             >
-              Operations
+              <TxServer>Operations</TxServer>
             </Link>
           ) : null}
           <form action={signOutStaff}>
@@ -125,7 +126,7 @@ export async function StaffReservationsPageContent({
               type="submit"
               className="rounded-lg border border-outline-variant/50 px-space-md py-space-sm font-body-md text-body-md text-primary"
             >
-              Sign out
+              <TxServer>Sign out</TxServer>
             </button>
           </form>
         </div>

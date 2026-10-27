@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import Link from "next/link";
 import { SiteContainer } from "@/components/ui/site-container";
 
@@ -12,14 +13,14 @@ export function FarmBreadcrumb() {
           <ol className="flex list-none flex-wrap items-center gap-x-space-sm gap-y-1">
             <li>
               <Link href="/" className="transition-colors hover:text-primary">
-                Estate Sanctuary
+                <TxServer>Estate Sanctuary</TxServer>
               </Link>
             </li>
             <li aria-hidden="true" className="text-outline/60">
               /
             </li>
             <li className="font-semibold text-primary" aria-current="page">
-              Our Farm & Heritage
+              <TxServer>Our Farm & Heritage</TxServer>
             </li>
           </ol>
           <span aria-hidden="true" className="hidden text-outline/40 md:inline">
@@ -32,7 +33,7 @@ export function FarmBreadcrumb() {
         <div className="hidden shrink-0 items-center gap-space-md sm:flex">
           <span className="inline-flex items-center gap-1.5 rounded bg-tertiary-fixed px-space-sm py-0.5 font-label-sm text-label-sm tracking-wider text-primary uppercase">
             <span className="h-1.5 w-1.5 rounded-full bg-primary-container" />
-            Caserío Iturrieta
+            <TxServer>Caserío Iturrieta</TxServer>
           </span>
           <span className="font-label-sm text-label-sm text-on-surface-variant">
             Álava, Basque Country

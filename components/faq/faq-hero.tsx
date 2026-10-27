@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { SiteContainer } from "@/components/ui/site-container";
@@ -18,11 +19,11 @@ export function FaqHero() {
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-secondary" />
               <p className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-                Here to help
+                <TxServer>Here to help</TxServer>
               </p>
             </div>
             <h1 className="max-w-2xl font-headline-lg text-headline-lg-mobile leading-tight text-primary md:text-headline-lg">
-              A Few Things You Might Like to Know.
+              <TxServer>A Few Things You Might Like to Know.</TxServer>
             </h1>
             <p className="max-w-xl font-body-lg text-body-lg text-on-surface-variant">
               Guidance for seasonal farmhouse dining, the cellar tasting, harvest

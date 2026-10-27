@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import Link from "next/link";
 import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
@@ -18,7 +19,7 @@ export function VisitSeason() {
               />
               <div className="absolute right-space-lg bottom-space-lg left-space-lg rounded-lg bg-surface/90 p-space-md text-primary shadow-md backdrop-blur-md">
                 <p className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-                  The Txotx Ritual
+                  <TxServer>The Txotx Ritual</TxServer>
                 </p>
                 <p className="font-title-editorial text-title-editorial italic">
                   “Hau da gure sagardo berria” — tasting the harvest before bottling.
@@ -36,7 +37,7 @@ export function VisitSeason() {
                 Tradition & seasons · {txotxSeasonLabel}
               </p>
               <h2 className="font-headline-lg text-headline-lg-mobile tracking-tight text-primary md:text-headline-lg">
-                The Magic of the Txotx Season.
+                <TxServer>The Magic of the Txotx Season.</TxServer>
               </h2>
             </div>
             <div className="space-y-space-md font-body-md text-body-md leading-relaxed text-on-surface-variant">
@@ -50,17 +51,17 @@ export function VisitSeason() {
                 The menu that accompanies the tasting — salt cod, txuleton, and
                 Idiazabal — is described on the{" "}
                 <Link href="/menu" className="text-primary underline underline-offset-4">
-                  Menu & Cider
+                  <TxServer>Menu & Cider</TxServer>
                 </Link>{" "}
                 page. The ritual itself is introduced in{" "}
                 <Link href="/#txotx" className="text-primary underline underline-offset-4">
-                  Experiences
+                  <TxServer>Experiences</TxServer>
                 </Link>
                 .
               </p>
               <div className="space-y-space-xs rounded-xl bg-surface-container p-space-md">
                 <p className="font-label-sm text-label-sm font-semibold tracking-widest text-primary uppercase">
-                  Outside txotx season
+                  <TxServer>Outside txotx season</TxServer>
                 </p>
                 <p className="font-body-sm text-body-sm text-on-surface-variant">
                   Published midday hours remain Thursday to Sunday, 13:00–16:00.
@@ -73,7 +74,7 @@ export function VisitSeason() {
               href="/book"
               className="inline-flex min-h-11 items-center gap-2 font-label-lg text-label-lg tracking-wider text-secondary uppercase transition-colors hover:text-primary"
             >
-              Prepare a txotx request
+              <TxServer>Prepare a txotx request</TxServer>
               <Icon name="arrow-right" className="h-[18px] w-[18px]" />
             </Link>
           </div>

@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import type {
   ReadinessCheckItem,
   ReadinessCheckStatus,
@@ -37,7 +38,7 @@ export function StaffBookingReadinessSection({
           id="booking-readiness-heading"
           className="font-display text-display-sm text-on-surface"
         >
-          Online booking readiness
+          <TxServer>Online booking readiness</TxServer>
         </h2>
         <p
           className={cn(
@@ -51,7 +52,7 @@ export function StaffBookingReadinessSection({
       <p className="mt-space-sm font-body-md text-body-md text-on-surface-variant">
         These checks mirror{" "}
         <code className="rounded bg-surface-container-high px-1 py-0.5 font-mono text-body-sm">
-          GET /api/bookings/status
+          <TxServer>GET /api/bookings/status</TxServer>
         </code>
         . On DEMO / STAGING projects, inventory and shifts may be pre-set for demos; production
         still requires farm-confirmed tables, cover limits, and deliberate shift activation.

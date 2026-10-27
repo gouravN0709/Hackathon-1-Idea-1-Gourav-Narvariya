@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import Link from "next/link";
 import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
@@ -39,10 +40,10 @@ export function BookExpect() {
       <SiteContainer className="flex flex-col gap-space-xl">
         <div className="flex max-w-2xl flex-col gap-space-sm">
           <p className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-            The rhythms of Caserío Goikola
+            <TxServer>The rhythms of Caserío Goikola</TxServer>
           </p>
           <h2 className="font-headline-lg text-headline-lg-mobile tracking-tight text-primary md:text-headline-lg">
-            What to Expect During Your Visit
+            <TxServer>What to Expect During Your Visit</TxServer>
           </h2>
           <p className="font-body-md text-body-md leading-relaxed text-on-surface-variant">
             An afternoon at Iturrieta is a cider-house lunch in the Aramaio valley:
