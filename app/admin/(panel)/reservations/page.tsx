@@ -10,6 +10,8 @@ import type { ReservationStatus } from "@/lib/staff/types";
 import { reservationStatuses } from "@/lib/staff/types";
 import { createClient } from "@/lib/supabase/server";
 
+export const instant = false;
+
 type AdminReservationsPageProps = {
   searchParams: Promise<{
     date?: string;

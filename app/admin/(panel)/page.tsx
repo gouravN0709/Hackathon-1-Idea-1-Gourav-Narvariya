@@ -11,6 +11,8 @@ import { reservationStatuses } from "@/lib/staff/types";
 import { createClient } from "@/lib/supabase/server";
 import { cn } from "@/lib/cn";
 
+export const instant = false;
+
 export default async function AdminDashboardPage() {
   await connection();
   const supabase = await createClient();

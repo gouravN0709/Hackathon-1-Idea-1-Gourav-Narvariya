@@ -4,6 +4,8 @@ import { StaffReservationsPageContent } from "@/components/staff/staff-reservati
 import { SiteContainer } from "@/components/ui/site-container";
 import { siteConfig } from "@/lib/site-config";
 
+export const instant = false;
+
 export const metadata: Metadata = {
   title: `Staff reservations · ${siteConfig.legalName}`,
   description:

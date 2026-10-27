@@ -8,6 +8,8 @@ import { staffOwnerAccessFromStaffAccess } from "@/lib/staff/require-staff-owner
 import { loadOperationsSnapshot } from "@/lib/staff/load-operations-snapshot";
 import { createClient } from "@/lib/supabase/server";
 
+export const instant = false;
+
 export default async function AdminSettingsPage() {
   await connection();
   const staffAccess = await getStaffAccess();

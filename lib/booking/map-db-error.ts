@@ -30,6 +30,16 @@ export function bookingError(code: BookingErrorCode, message?: string): BookingE
 export function mapPostgresMessage(raw: string | undefined): BookingError {
   const message = (raw ?? "").toLowerCase();
 
+  if (
+    message.includes("coalesce types") ||
+    message.includes("cannot be matched")
+  ) {
+    return bookingError(
+      "configuration",
+      "The reservation database needs the latest capacity migration applied before online booking can save reservations.",
+    );
+  }
+
   if (message.includes("service is not bookable")) {
     return bookingError("unavailable");
   }

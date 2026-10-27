@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { SiteContainer } from "@/components/ui/site-container";
 import { loadFloorServiceSnapshot } from "@/lib/floor/load-floor-snapshot";
 import {
-  defaultServiceDateMadrid,
+  defaultBookableServiceDateMadrid,
   loadActiveShiftsForServiceDate,
 } from "@/lib/floor/shifts-for-date";
 import { requireStaffAccess } from "@/lib/staff/require-staff-access";
@@ -25,6 +25,8 @@ type StaffFloorPageProps = {
     shift?: string;
   }>;
 };
+
+export const instant = false;
 
 const POLL_SECONDS = 15;
 
@@ -54,7 +56,7 @@ export default async function StaffFloorPage({ searchParams }: StaffFloorPagePro
     );
   }
 
-  const serviceDate = params.date?.trim() || defaultServiceDateMadrid();
+  const serviceDate = params.date?.trim() || defaultBookableServiceDateMadrid();
   const supabase = await createClient();
   const shiftsForDay = await loadActiveShiftsForServiceDate(supabase, serviceDate);
   const shiftId =
@@ -114,11 +116,15 @@ export default async function StaffFloorPage({ searchParams }: StaffFloorPagePro
             defaultValue={shiftId ?? ""}
             className="mt-1 block min-h-10 min-w-[10rem] rounded-lg border border-outline-variant/40 px-3"
           >
-            {shiftsForDay.map((shift) => (
-              <option key={shift.id} value={shift.id}>
-                {shift.name} ({shift.starts_at.slice(0, 5)}–{shift.ends_at.slice(0, 5)})
-              </option>
-            ))}
+            {shiftsForDay.length === 0 ? (
+              <option value="">No active shift (service is Thu–Sun)</option>
+            ) : (
+              shiftsForDay.map((shift) => (
+                <option key={shift.id} value={shift.id}>
+                  {shift.name} ({shift.starts_at.slice(0, 5)}–{shift.ends_at.slice(0, 5)})
+                </option>
+              ))
+            )}
           </select>
         </label>
         <button
