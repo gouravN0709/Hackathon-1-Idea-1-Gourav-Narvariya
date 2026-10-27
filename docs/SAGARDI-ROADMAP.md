@@ -27,7 +27,7 @@ Last updated: **2026-10-27** (completion sprint audit). **No live E2E** against 
 | 10 | Notifications | 🟡 | Provider boundary + tests; **no outbound send** until Resend (or other) implemented |
 | 11 | Distributed rate limits | 🟡 | In-memory default; `RATE_LIMIT_BACKEND=distributed` falls back until KV/Redis wired |
 | 12 | Automated flow tests | 🟡 | Vitest for booking, availability, lookup, cancel, dispatch, rate limits; no live DB E2E |
-| 12b | E2E test suite | 🟡 | Vitest 150 tests; staging manual plan in `STAGING-E2E-TEST-PLAN.md` |
+| 12b | E2E test suite | 🟡 | Vitest unit tests + Playwright `e2e/`; layout in `docs/TESTING.md`; staging manual in `STAGING-E2E-TEST-PLAN.md` |
 | 13 | Legal / privacy page | 🟡 | Draft at `/legal` with farm facts; binding text needs legal review |
 
 ## Completed application work (recent)
@@ -82,9 +82,9 @@ Last updated: **2026-10-27** (completion sprint audit). **No live E2E** against 
 
 ## Critical path to live booking
 
-1. ⛔ Approve and apply `20261026184605_restaurant_operations.sql`.
+1. ⛔ Approve and apply migrations through `20261027170000_fix_capacity_coalesce.sql` (includes operations schema, floor plan, capacity coalesce fix).
 2. ⛔ Seed `business_settings`, `weekly_hours`, `service_shifts`, `restaurant_tables` (farm-confirmed values).
-3. ⛔ Set `SUPABASE_SERVICE_ROLE_KEY` on server.
+3. ⛔ Set `SUPABASE_SECRET_KEY` on server (legacy `SUPABASE_SERVICE_ROLE_KEY` still read if present).
 4. ⛔ Create staff Auth user(s) + `staff_profiles`.
 5. 🟡 Verify `GET /api/bookings/status` → `live: true`.
 6. 📋 Staging manual checklist (`docs/operations-setup.md` §7).

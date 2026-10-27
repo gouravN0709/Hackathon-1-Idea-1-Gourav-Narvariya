@@ -248,6 +248,29 @@ describe("createReservation", () => {
     expect(rpc).not.toHaveBeenCalled();
   });
 
+  it("maps RPC capacity conflicts to a full booking error", async () => {
+    const rpc = vi.fn(async () => ({
+      data: null,
+      error: { message: "service is full for this shift" },
+    }));
+    const tables = Array.from({ length: 8 }, (_, index) => ({
+      id: `t${index + 1}`,
+      seat_count: 4,
+    }));
+    const supabase = liveInventorySupabase({
+      tables,
+      rpc,
+    });
+
+    const result = await createReservation(supabase, validRequest);
+
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.error.code).toBe("full");
+    }
+    expect(rpc).toHaveBeenCalledOnce();
+  });
+
   it("returns a reference when readiness, shift, tables, and RPC succeed", async () => {
     const rpc = vi.fn(async () => ({
       data: "00000000-0000-4000-8000-000000000099",

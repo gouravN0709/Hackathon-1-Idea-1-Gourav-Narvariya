@@ -21,10 +21,11 @@ Next.js (App Router) site with TypeScript, Tailwind CSS, guest booking APIs, man
    cp .env.example .env.local
    ```
 
-3. Fill in `.env.local`:
+3. Fill in `.env.local` (see `.env.example`):
 
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+   - `SUPABASE_SECRET_KEY` (server-only; required for live booking APIs)
 
    Find these in the Supabase dashboard under **Project Settings → API**.
 
@@ -58,6 +59,8 @@ npm start
 ```bash
 npm run test
 npm run lint
-npx tsc --noEmit
+npm run typecheck
 npm run build
 ```
+
+Unit vs browser E2E vs manual staging: [docs/TESTING.md](docs/TESTING.md).

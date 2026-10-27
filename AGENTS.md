@@ -54,7 +54,7 @@ Change one of these only when the task names that page or a defect in it. Keep t
 - Browser code may receive only `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`.
 - A service-role key, secret API key, or database password is server-only. Never give it a `NEXT_PUBLIC_` name, and never put it in client code, logs, commits, or responses.
 - Read a required variable, trim it, and fail with a message that names the variable but not its value. Do not print env values while debugging.
-- Do not add a service-role variable until a server task needs it. If it is documented, the example file gets a placeholder such as `YOUR_SERVICE_ROLE_KEY`.
+- Server booking and manage-booking use `SUPABASE_SECRET_KEY` (Dashboard secret key; never `NEXT_PUBLIC_`). Legacy `SUPABASE_SERVICE_ROLE_KEY` is read only when the canonical name is unset. Document placeholders in `.env.example` as `YOUR_SECRET_KEY`, not publishable keys.
 
 ## Data and integrations
 
