@@ -4,7 +4,7 @@ Run only on an **approved staging** Supabase project with **demo inventory** (`s
 
 **Preconditions**
 
-- Migration `20261026184605_restaurant_operations.sql` applied on staging.
+- Migrations through `20261027170000_fix_capacity_coalesce.sql` applied on staging (includes operations schema, floor plan, capacity fix).
 - Staging demo seed applied (8 tables, 32 seats, 24 max covers, Thu–Sun Lunch active when guards pass).
 - `.env.local` on the test machine with publishable URL/key and `SUPABASE_SECRET_KEY` (never commit).
 - `GET /api/bookings/status` → `{ "live": true, "reason": null }`.

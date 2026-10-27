@@ -11,7 +11,7 @@ export async function GET(request: Request) {
   await connection();
 
   const ip = clientIpFromRequest(request);
-  const rate = checkRateLimit(
+  const rate = await checkRateLimit(
     `bookings:availability:${ip}`,
     AVAILABILITY_LIMIT,
     AVAILABILITY_WINDOW_MS,

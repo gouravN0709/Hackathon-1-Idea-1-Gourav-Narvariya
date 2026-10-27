@@ -23,11 +23,13 @@ Next.js (App Router) site with TypeScript, Tailwind CSS, guest booking APIs, man
 
 3. Fill in `.env.local` (see `.env.example`):
 
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
-   - `SUPABASE_SECRET_KEY` (server-only; required for live booking APIs)
+   - `NEXT_PUBLIC_SUPABASE_URL` — project URL
+   - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` — **anon / publishable** key (safe in the browser)
+   - `SUPABASE_SECRET_KEY` — **secret** key (server-only; same Dashboard page, never `NEXT_PUBLIC_`). Required for live booking, availability, and manage-booking APIs. Legacy deploys may still set `SUPABASE_SERVICE_ROLE_KEY`; the app reads it only when the canonical name is unset.
 
-   Find these in the Supabase dashboard under **Project Settings → API**.
+   Supabase **Project Settings → API** lists URL, publishable key, and secret key.
+
+   Optional for multi-instance rate limits: `RATE_LIMIT_BACKEND=distributed`, `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`.
 
 ## Run
 
@@ -63,4 +65,6 @@ npm run typecheck
 npm run build
 ```
 
-Unit vs browser E2E vs manual staging: [docs/TESTING.md](docs/TESTING.md).
+GitHub Actions runs the same four commands in parallel on push/PR (`.github/workflows/ci.yml`).
+
+Unit vs browser E2E vs manual staging: [docs/TESTING.md](docs/TESTING.md). Database migrations live under `supabase/migrations/` (apply on your Supabase project before expecting `GET /api/bookings/status` → `live: true`).

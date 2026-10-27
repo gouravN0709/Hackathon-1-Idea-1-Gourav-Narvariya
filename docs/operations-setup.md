@@ -201,7 +201,9 @@ Deploy to your host (Vercel, etc.) with the same env vars. Use `GET /api/health`
 
 **Booking disabled deploy:** Production is safe while `GET /api/bookings/status` returns `live: false`; guest POSTs are rejected with 503 until readiness passes. See **[LAUNCH-CHECKLIST.md](./LAUNCH-CHECKLIST.md)** for demo vs verified data and the full go-live sequence.
 
-**Rate limiting** uses `lib/api/rate-limit-store.ts`. The default is an in-memory counter **per Node process** (limits do not aggregate across instances; counters reset on cold starts). `RATE_LIMIT_BACKEND=distributed` is reserved for a future shared store—until Redis/KV is implemented, the app **falls back** to in-memory and distributed protection is **not** active. Plan a shared backend before high-traffic multi-instance launch.
+**Rate limiting** uses `lib/api/rate-limit-store.ts`. The default is an in-memory counter **per Node process** (limits do not aggregate across instances; counters reset on cold starts). For multi-instance hosts, set `RATE_LIMIT_BACKEND=distributed` plus **Upstash Redis** REST credentials (`UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`). If the flag is set without credentials, the app **falls back** to in-memory (`GET /api/health` → `rateLimit.mode: distributed_requested`). See `.env.example`.
+
+**Booking RPC privileges:** `public.create_reservation` and `public.assign_reservation_tables` are `REVOKE`d from `anon`/`authenticated` and `GRANT EXECUTE` only to `service_role`. Details and tests: [booking-rpc-grants.md](./booking-rpc-grants.md).
 
 **Middleware:** Next.js 16 may deprecate `middleware.ts` in favor of `proxy` — run the codemod when upgrading.
 

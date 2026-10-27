@@ -14,7 +14,7 @@ export async function POST(request: Request) {
   await connection();
 
   const ip = clientIpFromRequest(request);
-  const rate = checkRateLimit(`bookings:create:${ip}`, BOOKING_LIMIT, BOOKING_WINDOW_MS);
+  const rate = await checkRateLimit(`bookings:create:${ip}`, BOOKING_LIMIT, BOOKING_WINDOW_MS);
   if (!rate.ok) {
     return NextResponse.json(
       {

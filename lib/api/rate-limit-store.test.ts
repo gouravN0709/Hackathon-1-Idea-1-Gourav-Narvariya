@@ -8,23 +8,37 @@ import {
 } from "@/lib/api/rate-limit-store";
 
 describe("createInMemoryRateLimitStore", () => {
-  it("blocks after limit", () => {
+  it("blocks after limit", async () => {
     const store = createInMemoryRateLimitStore();
     const key = `mem-${Math.random()}`;
-    expect(store.check(key, 1, 60_000, 1_000).ok).toBe(true);
-    expect(store.check(key, 1, 60_000, 2_000).ok).toBe(false);
+    expect((await store.check(key, 1, 60_000, 1_000)).ok).toBe(true);
+    expect((await store.check(key, 1, 60_000, 2_000)).ok).toBe(false);
   });
 });
 
 describe("createDistributedRateLimitStore", () => {
-  it("returns null without distributed backend wired", () => {
-    const prev = process.env.RATE_LIMIT_BACKEND;
+  it("returns null when distributed is requested without Upstash credentials", () => {
+    const prevBackend = process.env.RATE_LIMIT_BACKEND;
+    const prevUrl = process.env.UPSTASH_REDIS_REST_URL;
+    const prevToken = process.env.UPSTASH_REDIS_REST_TOKEN;
     process.env.RATE_LIMIT_BACKEND = "distributed";
+    delete process.env.UPSTASH_REDIS_REST_URL;
+    delete process.env.UPSTASH_REDIS_REST_TOKEN;
     expect(createDistributedRateLimitStore()).toBeNull();
-    if (prev === undefined) {
+    if (prevBackend === undefined) {
       delete process.env.RATE_LIMIT_BACKEND;
     } else {
-      process.env.RATE_LIMIT_BACKEND = prev;
+      process.env.RATE_LIMIT_BACKEND = prevBackend;
+    }
+    if (prevUrl === undefined) {
+      delete process.env.UPSTASH_REDIS_REST_URL;
+    } else {
+      process.env.UPSTASH_REDIS_REST_URL = prevUrl;
+    }
+    if (prevToken === undefined) {
+      delete process.env.UPSTASH_REDIS_REST_TOKEN;
+    } else {
+      process.env.UPSTASH_REDIS_REST_TOKEN = prevToken;
     }
   });
 });
@@ -57,13 +71,13 @@ describe("describeRateLimitBackend", () => {
 });
 
 describe("getRateLimitStore", () => {
-  it("falls back to in-memory when distributed is requested but unavailable", () => {
+  it("falls back to in-memory when distributed is requested but unavailable", async () => {
     resetRateLimitStoreForTests();
     const prev = process.env.RATE_LIMIT_BACKEND;
     process.env.RATE_LIMIT_BACKEND = "distributed";
     const store = getRateLimitStore();
     const key = `singleton-${Math.random()}`;
-    expect(store.check(key, 2, 60_000, 1_000).ok).toBe(true);
+    expect((await store.check(key, 2, 60_000, 1_000)).ok).toBe(true);
     if (prev === undefined) {
       delete process.env.RATE_LIMIT_BACKEND;
     } else {
