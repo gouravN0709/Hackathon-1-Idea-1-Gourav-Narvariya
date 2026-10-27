@@ -33,6 +33,10 @@ Coverage highlights:
 
 Live booking, manage-booking, and operations against a seeded Supabase project are documented in [STAGING-E2E-TEST-PLAN.md](./STAGING-E2E-TEST-PLAN.md). Run only on approved staging; do not treat Vitest green as proof of live RPC/RLS behaviour.
 
+## Locale catalogs
+
+After adding or changing `<Tx>` / `<TxServer>` strings in components, run `npm run build:messages` and commit `messages/{en,es,eu}.json` plus any new entries in `scripts/locale-messages/catalog-i18n.json`.
+
 ## CI checks
 
 GitHub Actions (`.github/workflows/ci.yml`) runs: `npm run test`, `npm run lint`, `npm run typecheck`, `npm run build`. Playwright is not in CI by default (heavier, env-dependent).

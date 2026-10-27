@@ -4,6 +4,8 @@ import { ADMIN_FLOOR_PLAN_PATH } from "@/lib/admin/admin-routes";
 import { loadFloorPlanEditorSnapshot } from "@/lib/floor/load-floor-snapshot";
 import { createClient } from "@/lib/supabase/server";
 
+export const instant = false;
+
 export const metadata = {
   title: "Floor plan · Admin",
 };

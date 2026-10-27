@@ -10,6 +10,8 @@ import { formatArrivalTime } from "@/lib/staff/format";
 import { createClient } from "@/lib/supabase/server";
 import { cn } from "@/lib/cn";
 
+export const instant = false;
+
 type AdminCustomersPageProps = {
   searchParams: Promise<{ q?: string; guest?: string }>;
 };

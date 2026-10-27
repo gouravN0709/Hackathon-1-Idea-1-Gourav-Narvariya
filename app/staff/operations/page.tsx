@@ -6,6 +6,8 @@ import {
 } from "@/components/staff/staff-operations-page-content";
 import { siteConfig } from "@/lib/site-config";
 
+export const instant = false;
+
 export const metadata: Metadata = {
   title: `Staff operations · ${siteConfig.legalName}`,
   description:

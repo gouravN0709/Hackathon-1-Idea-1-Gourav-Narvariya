@@ -139,9 +139,14 @@ Until `live: true`, `/book` remains preview mode (no persisted reservations). No
 
 ## 1. Apply the database migration
 
-1. Review `supabase/migrations/20261026184605_restaurant_operations.sql` (schema, RLS, RPCs, triggers).
-2. Apply it to the target project using Supabase CLI or SQL editor **after explicit approval** for that environment.
+1. Review and apply migrations in order under `supabase/migrations/`:
+   - `20261026184605_restaurant_operations.sql` (schema, RLS, RPCs, triggers)
+   - `20261027153000_floor_plan_and_table_states.sql` (floor plan + table service states)
+   - `20261027170000_fix_capacity_coalesce.sql` (**required for live booking** — fixes `create_reservation` capacity recompute)
+2. Use Supabase CLI or SQL editor **after explicit approval** for that environment.
 3. Do not reset production data to “make migrations fit.”
+
+If `POST /api/bookings` returns a generic server error while `GET /api/bookings/status` shows `live: true`, the capacity fix migration is often missing on the linked project.
 
 ## 2. Seed operational data
 

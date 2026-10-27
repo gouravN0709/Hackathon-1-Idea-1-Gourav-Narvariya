@@ -5,6 +5,8 @@ import { getPublicBookingReadiness } from "@/lib/booking/public-readiness";
 import { loadOperationsSnapshot } from "@/lib/staff/load-operations-snapshot";
 import { createClient } from "@/lib/supabase/server";
 
+export const instant = false;
+
 export default async function AdminAvailabilityPage() {
   await connection();
   const supabase = await createClient();

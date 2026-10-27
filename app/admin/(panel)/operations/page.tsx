@@ -8,6 +8,8 @@ import { reservationStatuses } from "@/lib/staff/types";
 import { createClient } from "@/lib/supabase/server";
 import { cn } from "@/lib/cn";
 
+export const instant = false;
+
 type AdminOperationsPageProps = {
   searchParams: Promise<{ date?: string }>;
 };

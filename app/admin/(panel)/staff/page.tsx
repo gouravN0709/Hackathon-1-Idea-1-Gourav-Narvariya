@@ -5,6 +5,8 @@ import { getStaffAccess } from "@/lib/staff/get-staff-access";
 import { staffOwnerAccessFromStaffAccess } from "@/lib/staff/require-staff-owner-access";
 import { createClient } from "@/lib/supabase/server";
 
+export const instant = false;
+
 export default async function AdminStaffPage() {
   await connection();
   const staffAccess = await getStaffAccess();

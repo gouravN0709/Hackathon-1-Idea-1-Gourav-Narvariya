@@ -13,6 +13,12 @@ describe("mapPostgresMessage", () => {
   it("maps table conflicts", () => {
     expect(mapPostgresMessage("table is already assigned").code).toBe("tables");
   });
+
+  it("maps capacity migration type errors to configuration", () => {
+    expect(
+      mapPostgresMessage("COALESCE types bigint and integer cannot be matched").code,
+    ).toBe("configuration");
+  });
 });
 
 describe("mapSupabaseError", () => {

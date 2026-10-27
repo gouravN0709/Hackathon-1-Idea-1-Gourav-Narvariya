@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 
+export const instant = false;
+
 export const metadata: Metadata = {
   title: `Staff · ${siteConfig.legalName}`,
   description:

@@ -1,4 +1,5 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { requiredServiceIsoDays } from "@/lib/booking/constants";
 import { isoDayFromServiceDate } from "@/lib/booking/iso-day";
 
 export async function loadActiveShiftsForServiceDate(
@@ -37,10 +38,41 @@ export async function loadActiveShiftsForServiceDate(
 }
 
 export function defaultServiceDateMadrid(): string {
+  return formatServiceDateInMadrid(new Date());
+}
+
+function formatServiceDateInMadrid(date: Date): string {
   return new Intl.DateTimeFormat("en-CA", {
     timeZone: "Europe/Madrid",
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
-  }).format(new Date());
+  }).format(date);
+}
+
+/** Today in Europe/Madrid when it is Thu–Sun service; otherwise the next service day. */
+export function defaultBookableServiceDateMadrid(now = new Date()): string {
+  const madridToday = formatServiceDateInMadrid(now);
+  const todayIso = isoDayFromServiceDate(madridToday);
+  if (
+    todayIso !== null &&
+    (requiredServiceIsoDays as readonly number[]).includes(todayIso)
+  ) {
+    return madridToday;
+  }
+
+  for (let offset = 1; offset <= 7; offset += 1) {
+    const candidate = new Date(now);
+    candidate.setDate(candidate.getDate() + offset);
+    const serviceDate = formatServiceDateInMadrid(candidate);
+    const isoDay = isoDayFromServiceDate(serviceDate);
+    if (
+      isoDay !== null &&
+      (requiredServiceIsoDays as readonly number[]).includes(isoDay)
+    ) {
+      return serviceDate;
+    }
+  }
+
+  return madridToday;
 }
