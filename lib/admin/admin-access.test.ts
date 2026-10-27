@@ -12,6 +12,7 @@ describe("sanitizeAdminNextPath", () => {
     expect(sanitizeAdminNextPath("/admin/reservations?status=pending")).toBe(
       "/admin/reservations?status=pending",
     );
+    expect(sanitizeAdminNextPath("/admin/floor-plan")).toBe("/admin/floor-plan");
   });
 });
 

@@ -4,8 +4,8 @@ import { revalidatePath } from "next/cache";
 import { requireStaffManagerAccess } from "@/lib/staff/require-staff-manager-access";
 import { requireStaffOwnerAccess } from "@/lib/staff/require-staff-owner-access";
 import { validateBusinessTimezoneInput } from "@/lib/staff/validate-business-settings";
-import { revalidateAdminPanelPaths } from "@/lib/admin/admin-routes";
-import { STAFF_OPERATIONS_PATH } from "@/lib/staff/staff-routes";
+import { ADMIN_FLOOR_PLAN_PATH, revalidateAdminPanelPaths } from "@/lib/admin/admin-routes";
+import { STAFF_FLOOR_PATH, STAFF_OPERATIONS_PATH } from "@/lib/staff/staff-routes";
 import {
   validateClosureInput,
   validateShiftUpdateInput,
@@ -39,6 +39,8 @@ export const initialStaffOperationsMutationState: StaffOperationsMutationState =
 
 function revalidateOperations() {
   revalidatePath(STAFF_OPERATIONS_PATH);
+  revalidatePath(STAFF_FLOOR_PATH);
+  revalidatePath(ADMIN_FLOOR_PLAN_PATH);
   for (const path of revalidateAdminPanelPaths()) {
     revalidatePath(path);
   }

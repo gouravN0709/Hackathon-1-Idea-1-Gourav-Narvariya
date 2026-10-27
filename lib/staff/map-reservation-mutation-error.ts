@@ -42,6 +42,21 @@ export function mapReservationMutationPostgresMessage(
   ) {
     return staffMutationError("unavailable");
   }
+  if (message.includes("table is already assigned")) {
+    return staffMutationError(
+      "conflict",
+      "One or more tables are already assigned for this service.",
+    );
+  }
+  if (message.includes("table is not available")) {
+    return staffMutationError("unavailable", "One or more tables are not available.");
+  }
+  if (message.includes("tables do not cover the party")) {
+    return staffMutationError(
+      "validation",
+      "Selected tables do not have enough seats for this party.",
+    );
+  }
   if (message.includes("reservation details are changed from the server")) {
     return staffMutationError("validation", "Only status and notes can be changed here.");
   }

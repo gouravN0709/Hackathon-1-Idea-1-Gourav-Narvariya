@@ -10,6 +10,7 @@ import {
   ADMIN_CUSTOMERS_PATH,
   ADMIN_HOME_PATH,
   ADMIN_OPERATIONS_PATH,
+  ADMIN_FLOOR_PLAN_PATH,
   ADMIN_RESERVATIONS_PATH,
   ADMIN_SETTINGS_PATH,
   ADMIN_STAFF_PATH,
@@ -22,6 +23,7 @@ const NAV_ITEMS = [
   { href: ADMIN_CUSTOMERS_PATH, label: "Customers" },
   { href: ADMIN_AVAILABILITY_PATH, label: "Availability" },
   { href: ADMIN_OPERATIONS_PATH, label: "Operations" },
+  { href: ADMIN_FLOOR_PLAN_PATH, label: "Floor plan" },
   { href: ADMIN_SETTINGS_PATH, label: "Settings" },
   { href: ADMIN_STAFF_PATH, label: "Staff" },
 ] as const;

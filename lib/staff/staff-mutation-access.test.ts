@@ -73,4 +73,16 @@ describe("mapReservationMutationSupabaseError", () => {
     expect(mapped.message).not.toContain("duplicate key");
     expect(mapped.code).toBe("server");
   });
+
+  it("maps table assignment failures for staff UI", () => {
+    expect(
+      mapReservationMutationSupabaseError({ message: "table is already assigned" }).message,
+    ).toMatch(/already assigned/i);
+    expect(
+      mapReservationMutationSupabaseError({ message: "table is not available" }).code,
+    ).toBe("unavailable");
+    expect(
+      mapReservationMutationSupabaseError({ message: "tables do not cover the party" }).code,
+    ).toBe("validation");
+  });
 });
