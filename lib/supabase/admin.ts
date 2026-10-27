@@ -1,8 +1,13 @@
 import { createClient } from "@supabase/supabase-js";
 
-/** Server-only Supabase secret key (replaces legacy service_role JWT). Never import from Client Components. */
+/** Server-only Supabase secret key (Dashboard “secret” key). Never import from Client Components. */
 function getSupabaseSecretKey(): string {
-  return process.env.SUPABASE_SECRET_KEY?.trim() ?? "";
+  const canonical = process.env.SUPABASE_SECRET_KEY?.trim() ?? "";
+  if (canonical) {
+    return canonical;
+  }
+  // Legacy deploy env name — prefer SUPABASE_SECRET_KEY in new configs.
+  return process.env.SUPABASE_SERVICE_ROLE_KEY?.trim() ?? "";
 }
 
 /**

@@ -31,7 +31,7 @@ Use this sequence after the migration is already recorded on the project (for ex
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
    - `SUPABASE_SECRET_KEY`
-3. If you previously used a root `.env` file, migrate values into `.env.local` and rely on one canonical file. If you still have the legacy `SUPABASE_SERVICE_ROLE_KEY` name from older docs, rename it to `SUPABASE_SECRET_KEY` (same Dashboard value). The app treats missing **either** the publishable URL/key pair **or** the secret key as “not configured” for the affected routes.
+3. If you previously used a root `.env` file, migrate values into `.env.local` and rely on one canonical file. Prefer `SUPABASE_SECRET_KEY` (same Dashboard secret key value). The server also reads legacy `SUPABASE_SERVICE_ROLE_KEY` if the canonical name is unset. The app treats missing **either** the publishable URL/key pair **or** a server secret key as “not configured” for guest booking routes.
 
 ### 0.2 Restart the dev server
 
