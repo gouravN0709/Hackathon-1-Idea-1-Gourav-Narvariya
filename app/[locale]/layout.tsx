@@ -4,6 +4,8 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { routing } from "@/i18n/routing";
 
+export const instant = false;
+
 type LayoutProps = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;

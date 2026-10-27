@@ -4,6 +4,8 @@ import { getLocale, getMessages } from "next-intl/server";
 import type { ReactNode } from "react";
 import "./globals.css";
 
+export const instant = false;
+
 const newsreader = Newsreader({
   subsets: ["latin"],
   weight: ["400", "500"],
