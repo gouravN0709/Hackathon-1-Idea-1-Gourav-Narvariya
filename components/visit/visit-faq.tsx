@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import Link from "next/link";
 import { AccordionItem } from "@/components/ui/accordion-item";
 import { SiteContainer } from "@/components/ui/site-container";
@@ -9,15 +10,15 @@ export function VisitFaq() {
       <SiteContainer className="max-w-4xl space-y-space-xl">
         <div className="mx-auto max-w-xl space-y-space-xs text-center">
           <p className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-            Practical knowledge
+            <TxServer>Practical knowledge</TxServer>
           </p>
           <h2 className="font-headline-lg text-headline-lg-mobile tracking-tight text-primary md:text-headline-lg">
-            Frequently Asked Questions
+            <TxServer>Frequently Asked Questions</TxServer>
           </h2>
           <p className="font-body-md text-body-md text-on-surface-variant">
             A short set of visit answers. The full list is on the{" "}
             <Link href="/faq" className="text-primary underline underline-offset-4">
-              FAQ page
+              <TxServer>FAQ page</TxServer>
             </Link>
             .
           </p>
@@ -36,7 +37,7 @@ export function VisitFaq() {
               tasted from the barrels. Outside those months, ask the farm what is
               being poured. The tradition is introduced on{" "}
               <Link href="/#txotx" className="text-primary underline underline-offset-4">
-                the homepage
+                <TxServer>the homepage</TxServer>
               </Link>
               .
             </p>
@@ -45,7 +46,7 @@ export function VisitFaq() {
             <p>
               Call {contact.phoneDisplay} or email {contact.email}. The{" "}
               <Link href="/book" className="text-primary underline underline-offset-4">
-                booking form
+                <TxServer>booking form</TxServer>
               </Link>{" "}
               lets you check a request in the browser. It does not send or
               confirm a reservation.
@@ -59,7 +60,7 @@ export function VisitFaq() {
                 href="/menu#tasting-menus"
                 className="text-primary underline underline-offset-4"
               >
-                Menu & Cider
+                <TxServer>Menu & Cider</TxServer>
               </Link>
               .
             </p>
@@ -77,7 +78,7 @@ export function VisitFaq() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Google Maps
+                <TxServer>Google Maps</TxServer>
               </a>
               .
             </p>

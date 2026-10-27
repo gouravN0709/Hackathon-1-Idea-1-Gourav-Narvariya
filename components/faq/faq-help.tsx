@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import Link from "next/link";
 import { Icon } from "@/components/ui/icon";
 import { SiteContainer } from "@/components/ui/site-container";
@@ -13,7 +14,7 @@ export function FaqHelp() {
           <div className="relative z-10 flex flex-col items-center space-y-space-md text-center">
             <p className="inline-flex items-center gap-2 rounded-full bg-primary px-space-md py-space-xs font-label-sm text-label-sm tracking-wider text-secondary-fixed uppercase">
               <Icon name="wine" className="h-3.5 w-3.5" />
-              Personal cellar assistance
+              <TxServer>Personal cellar assistance</TxServer>
             </p>
             <h2 className="font-headline-lg text-headline-lg-mobile text-on-primary md:text-headline-lg">
               We’re Happy to Help.
@@ -27,13 +28,13 @@ export function FaqHelp() {
                 href="/visit"
                 className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-surface px-space-lg py-space-sm font-label-lg text-label-lg tracking-wider text-primary uppercase shadow-md hover:bg-surface-container sm:w-auto"
               >
-                Plan your visit
+                <TxServer>Plan your visit</TxServer>
               </Link>
               <Link
                 href="/book"
                 className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-secondary px-space-lg py-space-sm font-label-lg text-label-lg tracking-wider text-on-primary uppercase shadow-md hover:bg-on-secondary-container sm:w-auto"
               >
-                Book a visit
+                <TxServer>Book a visit</TxServer>
               </Link>
             </div>
             <p className="flex flex-wrap items-center justify-center gap-space-md pt-space-md font-label-sm text-label-sm text-on-primary-container">

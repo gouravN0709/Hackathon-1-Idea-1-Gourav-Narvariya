@@ -1,7 +1,9 @@
 "use client";
+import { Tx } from "@/components/i18n/tx";
 
 import Link from "next/link";
-import { useEffect, useId, useRef, useState, type FormEvent } from "react";
+import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
+import { buildValidationMessages } from "@/lib/validation-messages";
 import { Icon } from "@/components/ui/icon";
 import { cn } from "@/lib/cn";
 import {
@@ -36,7 +38,22 @@ type SubmitState =
 const inputClass =
   "w-full min-h-11 rounded-lg bg-surface-container-low px-4 py-3 font-body-md text-body-md text-on-surface shadow-inner outline-none placeholder:text-outline focus:bg-surface focus:ring-1 focus:ring-primary";
 
+const CONSENT_LIVE =
+  "Confirm that you agree to submit this reservation request.";
+const CONSENT_PREVIEW =
+  "Confirm that you understand this form does not send a reservation.";
+
 export function BookingForm() {
+  const validationMsgs = useMemo(
+    () =>
+      buildValidationMessages({
+        adultMin,
+        adultMax,
+        childMin,
+        childMax,
+      }),
+    [],
+  );
   const [view, setView] = useState<"form" | "preview">("form");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [preview, setPreview] = useState<Preview | null>(null);
@@ -136,7 +153,8 @@ export function BookingForm() {
     const notes = String(data.get("notes") ?? "");
     const consent = data.get("consent") === "yes";
 
-    const parsed = validateBookingRequest({
+    const parsed = validateBookingRequest(
+      {
       date: dateValue,
       arrival,
       adults,
@@ -145,13 +163,13 @@ export function BookingForm() {
       email,
       phone,
       notes,
-    });
+    },
+      validationMsgs,
+    );
 
     const nextErrors = parsed.ok ? {} : { ...parsed.errors };
     if (!consent) {
-      nextErrors.consent = liveBooking
-        ? "Confirm that you agree to submit this reservation request."
-        : "Confirm that you understand this form does not send a reservation.";
+      nextErrors.consent = liveBooking ? CONSENT_LIVE : CONSENT_PREVIEW;
     }
 
     return {
@@ -259,9 +277,9 @@ export function BookingForm() {
       <div className="mb-space-lg flex flex-col gap-space-md border-b border-outline-variant/30 pb-space-lg sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-            Cellar table booking
+            <Tx>Cellar table booking</Tx>
           </p>
-          <h2 className="font-headline-sm text-headline-sm text-primary">Table request form</h2>
+          <h2 className="font-headline-sm text-headline-sm text-primary"><Tx>Table request form</Tx></h2>
         </div>
         <div className="flex items-center rounded-lg bg-surface-container p-1 font-label-sm text-label-sm" role="tablist" aria-label="Form and feedback">
           <button
@@ -318,7 +336,7 @@ export function BookingForm() {
 
           {Object.keys(errors).length > 0 ? (
             <div id={errorSummaryId} role="alert" className="rounded-lg bg-error-container p-space-md text-on-error-container">
-              <p className="font-label-sm text-label-sm uppercase">Please correct the form</p>
+              <p className="font-label-sm text-label-sm uppercase"><Tx>Please correct the form</Tx></p>
               <ul className="mt-space-xs list-disc pl-5 font-body-sm text-body-sm">
                 {Object.entries(errors).map(([field, message]) => (
                   <li key={field}>{message}</li>
@@ -330,7 +348,7 @@ export function BookingForm() {
           <div className="grid grid-cols-1 gap-space-md sm:grid-cols-2">
             <div className="flex flex-col gap-2">
               <label className="flex items-center justify-between font-label-lg text-label-lg tracking-wider text-primary uppercase" htmlFor="book-date">
-                Date of visit
+                <Tx>Date of visit</Tx>
                 <span className="font-normal text-secondary normal-case">Thu–Sun</span>
               </label>
               <input
@@ -352,7 +370,7 @@ export function BookingForm() {
                 )}
               />
               <p id="book-date-hint" className="font-body-sm text-body-sm text-on-surface-variant">
-                Cellar doors follow Thursday through Sunday service.
+                <Tx>Cellar doors follow Thursday through Sunday service.</Tx>
               </p>
               {errors.date || slotMessage ? (
                 <p id="book-date-error" className="font-body-sm text-body-sm text-error">
@@ -363,7 +381,7 @@ export function BookingForm() {
 
             <fieldset className="flex flex-col gap-2">
               <legend className="font-label-lg text-label-lg tracking-wider text-primary uppercase">
-                Arrival window
+                <Tx>Arrival window</Tx>
               </legend>
               <div className="grid grid-cols-3 gap-2" id="book-arrival">
                 {arrivalTimes.map((time) => (
@@ -455,8 +473,8 @@ export function BookingForm() {
 
           <div className="flex flex-col gap-2">
             <label className="flex items-center justify-between font-label-lg text-label-lg tracking-wider text-primary uppercase" htmlFor="book-notes">
-              Dietary notes
-              <span className="font-normal text-outline normal-case">optional</span>
+              <Tx>Dietary notes</Tx>
+              <span className="font-normal text-outline normal-case"><Tx>optional</Tx></span>
             </label>
             <textarea
               id="book-notes"
@@ -490,7 +508,7 @@ export function BookingForm() {
                 <>
                   I agree to submit this reservation request with the details above. The{" "}
                   <Link href="/legal" className="text-primary underline underline-offset-4">
-                    privacy and hospitality notes
+                    <Tx>privacy and hospitality notes</Tx>
                   </Link>{" "}
                   on this site are still placeholders.
                 </>
@@ -499,7 +517,7 @@ export function BookingForm() {
                   I understand this form stays in my browser and does not create a
                   reservation. The{" "}
                   <Link href="/legal" className="text-primary underline underline-offset-4">
-                    privacy and hospitality notes
+                    <Tx>privacy and hospitality notes</Tx>
                   </Link>{" "}
                   on this site are still placeholders.
                 </>
@@ -518,7 +536,7 @@ export function BookingForm() {
               className="inline-flex min-h-11 w-full items-center justify-center gap-3 rounded-lg bg-primary-container px-space-lg py-4 font-label-lg text-label-lg tracking-wider text-surface uppercase shadow-md transition-colors hover:bg-primary"
             >
               <Icon name="wine" className="h-5 w-5" />
-              Review midday request
+              <Tx>Review midday request</Tx>
             </button>
             <p className="text-center font-body-sm text-body-sm text-on-surface-variant">
               Reviewing the form does not reserve a table. Contact{" "}
@@ -558,7 +576,7 @@ export function BookingForm() {
             <p className="font-body-md text-body-md leading-relaxed text-on-surface-variant">
               {submitState.status === "success" ? (
                 <>
-                  Reference <span className="font-semibold text-primary">{submitState.reference}</span>.
+                  <Tx>Reference</Tx> <span className="font-semibold text-primary">{submitState.reference}</span>.
                   Keep it for your records. This site does not email confirmations yet.
                 </>
               ) : liveBooking ? (
@@ -575,10 +593,10 @@ export function BookingForm() {
             <div className="flex flex-col gap-space-md rounded-lg bg-surface p-space-md text-on-surface">
               <div className="flex items-center justify-between gap-space-md">
                 <span className="font-label-lg text-label-lg tracking-wider text-primary uppercase">
-                  Request summary
+                  <Tx>Request summary</Tx>
                 </span>
                 <span className="font-body-sm text-body-sm font-semibold text-secondary">
-                  Not a confirmation
+                  <Tx>Not a confirmation</Tx>
                 </span>
               </div>
               <dl className="grid grid-cols-1 gap-y-3 font-body-sm text-body-sm text-on-surface-variant sm:grid-cols-2">
@@ -631,7 +649,7 @@ export function BookingForm() {
                   <>
                     Look up or cancel with your reference on{" "}
                     <Link href="/manage-booking" className="text-primary underline underline-offset-4">
-                      manage your booking
+                      <Tx>manage your booking</Tx>
                     </Link>
                     . Date or party-size changes still require a call to the farm.
                   </>
@@ -639,7 +657,7 @@ export function BookingForm() {
                   <>
                     To ask the farm about a change later, use{" "}
                     <Link href="/manage-booking" className="text-primary underline underline-offset-4">
-                      manage your booking
+                      <Tx>manage your booking</Tx>
                     </Link>
                     . That page needs server credentials and a seeded database before it can load real bookings.
                   </>

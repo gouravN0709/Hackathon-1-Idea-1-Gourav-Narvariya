@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { requireStaffManagerAccess } from "@/lib/staff/require-staff-manager-access";
 import { requireStaffOwnerAccess } from "@/lib/staff/require-staff-owner-access";
 import { validateBusinessTimezoneInput } from "@/lib/staff/validate-business-settings";
+import { revalidateAdminPanelPaths } from "@/lib/admin/admin-routes";
 import { STAFF_OPERATIONS_PATH } from "@/lib/staff/staff-routes";
 import {
   validateClosureInput,
@@ -38,6 +39,9 @@ export const initialStaffOperationsMutationState: StaffOperationsMutationState =
 
 function revalidateOperations() {
   revalidatePath(STAFF_OPERATIONS_PATH);
+  for (const path of revalidateAdminPanelPaths()) {
+    revalidatePath(path);
+  }
 }
 
 function closureFieldsFromForm(formData: FormData): Record<string, string> {

@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import type { ReactNode } from "react";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Icon, type IconName } from "@/components/ui/icon";
@@ -43,7 +44,7 @@ const steps: ReadonlyArray<{
     title: "Oak Kupela Aging & Txotx",
     body: (
       <>
-        Resting inside centuries-old chestnut and seasoned oak barrels (
+        <TxServer>Resting inside centuries-old chestnut and seasoned oak barrels (</TxServer>
         <em>kupelak</em>). By mid-January, the cellar opens for the traditional
         first pour.
       </>
@@ -61,7 +62,7 @@ export function ProcessSection() {
             Chapter III · The Transformation
           </span>
           <h2 className="font-headline-lg text-headline-lg-mobile leading-tight font-normal text-balance text-primary md:text-headline-lg">
-            From Apple to Cup: The Slow Basque Method.
+            <TxServer>From Apple to Cup: The Slow Basque Method.</TxServer>
           </h2>
           <p className="font-body-md text-body-md text-on-surface-variant">
             Patience over technology. Spontaneous cold fermentation guides our
@@ -106,14 +107,14 @@ export function ProcessSection() {
               </span>
               <p className="mt-1 max-w-3xl font-body-md text-body-md text-on-surface-variant">
                 Every bottle and barrel of Iturrieta cider carries the official
-                Basque Quality Label (<em>Euskal Sagardoa</em>), guaranteeing
+                Basque Quality Label (<em><TxServer>Euskal Sagardoa</TxServer></em>), guaranteeing
                 100% Álava and Gipuzkoa native fruit and stringent craft
                 benchmarks.
               </p>
             </div>
           </div>
           <ButtonLink href="/#menu" variant="solid" className="w-full md:w-auto">
-            View Cider Tasting Notes
+            <TxServer>View Cider Tasting Notes</TxServer>
           </ButtonLink>
         </div>
       </SiteContainer>

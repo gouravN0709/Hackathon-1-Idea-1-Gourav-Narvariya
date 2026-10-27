@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Icon } from "@/components/ui/icon";
@@ -19,12 +20,12 @@ export function MenuHero() {
           <div className="flex flex-col gap-space-lg lg:col-span-7">
             <p className="flex items-center gap-space-sm font-label-sm text-label-sm tracking-[0.2em] text-secondary uppercase">
               <span className="h-px w-8 bg-secondary/60" />
-              Sagardotegi Gastronomy & Cellar Traditions
+              <TxServer>Sagardotegi Gastronomy & Cellar Traditions</TxServer>
             </p>
             <h1 className="font-display-hero text-display-hero-mobile leading-[1.08] font-normal tracking-tight text-balance text-primary sm:text-display-hero">
-              A Taste of
+              <TxServer>A Taste of</TxServer>
               <br />
-              <span className="font-normal text-secondary italic">Our Land.</span>
+              <span className="font-normal text-secondary italic"><TxServer>Our Land.</TxServer></span>
             </h1>
             <p className="max-w-xl font-body-lg text-body-lg text-on-surface-variant">
               Generations of Basque farmhouse gastronomy centered around our
@@ -40,7 +41,7 @@ export function MenuHero() {
                 href="#tasting-menus"
                 className="inline-flex min-h-11 items-center justify-center gap-space-xs px-space-md py-3 font-label-lg text-label-lg text-secondary transition-colors hover:text-primary"
               >
-                Explore the Tasting Menus
+                <TxServer>Explore the Tasting Menus</TxServer>
                 <Icon name="arrow-down" className="h-4 w-4" />
               </Link>
             </div>
@@ -80,10 +81,10 @@ export function MenuHero() {
               <div className="absolute right-space-md bottom-space-md left-space-md flex items-center justify-between gap-space-sm text-surface">
                 <div className="min-w-0">
                   <p className="font-label-sm text-label-sm tracking-widest text-secondary-fixed uppercase">
-                    Caserío Goikola
+                    <TxServer>Caserío Goikola</TxServer>
                   </p>
                   <p className="font-headline-sm text-headline-sm font-normal text-surface">
-                    Txotx & Table Hospitality
+                    <TxServer>Txotx & Table Hospitality</TxServer>
                   </p>
                 </div>
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface/20 text-surface backdrop-blur-md">
@@ -95,7 +96,7 @@ export function MenuHero() {
               <div className="flex items-center gap-1 text-secondary">
                 <Icon name="verified" className="h-[18px] w-[18px]" />
                 <span className="font-label-sm text-label-sm font-semibold tracking-wider uppercase">
-                  Slow Craft Food
+                  <TxServer>Slow Craft Food</TxServer>
                 </span>
               </div>
               <p className="font-body-sm text-body-sm leading-snug text-on-surface-variant">

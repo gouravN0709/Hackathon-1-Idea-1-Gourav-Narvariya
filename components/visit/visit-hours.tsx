@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import Link from "next/link";
 import { Icon } from "@/components/ui/icon";
 import { SiteContainer } from "@/components/ui/site-container";
@@ -16,10 +17,10 @@ export function VisitHours() {
       <SiteContainer className="space-y-space-xl">
         <div className="max-w-2xl space-y-space-xs">
           <p className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-            Service calendar
+            <TxServer>Service calendar</TxServer>
           </p>
           <h2 className="font-headline-lg text-headline-lg-mobile tracking-tight text-primary md:text-headline-lg">
-            Cellar Doors & Dining Hours
+            <TxServer>Cellar Doors & Dining Hours</TxServer>
           </h2>
           <p className="pt-space-xs font-body-lg text-body-lg text-on-surface-variant">
             Midday service is {diningHours.openDays}, {diningHours.hours}.{" "}
@@ -50,7 +51,7 @@ export function VisitHours() {
               </div>
               <p className="flex items-center gap-1.5 font-label-sm text-label-sm font-semibold text-surface-tint uppercase">
                 <span className="h-2 w-2 rounded-full bg-surface-tint" />
-                Txotx & menu open
+                <TxServer>Txotx & menu open</TxServer>
               </p>
             </article>
           ))}
@@ -67,7 +68,7 @@ export function VisitHours() {
               </p>
             </div>
             <p className="font-body-sm text-body-sm text-on-surface-variant">
-              Cellar tending, bottling, and orchard work.
+              <TxServer>Cellar tending, bottling, and orchard work.</TxServer>
             </p>
           </article>
         </div>
@@ -79,7 +80,7 @@ export function VisitHours() {
             </span>
             <div className="space-y-1">
               <h3 className="font-headline-sm text-headline-sm text-primary">
-                Reservations are strongly recommended
+                <TxServer>Reservations are strongly recommended</TxServer>
               </h3>
               <p className="max-w-2xl font-body-md text-body-md text-on-surface-variant">
                 The booking form on this website checks details in the browser
@@ -92,7 +93,7 @@ export function VisitHours() {
             href="/book"
             className="inline-flex min-h-11 shrink-0 items-center justify-center rounded bg-primary px-space-lg py-space-sm font-label-lg text-label-lg tracking-wider text-on-primary uppercase transition-colors hover:bg-primary-container"
           >
-            Prepare a request
+            <TxServer>Prepare a request</TxServer>
           </Link>
         </div>
       </SiteContainer>

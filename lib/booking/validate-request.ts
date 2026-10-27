@@ -4,6 +4,10 @@ import {
   serviceDateError,
 } from "@/lib/service-calendar";
 import {
+  defaultValidationMessages,
+  type ValidationMessages,
+} from "@/lib/validation-messages";
+import {
   adultMax,
   adultMin,
   arrivalTimes,
@@ -28,26 +32,60 @@ export type ValidatedBookingRequest = BookingRequestInput & {
   partySize: number;
 };
 
+function resolveMessages(messages?: Partial<ValidationMessages>): ValidationMessages {
+  const adultsRange =
+    messages?.adultsRange ??
+    defaultValidationMessages.adultsRange(adultMin, adultMax);
+  const childrenRange =
+    messages?.childrenRange ??
+    defaultValidationMessages.childrenRange(childMin, childMax);
+
+  return {
+    chooseArrivalDate:
+      messages?.chooseArrivalDate ?? defaultValidationMessages.chooseArrivalDate,
+    datePast: messages?.datePast ?? defaultValidationMessages.datePast,
+    closedWeekdays:
+      messages?.closedWeekdays ?? defaultValidationMessages.closedWeekdays,
+    chooseArrivalTime:
+      messages?.chooseArrivalTime ?? defaultValidationMessages.chooseArrivalTime,
+    adultsRange,
+    childrenRange,
+    nameRequired:
+      messages?.nameRequired ?? defaultValidationMessages.nameRequired,
+    emailInvalid:
+      messages?.emailInvalid ?? defaultValidationMessages.emailInvalid,
+    phoneInvalid:
+      messages?.phoneInvalid ?? defaultValidationMessages.phoneInvalid,
+    notesMax: messages?.notesMax ?? defaultValidationMessages.notesMax,
+  };
+}
+
 export function validateBookingRequest(
   input: BookingRequestInput,
+  messages?: Partial<ValidationMessages>,
 ): { ok: true; value: ValidatedBookingRequest } | { ok: false; errors: Record<string, string> } {
+  const m = resolveMessages(messages);
   const errors: Record<string, string> = {};
-  const dateMessage = serviceDateError(input.date);
+  const dateMessage = serviceDateError(input.date, {
+    chooseArrivalDate: m.chooseArrivalDate,
+    datePast: m.datePast,
+    closedWeekdays: m.closedWeekdays,
+  });
   if (dateMessage) {
     errors.date = dateMessage;
   }
   if (!arrivalTimes.includes(input.arrival as ArrivalTime)) {
-    errors.arrival = "Choose an arrival time.";
+    errors.arrival = m.chooseArrivalTime;
   }
   if (!Number.isInteger(input.adults) || input.adults < adultMin || input.adults > adultMax) {
-    errors.adults = `Adults must be between ${adultMin} and ${adultMax}.`;
+    errors.adults = m.adultsRange;
   }
   if (
     !Number.isInteger(input.children) ||
     input.children < childMin ||
     input.children > childMax
   ) {
-    errors.children = `Children must be between ${childMin} and ${childMax}.`;
+    errors.children = m.childrenRange;
   }
 
   const name = input.name.trim();
@@ -56,16 +94,16 @@ export function validateBookingRequest(
   const notes = input.notes.trim();
 
   if (name.length < 2 || name.length > 80 || !/\p{L}/u.test(name)) {
-    errors.name = "Enter the name of the person making the request.";
+    errors.name = m.nameRequired;
   }
   if (!isValidEmail(email)) {
-    errors.email = "Enter a valid email address.";
+    errors.email = m.emailInvalid;
   }
   if (!isValidPhone(phone)) {
-    errors.phone = "Enter a telephone number with 8 to 15 digits.";
+    errors.phone = m.phoneInvalid;
   }
   if (notes.length > 800) {
-    errors.notes = "Keep notes to 800 characters.";
+    errors.notes = m.notesMax;
   }
 
   if (Object.keys(errors).length > 0) {

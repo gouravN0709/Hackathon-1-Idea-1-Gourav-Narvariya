@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import Link from "next/link";
 import { Icon } from "@/components/ui/icon";
 import { contact, menuPrices } from "@/lib/site-config";
@@ -17,10 +18,10 @@ export function BookingAside() {
           <Icon name="receipt" className="h-7 w-7 text-primary" />
           <div>
             <p className="font-label-sm text-label-sm tracking-wider text-secondary uppercase">
-              The sagardotegi table
+              <TxServer>The sagardotegi table</TxServer>
             </p>
             <h2 className="font-headline-sm text-headline-sm text-primary">
-              Published tasting menu
+              <TxServer>Published tasting menu</TxServer>
             </h2>
           </div>
         </div>
@@ -36,18 +37,18 @@ export function BookingAside() {
             </li>
           ))}
           <li className="flex items-baseline justify-between gap-space-md">
-            <span className="font-semibold text-primary">Txotx cider</span>
-            <span className="font-semibold text-secondary">Included with the menu</span>
+            <span className="font-semibold text-primary"><TxServer>Txotx cider</TxServer></span>
+            <span className="font-semibold text-secondary"><TxServer>Included with the menu</TxServer></span>
           </li>
         </ul>
         <div className="flex items-center justify-between rounded-lg bg-surface-container-low p-space-md">
           <span className="font-label-lg text-label-lg tracking-wider text-primary uppercase">
-            Adult menu
+            <TxServer>Adult menu</TxServer>
           </span>
           <span className="font-headline-sm text-headline-sm text-primary">
             €{menuPrices.adult}{" "}
             <span className="font-body-sm text-body-sm font-normal text-on-surface-variant">
-              tax inc.
+              <TxServer>tax inc.</TxServer>
             </span>
           </span>
         </div>
@@ -59,7 +60,7 @@ export function BookingAside() {
           href="/menu#tasting-menus"
           className="inline-flex min-h-11 items-center gap-1 font-label-lg text-label-lg tracking-wider text-secondary uppercase hover:text-primary"
         >
-          Read the full menu
+          <TxServer>Read the full menu</TxServer>
           <Icon name="arrow-right" className="h-4 w-4" />
         </Link>
       </article>
@@ -67,7 +68,7 @@ export function BookingAside() {
       <article className="flex flex-col gap-space-sm rounded-xl bg-surface-container p-space-lg md:p-space-xl">
         <div className="flex items-center gap-space-sm text-primary">
           <Icon name="snowflake" className="h-6 w-6" />
-          <h2 className="font-headline-sm text-headline-sm">Cellar climate</h2>
+          <h2 className="font-headline-sm text-headline-sm"><TxServer>Cellar climate</TxServer></h2>
         </div>
         <p className="font-body-sm text-body-sm leading-relaxed text-on-surface-variant">
           The barrel cellar is kept cool for the cider, around 10°C–12°C. A warm
@@ -77,10 +78,10 @@ export function BookingAside() {
 
       <article className="flex flex-col gap-space-sm rounded-xl bg-surface p-space-lg shadow-sm md:p-space-xl">
         <p className="font-label-sm text-label-sm tracking-wider text-secondary uppercase">
-          Gatherings
+          <TxServer>Gatherings</TxServer>
         </p>
         <h2 className="font-headline-sm text-headline-sm text-primary">
-          Parties of 12 or more
+          <TxServer>Parties of 12 or more</TxServer>
         </h2>
         <p className="font-body-sm text-body-sm leading-relaxed text-on-surface-variant">
           The form stops at 11 adults. Larger parties should be discussed with
@@ -99,7 +100,7 @@ export function BookingAside() {
             className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg bg-surface-container-low px-space-md py-2.5 font-label-lg text-label-lg tracking-wide text-primary hover:bg-surface-container"
           >
             <Icon name="mail" className="h-[18px] w-[18px]" />
-            Group email
+            <TxServer>Group email</TxServer>
           </a>
         </div>
       </article>

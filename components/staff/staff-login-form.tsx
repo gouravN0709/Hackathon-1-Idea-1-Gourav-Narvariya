@@ -1,4 +1,5 @@
 "use client";
+import { Tx } from "@/components/i18n/tx";
 
 import { useActionState } from "react";
 import {
@@ -24,7 +25,7 @@ export function StaffLoginForm({ nextPath, disabled = false }: StaffLoginFormPro
     <SiteContainer className="py-space-2xl">
       <div className="mx-auto max-w-md rounded-2xl border border-outline-variant/30 bg-surface-container-low p-space-xl shadow-sm">
         <h1 className="font-headline-lg text-headline-lg-mobile text-primary">
-          Staff sign in
+          <Tx>Staff sign in</Tx>
         </h1>
         <p className="mt-space-sm font-body-md text-body-md text-on-surface-variant">
           Use the email and password from your Supabase Auth account. Access to
@@ -49,7 +50,7 @@ export function StaffLoginForm({ nextPath, disabled = false }: StaffLoginFormPro
           </label>
           <label className="flex flex-col gap-space-xs">
             <span className="font-label-sm text-label-sm font-semibold uppercase tracking-wide text-on-surface-variant">
-              Password
+              <Tx>Password</Tx>
             </span>
             <input
               className={inputClass}

@@ -1,6 +1,11 @@
 import { createServerClient } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
 import {
+  buildAdminLoginUrl,
+  isAdminPathRequiringAuthSession,
+  adminPathFromRequest,
+} from "@/lib/admin/admin-routes";
+import {
   buildStaffLoginUrl,
   isStaffPathRequiringAuthSession,
   staffPathFromRequest,
@@ -19,6 +24,10 @@ export async function updateSession(request: NextRequest) {
     if (isStaffPathRequiringAuthSession(pathname)) {
       const intended = staffPathFromRequest(pathname, request.nextUrl.search);
       return NextResponse.redirect(new URL(buildStaffLoginUrl(intended), request.url));
+    }
+    if (isAdminPathRequiringAuthSession(pathname)) {
+      const intended = adminPathFromRequest(pathname, request.nextUrl.search);
+      return NextResponse.redirect(new URL(buildAdminLoginUrl(intended), request.url));
     }
     return supabaseResponse;
   }
@@ -44,12 +53,15 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (
-    !user &&
-    isStaffPathRequiringAuthSession(pathname)
-  ) {
+  if (!user && isStaffPathRequiringAuthSession(pathname)) {
     const intended = staffPathFromRequest(pathname, request.nextUrl.search);
     const loginUrl = new URL(buildStaffLoginUrl(intended), request.url);
+    return NextResponse.redirect(loginUrl);
+  }
+
+  if (!user && isAdminPathRequiringAuthSession(pathname)) {
+    const intended = adminPathFromRequest(pathname, request.nextUrl.search);
+    const loginUrl = new URL(buildAdminLoginUrl(intended), request.url);
     return NextResponse.redirect(loginUrl);
   }
 

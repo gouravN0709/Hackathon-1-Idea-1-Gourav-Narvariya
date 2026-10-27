@@ -1,19 +1,23 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { SiteContainer } from "@/components/ui/site-container";
-import { orchardStages } from "@/lib/site-config";
+import { getMessages } from "next-intl/server";
+import { getContentMessages } from "@/lib/i18n/content";
 
-export function OrchardSection() {
+export async function OrchardSection() {
+  const messages = await getMessages();
+  const { orchardStages } = getContentMessages(messages);
   return (
     <section id="orchard" className="w-full scroll-mt-24 bg-surface-container-low py-space-2xl">
       <SiteContainer className="flex flex-col gap-space-2xl">
         <div className="flex flex-col justify-between gap-space-md md:flex-row md:items-end">
           <div className="flex max-w-2xl flex-col gap-space-xs">
             <span className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-              Ancestral Method
+              <TxServer>Ancestral Method</TxServer>
             </span>
             <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg leading-tight font-normal text-primary">
-              From the mist-crowned orchard to the chestnut barrel.
+              <TxServer>From the mist-crowned orchard to the chestnut barrel.</TxServer>
             </h2>
           </div>
           <p className="max-w-sm font-body-sm text-body-sm text-on-surface-variant">

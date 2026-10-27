@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import type { ReactNode } from "react";
 import { Icon, type IconName } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
@@ -23,7 +24,7 @@ const plots: ReadonlyArray<{
       <>
         Rather than monocultures, our orchard intertwines sharp, tannic, and
         bittersweet varietals: acidic <em>Moko</em> for crisp backbone, aromatic{" "}
-        <em>Urtebi Txiki</em>, and phenolic <em>Gezamina</em> for deep amber
+        <em><TxServer>Urtebi Txiki</TxServer></em>, and phenolic <em><TxServer>Gezamina</TxServer></em> for deep amber
         structure.
       </>
     ),
@@ -78,7 +79,7 @@ export function OrchardChapter() {
               Chapter II · The Terraces
             </span>
             <h2 className="font-headline-lg text-headline-lg-mobile leading-tight font-normal text-balance text-primary md:text-headline-lg">
-              The Living Orchard: 1,400 Trees, One Valley.
+              <TxServer>The Living Orchard: 1,400 Trees, One Valley.</TxServer>
             </h2>
             <p className="mt-space-xs font-body-md text-body-md text-on-surface-variant">
               High-altitude terraces, mineral-rich limestone soils, and clean
@@ -89,7 +90,7 @@ export function OrchardChapter() {
           <div className="flex items-center gap-space-sm self-start rounded-lg bg-surface p-space-sm shadow-sm md:self-auto">
             <span className="h-3 w-3 rounded-full bg-primary-container motion-safe:animate-pulse" />
             <span className="font-label-sm text-label-sm font-semibold tracking-wider text-primary uppercase">
-              Certified Organic (Ekolur)
+              <TxServer>Certified Organic (Ekolur)</TxServer>
             </span>
           </div>
         </div>

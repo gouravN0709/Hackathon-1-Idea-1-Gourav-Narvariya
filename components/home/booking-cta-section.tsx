@@ -1,10 +1,12 @@
+import type { ReactNode } from "react";
+import { TxServer } from "@/components/i18n/tx-server";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { SiteContainer } from "@/components/ui/site-container";
 
 type BookingCtaSectionProps = {
-  bookingNote?: string | null;
+  bookingNote?: ReactNode;
 };
 
 export function BookingCtaSection({ bookingNote }: BookingCtaSectionProps) {
@@ -20,13 +22,13 @@ export function BookingCtaSection({ bookingNote }: BookingCtaSectionProps) {
       </div>
       <SiteContainer className="relative flex flex-col items-center gap-space-lg py-space-xl text-center">
         <span className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary-fixed-dim uppercase">
-          Your Table Is Waiting
+          <TxServer>Your Table Is Waiting</TxServer>
         </span>
         <h2 className="font-display-hero text-display-hero-mobile md:text-display-hero max-w-3xl leading-tight font-normal">
-          Come for the cider.
+          <TxServer>Come for the cider.</TxServer>
           <br />
           <span className="font-display-hero text-surface-container-high italic">
-            Stay for the experience.
+            <TxServer>Stay for the experience.</TxServer>
           </span>
         </h2>
         <p className="max-w-xl font-body-lg text-body-lg font-light text-surface-container-high">
@@ -41,20 +43,20 @@ export function BookingCtaSection({ bookingNote }: BookingCtaSectionProps) {
         ) : null}
         <div className="flex flex-col items-center gap-space-md pt-space-sm sm:flex-row">
           <ButtonLink href="/book" variant="hero" className="px-space-2xl shadow-lg">
-            Book Your Visit
+            <TxServer>Book Your Visit</TxServer>
           </ButtonLink>
           <ButtonLink
             href="/#menu"
             variant="ghost"
             className="underline decoration-surface-container-high/40 underline-offset-4"
           >
-            Explore Bottled Cuvees & Shop
+            <TxServer>Explore Bottled Cuvees & Shop</TxServer>
           </ButtonLink>
         </div>
         <div className="flex flex-col items-center gap-space-md pt-space-md font-body-sm text-body-sm text-surface-container-low sm:flex-row sm:gap-space-lg">
           <span className="flex items-center gap-1">
             <Icon name="verified" className="h-4 w-4 text-secondary-fixed-dim" />
-            Authentic Basque Hospitality
+            <TxServer>Authentic Basque Hospitality</TxServer>
           </span>
           <span className="hidden sm:inline">·</span>
           <span className="flex items-center gap-1">

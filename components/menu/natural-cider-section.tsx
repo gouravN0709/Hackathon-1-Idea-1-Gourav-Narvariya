@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import type { IconName } from "@/components/ui/icon";
 import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
@@ -51,13 +52,13 @@ export function NaturalCiderSection() {
               Chapter II · The Living Sagardoa
             </span>
             <h2 className="font-headline-lg text-headline-lg-mobile leading-tight font-normal tracking-tight text-balance text-primary md:text-headline-lg">
-              Unfiltered, Wild & Born from Organic Mountain Fruit
+              <TxServer>Unfiltered, Wild & Born from Organic Mountain Fruit</TxServer>
             </h2>
             <p className="max-w-3xl pt-2 font-body-lg text-body-lg text-on-surface-variant">
               In our cool, cloud-hung valley, 14 heritage Basque apple
               cultivars—including{" "}
               <em className="font-medium text-primary">
-                Urtebi Txiki, Moko, Gezamina
+                <TxServer>Urtebi Txiki, Moko, Gezamina</TxServer>
               </em>{", and "}
               <em className="font-medium text-primary">Mozoloa</em>{"—are gathered by hand, ground in slow timber mills, and transformed through wild indigenous orchard yeasts without sulfites or added sugars."}
             </p>
@@ -68,7 +69,7 @@ export function NaturalCiderSection() {
             </span>
             <dl className="flex flex-col gap-1 pt-1 font-body-sm text-body-sm">
               <div>
-                <dt className="inline font-semibold text-primary">Aromatics: </dt>
+                <dt className="inline font-semibold text-primary"><TxServer>Aromatics:</TxServer> </dt>
                 <dd className="inline text-on-surface-variant">
                   Crisp green apple skins, crushed wild mountain mint, damp
                   limestone.
@@ -82,9 +83,9 @@ export function NaturalCiderSection() {
                 </dd>
               </div>
               <div>
-                <dt className="inline font-semibold text-primary">Sparkle: </dt>
+                <dt className="inline font-semibold text-primary"><TxServer>Sparkle:</TxServer> </dt>
                 <dd className="inline text-on-surface-variant">
-                  Delicate, volatile txinparta bead released upon the high pour.
+                  <TxServer>Delicate, volatile txinparta bead released upon the high pour.</TxServer>
                 </dd>
               </div>
             </dl>

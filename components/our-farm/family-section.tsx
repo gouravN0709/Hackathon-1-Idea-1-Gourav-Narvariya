@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { Icon, type IconName } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { SiteContainer } from "@/components/ui/site-container";
@@ -40,10 +41,10 @@ export function FamilySection() {
             </div>
             <div className="mt-space-sm flex flex-wrap items-center justify-between gap-space-sm rounded-lg bg-surface-container-high p-space-md">
               <span className="font-label-sm text-label-sm font-semibold tracking-wider text-primary uppercase">
-                Custodians of Iturrieta
+                <TxServer>Custodians of Iturrieta</TxServer>
               </span>
               <span className="font-body-sm text-body-sm text-on-surface-variant">
-                Continuous Craft Since 1998
+                <TxServer>Continuous Craft Since 1998</TxServer>
               </span>
             </div>
           </div>
@@ -54,8 +55,8 @@ export function FamilySection() {
                 The Custodians · Four Hands, One Craft
               </span>
               <h2 className="font-headline-lg text-headline-lg-mobile leading-tight font-normal text-balance text-primary md:text-headline-lg">
-                Not a corporate winery.
-                <br className="hidden sm:inline" /> A living Basque family baserri.
+                <TxServer>Not a corporate winery.</TxServer>
+                <br className="hidden sm:inline" /> <TxServer>A living Basque family baserri.</TxServer>
               </h2>
             </div>
             <p className="font-body-lg text-body-lg leading-relaxed text-on-surface">

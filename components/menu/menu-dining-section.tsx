@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Icon } from "@/components/ui/icon";
 import { SiteContainer } from "@/components/ui/site-container";
@@ -54,7 +55,7 @@ export function MenuDiningSection() {
               Chapter I · The Hearth & Harvest
             </span>
             <h2 className="font-headline-lg text-headline-lg-mobile leading-tight font-normal tracking-tight text-balance text-primary md:text-headline-lg">
-              Authentic Cider-House Dining & Seasonal Menus
+              <TxServer>Authentic Cider-House Dining & Seasonal Menus</TxServer>
             </h2>
             <p className="pt-2 font-body-md text-body-md text-on-surface-variant">
               The sagardotegi meal is an ancestral agrarian rite with no
@@ -67,10 +68,10 @@ export function MenuDiningSection() {
             <Icon name="hearth" className="h-6 w-6 shrink-0 text-secondary" />
             <div className="flex flex-col">
               <span className="font-label-sm text-label-sm font-semibold text-primary uppercase">
-                The Asador Wood Fire
+                <TxServer>The Asador Wood Fire</TxServer>
               </span>
               <span className="font-body-sm text-body-sm text-on-surface-variant">
-                Pruned apple vine embers & mountain oak
+                <TxServer>Pruned apple vine embers & mountain oak</TxServer>
               </span>
             </div>
           </div>
@@ -82,10 +83,10 @@ export function MenuDiningSection() {
               <div className="flex flex-col justify-between gap-2 pb-space-sm sm:flex-row sm:items-baseline">
                 <div>
                   <span className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-                    The Canonical Feast
+                    <TxServer>The Canonical Feast</TxServer>
                   </span>
                   <h3 className="mt-1 font-headline-md text-headline-md text-primary">
-                    Traditional Sagardotegi Menu
+                    <TxServer>Traditional Sagardotegi Menu</TxServer>
                   </h3>
                 </div>
                 <p className="sm:text-right">
@@ -100,7 +101,7 @@ export function MenuDiningSection() {
 
               <p className="inline-flex w-fit max-w-full items-start gap-space-xs rounded-lg bg-tertiary-fixed px-space-md py-2 font-label-sm text-label-sm tracking-wider text-primary uppercase">
                 <Icon name="wine" className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>Unlimited Txotx Barrel Pouring Included Throughout the Meal</span>
+                <span><TxServer>Unlimited Txotx Barrel Pouring Included Throughout the Meal</TxServer></span>
               </p>
 
               <ol className="flex flex-col gap-space-md pt-space-sm">
@@ -124,7 +125,7 @@ export function MenuDiningSection() {
                           </span>
                           {"signature" in course && course.signature ? (
                             <span className="rounded bg-secondary-fixed px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-on-secondary-fixed uppercase">
-                              Signature
+                              <TxServer>Signature</TxServer>
                             </span>
                           ) : null}
                         </span>
@@ -155,7 +156,7 @@ export function MenuDiningSection() {
                 dinner seatings.
               </p>
               <ButtonLink href="/book" variant="solid" className="gap-space-xs">
-                Reserve Table
+                <TxServer>Reserve Table</TxServer>
                 <Icon name="arrow-right" className="h-4 w-4" />
               </ButtonLink>
             </div>
@@ -167,7 +168,7 @@ export function MenuDiningSection() {
                 <div className="flex items-baseline justify-between gap-2 pb-space-xs">
                   <div className="min-w-0">
                     <span className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-                      Young Explorers
+                      <TxServer>Young Explorers</TxServer>
                     </span>
                     <h3 className="mt-1 font-headline-sm text-headline-sm text-primary">
                       Children&apos;s Farm Menu
@@ -178,7 +179,7 @@ export function MenuDiningSection() {
                       €16
                     </span>
                     <span className="-mt-1 block font-body-sm text-body-sm text-on-surface-variant">
-                      ages 3–12
+                      <TxServer>ages 3–12</TxServer>
                     </span>
                   </p>
                 </div>
@@ -204,7 +205,7 @@ export function MenuDiningSection() {
                 <Icon name="eco" className="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
                 <p className="font-body-sm text-body-sm text-on-surface-variant">
                   <strong className="font-medium text-primary">
-                    Dietary Accommodations:
+                    <TxServer>Dietary Accommodations:</TxServer>
                   </strong>{" "}
                   Wild vegetable embers, charred leeks, and pescatarian
                   substitutes provided with 24h advance reservation.
@@ -215,10 +216,10 @@ export function MenuDiningSection() {
             <aside className="relative flex flex-col justify-between overflow-hidden rounded-xl bg-primary p-space-lg text-surface shadow-sm">
               <div className="relative z-10 flex flex-col gap-space-xs">
                 <span className="font-label-sm text-label-sm tracking-widest text-secondary-fixed uppercase">
-                  The Hearth Tradition
+                  <TxServer>The Hearth Tradition</TxServer>
                 </span>
                 <h3 className="font-headline-sm text-headline-sm text-surface">
-                  The Soul of the Asador
+                  <TxServer>The Soul of the Asador</TxServer>
                 </h3>
                 <p className="font-body-sm text-body-sm leading-relaxed text-on-primary-container">
                   We never use charcoal briquettes or gas. Our braziers burn
@@ -228,7 +229,7 @@ export function MenuDiningSection() {
                 </p>
               </div>
               <div className="relative z-10 flex items-center justify-between gap-space-sm pt-space-md font-label-sm text-label-sm tracking-wider text-secondary-fixed uppercase">
-                <span>Fire Master: Mikel Goikoetxea</span>
+                <span><TxServer>Fire Master: Mikel Goikoetxea</TxServer></span>
                 <Icon name="hearth" className="h-[18px] w-[18px] shrink-0" />
               </div>
             </aside>

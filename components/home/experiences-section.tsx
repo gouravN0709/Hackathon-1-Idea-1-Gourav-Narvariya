@@ -1,25 +1,29 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { SiteContainer } from "@/components/ui/site-container";
 import { cn } from "@/lib/cn";
-import { experiences } from "@/lib/site-config";
+import { getMessages } from "next-intl/server";
+import { getContentMessages } from "@/lib/i18n/content";
 
-export function ExperiencesSection() {
+export async function ExperiencesSection() {
+  const messages = await getMessages();
+  const { experiences } = getContentMessages(messages);
   return (
     <section id="experiences" className="w-full scroll-mt-24 bg-surface py-space-2xl">
       <SiteContainer className="flex flex-col gap-space-2xl">
         <div className="flex flex-col justify-between gap-space-md md:flex-row md:items-end">
           <div className="flex max-w-xl flex-col gap-space-xs">
             <span className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-              Slow Hospitality
+              <TxServer>Slow Hospitality</TxServer>
             </span>
             <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg leading-tight font-normal text-primary">
-              Curated journeys into our estate.
+              <TxServer>Curated journeys into our estate.</TxServer>
             </h2>
           </div>
           <ButtonLink href="/#experiences" variant="underline">
-            Browse All Seasonal Gatherings
+            <TxServer>Browse All Seasonal Gatherings</TxServer>
             <Icon name="arrow-right" className="h-4 w-4" />
           </ButtonLink>
         </div>

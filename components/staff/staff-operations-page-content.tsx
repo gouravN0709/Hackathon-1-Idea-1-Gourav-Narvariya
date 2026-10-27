@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { connection } from "next/server";
 import Link from "next/link";
 import { signOutStaff } from "@/app/staff/login/actions";
@@ -69,7 +70,7 @@ export async function StaffOperationsPageContent() {
               type="submit"
               className="min-h-11 rounded-lg border border-outline-variant/50 px-space-md py-space-sm font-body-md text-body-md text-primary"
             >
-              Sign out
+              <TxServer>Sign out</TxServer>
             </button>
           </form>
         </div>

@@ -1,21 +1,25 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useMessages, useTranslations } from "next-intl";
+import { LanguageSelector } from "@/components/layout/language-selector";
 import { MobileNavigation } from "@/components/layout/mobile-navigation";
 import { ButtonLink } from "@/components/ui/button-link";
-import { navItems, siteConfig } from "@/lib/site-config";
+import { Link, usePathname } from "@/i18n/navigation";
+import { getContentMessages } from "@/lib/i18n/content";
 
 function isCurrentPage(href: string, pathname: string) {
   if (href.includes("#")) {
     return false;
   }
-
-  return pathname === href || pathname.startsWith(`${href}/`);
+  const normalized = href.startsWith("/") ? href : `/${href}`;
+  return pathname === normalized || pathname.startsWith(`${normalized}/`);
 }
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const t = useTranslations("layout.header");
+  const messages = useMessages();
+  const { siteConfig, navItems } = getContentMessages(messages);
 
   return (
     <header className="fixed top-0 right-0 left-0 z-50 bg-surface/90 shadow-[0_1px_8px_rgba(41,70,50,0.06)] backdrop-blur-xl">
@@ -29,10 +33,13 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-space-lg xl:flex" aria-label="Primary">
+        <nav
+          className="hidden items-center gap-space-lg xl:flex"
+          aria-label={t("primaryNavAria")}
+        >
           {navItems.map((item) => (
             <Link
-              key={item.href}
+              key={item.href + item.label}
               href={item.href}
               aria-current={isCurrentPage(item.href, pathname) ? "page" : undefined}
               className={
@@ -47,15 +54,13 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-space-md">
-          <span className="hidden font-label-sm text-label-sm tracking-wider text-on-surface-variant uppercase sm:inline">
-            EN
-          </span>
+          <LanguageSelector className="hidden sm:block" />
           <ButtonLink
             href="/book"
             variant="primary"
             className="max-sm:hidden whitespace-nowrap"
           >
-            Book a Visit
+            {t("bookCta")}
           </ButtonLink>
           <MobileNavigation />
         </div>

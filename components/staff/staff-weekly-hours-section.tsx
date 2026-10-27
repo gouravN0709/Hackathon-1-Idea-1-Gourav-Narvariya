@@ -1,4 +1,5 @@
 "use client";
+import { Tx } from "@/components/i18n/tx";
 
 import { useActionState, useMemo, useState, type ReactNode } from "react";
 import {
@@ -108,7 +109,7 @@ export function StaffWeeklyHoursSection({
 
   return (
     <section className="flex flex-col gap-space-md">
-      <h2 className="font-headline-sm text-headline-sm text-primary">Weekly hours</h2>
+      <h2 className="font-headline-sm text-headline-sm text-primary"><Tx>Weekly hours</Tx></h2>
       <p className="font-body-sm text-body-sm text-on-surface-variant">
         Operating windows per ISO weekday. Overlap and active-shift coverage are checked here and
         enforced again in the database.
@@ -145,7 +146,7 @@ export function StaffWeeklyHoursSection({
                   colSpan={canMutate ? 4 : 3}
                   className="px-space-md py-space-sm text-on-surface-variant"
                 >
-                  No weekly hours configured.
+                  <Tx>No weekly hours configured.</Tx>
                 </td>
               </tr>
             ) : null}

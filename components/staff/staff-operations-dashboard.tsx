@@ -1,4 +1,5 @@
 "use client";
+import { Tx } from "@/components/i18n/tx";
 
 import { useActionState, useState } from "react";
 import {
@@ -131,7 +132,7 @@ export function StaffOperationsDashboard({
       />
 
       <section className="flex flex-col gap-space-md">
-        <h2 className="font-headline-sm text-headline-sm text-primary">Service shifts</h2>
+        <h2 className="font-headline-sm text-headline-sm text-primary"><Tx>Service shifts</Tx></h2>
         <MutationBanner state={shiftState} />
         <div className="flex flex-col gap-space-md">
           {snapshot.shifts.map((shift) => (
@@ -148,7 +149,7 @@ export function StaffOperationsDashboard({
       </section>
 
       <section className="flex flex-col gap-space-md">
-        <h2 className="font-headline-sm text-headline-sm text-primary">Special closures</h2>
+        <h2 className="font-headline-sm text-headline-sm text-primary"><Tx>Special closures</Tx></h2>
         <MutationBanner state={closureBanner} />
         <ul className="flex flex-col gap-space-sm">
           {snapshot.closures.map((closure) => (
@@ -181,7 +182,7 @@ export function StaffOperationsDashboard({
             </li>
           ))}
           {snapshot.closures.length === 0 ? (
-            <li className="font-body-sm text-body-sm text-on-surface-variant">No closures on record.</li>
+            <li className="font-body-sm text-body-sm text-on-surface-variant"><Tx>No closures on record.</Tx></li>
           ) : null}
         </ul>
         {canMutate ? (
@@ -196,7 +197,7 @@ export function StaffOperationsDashboard({
       </section>
 
       <section className="flex flex-col gap-space-md">
-        <h2 className="font-headline-sm text-headline-sm text-primary">Restaurant tables</h2>
+        <h2 className="font-headline-sm text-headline-sm text-primary"><Tx>Restaurant tables</Tx></h2>
         <MutationBanner state={tableBanner} />
         <div className="overflow-x-auto rounded-xl border border-outline-variant/30">
           <table className="min-w-full font-body-sm text-body-sm">
@@ -272,7 +273,7 @@ function ClosureCreateForm({
       aria-busy={pending}
     >
       <label className="flex flex-col gap-1 font-body-sm text-body-sm">
-        Starts on
+        <Tx>Starts on</Tx>
         <input
           className={fieldClass}
           type="date"
@@ -301,7 +302,7 @@ function ClosureCreateForm({
           value={shiftId}
           onChange={(event) => setShiftId(event.target.value)}
         >
-          <option value="all">Whole farm (all shifts that day)</option>
+          <option value="all"><Tx>Whole farm (all shifts that day)</Tx></option>
           {shifts.map((shift) => (
             <option key={shift.id} value={shift.id}>
               {shift.name} ({ISO_WEEKDAY[shift.day_of_week]} {shift.starts_at.slice(0, 5)}–
@@ -311,7 +312,7 @@ function ClosureCreateForm({
         </select>
       </label>
       <label className="flex flex-col gap-1 font-body-sm text-body-sm sm:col-span-2">
-        Reason (staff-visible only)
+        <Tx>Reason (staff-visible only)</Tx>
         <input
           className={fieldClass}
           name="reason"
@@ -377,7 +378,7 @@ function TableCreateForm({
         />
       </label>
       <label className="flex flex-col gap-1 font-body-sm text-body-sm sm:col-span-2">
-        Sort order
+        <Tx>Sort order</Tx>
         <input
           className={fieldClass}
           name="sortOrder"
@@ -434,7 +435,7 @@ function ShiftRow({
       </div>
       <input type="hidden" name="shiftId" value={shift.id} />
       <label className="flex flex-col gap-1 font-body-sm text-body-sm">
-        Max covers
+        <Tx>Max covers</Tx>
         <input
           className={cn(fieldClass, "w-28")}
           name="maxCovers"

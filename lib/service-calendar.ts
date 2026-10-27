@@ -1,5 +1,7 @@
 import { diningHours } from "@/lib/site-config";
+import { defaultValidationMessages } from "@/lib/validation-messages";
 
+const DISPLAY_LOCALE = "en-GB";
 const openDays = new Set<number>(diningHours.openWeekdays);
 
 export function parseDateInput(value: string): Date | null {
@@ -35,7 +37,7 @@ export function isServiceDay(date: Date) {
 }
 
 export function formatServiceDate(date: Date) {
-  return new Intl.DateTimeFormat("en-GB", {
+  return new Intl.DateTimeFormat(DISPLAY_LOCALE, {
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -49,7 +51,7 @@ export function upcomingServiceDates(count = 8) {
   const cursor = new Date(
     Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()),
   );
-  const formatter = new Intl.DateTimeFormat("en-GB", {
+  const formatter = new Intl.DateTimeFormat(DISPLAY_LOCALE, {
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -83,16 +85,29 @@ export function isValidPhone(value: string) {
   return digits.length >= 8 && digits.length <= 15;
 }
 
-export function serviceDateError(value: string) {
+type ServiceDateMessages = {
+  chooseArrivalDate: string;
+  datePast: string;
+  closedWeekdays: string;
+};
+
+export function serviceDateError(
+  value: string,
+  messages: ServiceDateMessages = {
+    chooseArrivalDate: defaultValidationMessages.chooseArrivalDate,
+    datePast: defaultValidationMessages.datePast,
+    closedWeekdays: defaultValidationMessages.closedWeekdays,
+  },
+) {
   const date = parseDateInput(value);
   if (!date) {
-    return "Choose an arrival date.";
+    return messages.chooseArrivalDate;
   }
   if (date < startOfToday()) {
-    return "Choose a date that has not already passed.";
+    return messages.datePast;
   }
   if (!isServiceDay(date)) {
-    return "The cider house is open Thursday to Sunday. Monday to Wednesday are closed.";
+    return messages.closedWeekdays;
   }
   return null;
 }

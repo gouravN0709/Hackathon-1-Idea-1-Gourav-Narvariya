@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import Link from "next/link";
 import { SiteContainer } from "@/components/ui/site-container";
 
@@ -9,7 +10,7 @@ export function MenuBreadcrumb() {
           <ol className="flex list-none flex-wrap items-center gap-x-space-xs gap-y-1 font-label-sm text-label-sm tracking-widest text-on-surface-variant uppercase">
             <li>
               <Link href="/" className="transition-colors hover:text-primary">
-                Estate Sanctuary
+                <TxServer>Estate Sanctuary</TxServer>
               </Link>
             </li>
             <li aria-hidden="true" className="text-secondary/60">

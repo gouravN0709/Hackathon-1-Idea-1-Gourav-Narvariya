@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import Link from "next/link";
 import { connection } from "next/server";
 import { notFound } from "next/navigation";
@@ -65,7 +66,7 @@ export async function StaffDemoReservationsPageContent({
       </div>
       <p className="mt-space-md font-body-md text-body-md text-on-surface-variant">
         <Link href="/staff/login" className="text-primary underline-offset-2 hover:underline">
-          Staff sign in
+          <TxServer>Staff sign in</TxServer>
         </Link>{" "}
         for live data.
       </p>

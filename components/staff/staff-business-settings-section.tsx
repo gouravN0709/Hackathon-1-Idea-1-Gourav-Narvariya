@@ -1,4 +1,5 @@
 "use client";
+import { Tx } from "@/components/i18n/tx";
 
 import { useActionState, useState } from "react";
 import {
@@ -61,7 +62,7 @@ export function StaffBusinessSettingsSection({
 
   return (
     <section className="flex flex-col gap-space-md">
-      <h2 className="font-headline-sm text-headline-sm text-primary">Business settings</h2>
+      <h2 className="font-headline-sm text-headline-sm text-primary"><Tx>Business settings</Tx></h2>
       <p className="font-body-sm text-body-sm text-on-surface-variant">
         Service dates and opening hours are interpreted in this IANA timezone. Only owners can
         change it; managers and floor staff can view the current value.
@@ -69,7 +70,7 @@ export function StaffBusinessSettingsSection({
       <MutationBanner state={state} />
       <dl className="font-body-sm text-body-sm text-on-surface">
         <div className="flex flex-col gap-1 sm:flex-row sm:gap-space-md">
-          <dt className="text-on-surface-variant">Current timezone</dt>
+          <dt className="text-on-surface-variant"><Tx>Current timezone</Tx></dt>
           <dd className="font-medium">{businessSettings?.timezone ?? "Not loaded"}</dd>
         </div>
       </dl>
@@ -103,7 +104,7 @@ function TimezoneEditorForm({
       aria-busy={pending}
     >
       <label className="flex flex-col gap-1 font-body-sm text-body-sm">
-        Timezone (IANA)
+        <Tx>Timezone (IANA)</Tx>
         <input
           className={fieldClass}
           name="timezone"

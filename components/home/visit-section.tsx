@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
@@ -13,16 +14,16 @@ export function VisitSection() {
             <div className="flex flex-col gap-space-md">
               <div>
                 <span className="font-label-sm text-label-sm font-semibold tracking-widest text-secondary uppercase">
-                  Travel Concierge
+                  <TxServer>Travel Concierge</TxServer>
                 </span>
                 <h2 className="mt-1 font-headline-lg text-headline-lg-mobile md:text-headline-lg leading-tight font-normal text-primary">
-                  Plan your valley arrival.
+                  <TxServer>Plan your valley arrival.</TxServer>
                 </h2>
               </div>
               <div className="grid grid-cols-1 gap-space-lg pt-space-xs sm:grid-cols-2">
                 <div className="flex flex-col gap-space-xs">
                   <span className="font-label-sm text-label-sm font-bold tracking-wider text-secondary uppercase">
-                    Location & Address
+                    <TxServer>Location & Address</TxServer>
                   </span>
                   <span className="font-body-md text-body-md font-medium text-on-surface">
                     {contact.addressLines[0]}
@@ -35,35 +36,35 @@ export function VisitSection() {
                 </div>
                 <div className="flex flex-col gap-space-xs">
                   <span className="font-label-sm text-label-sm font-bold tracking-wider text-secondary uppercase">
-                    Txotx Season Dining
+                    <TxServer>Txotx Season Dining</TxServer>
                   </span>
                   <span className="font-body-md text-body-md font-medium text-on-surface">
-                    January 15 – May 18
+                    <TxServer>January 15 – May 18</TxServer>
                   </span>
                   <span className="font-body-sm text-body-sm text-on-surface-variant">
-                    Fridays: 20:30 – 00:00
+                    <TxServer>Fridays: 20:30 – 00:00</TxServer>
                     <br />
-                    Saturdays: 13:30 – 17:00 & 20:30 – 00:00
+                    <TxServer>Saturdays: 13:30 – 17:00 & 20:30 – 00:00</TxServer>
                     <br />
-                    Sundays: 13:30 – 17:30
+                    <TxServer>Sundays: 13:30 – 17:30</TxServer>
                   </span>
                 </div>
                 <div className="flex flex-col gap-space-xs">
                   <span className="font-label-sm text-label-sm font-bold tracking-wider text-secondary uppercase">
-                    Cellar Boutique & Walks
+                    <TxServer>Cellar Boutique & Walks</TxServer>
                   </span>
                   <span className="font-body-md text-body-md font-medium text-on-surface">
-                    Open Year-Round
+                    <TxServer>Open Year-Round</TxServer>
                   </span>
                   <span className="font-body-sm text-body-sm text-on-surface-variant">
-                    Tuesday – Sunday: 10:00 – 19:00
+                    <TxServer>Tuesday – Sunday: 10:00 – 19:00</TxServer>
                     <br />
-                    Bottle sales & orchard walks
+                    <TxServer>Bottle sales & orchard walks</TxServer>
                   </span>
                 </div>
                 <div className="flex flex-col gap-space-xs">
                   <span className="font-label-sm text-label-sm font-bold tracking-wider text-secondary uppercase">
-                    Proximity & Transit
+                    <TxServer>Proximity & Transit</TxServer>
                   </span>
                   <span className="font-body-sm text-body-sm text-on-surface-variant">
                     • 35 min from Vitoria-Gasteiz (A-2620)
@@ -104,18 +105,18 @@ export function VisitSection() {
               <div className="pointer-events-none absolute inset-0 bg-primary/20" />
               <div className="absolute bottom-3 left-3 flex items-center gap-1 rounded bg-surface/90 px-space-sm py-1 font-label-sm text-label-sm text-primary backdrop-blur-md">
                 <Icon name="map-pin" className="h-3.5 w-3.5 text-secondary" />
-                <span>Goikola Estate, Aramaio</span>
+                <span><TxServer>Goikola Estate, Aramaio</TxServer></span>
               </div>
             </div>
             <div className="mt-space-md flex flex-col gap-space-sm rounded bg-surface-container-low p-space-sm sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-center gap-space-xs">
                 <Icon name="parking" className="h-5 w-5 shrink-0 text-secondary" />
                 <span className="font-body-sm text-body-sm text-on-surface">
-                  Private Guest Parking & EV Chargers Available
+                  <TxServer>Private Guest Parking & EV Chargers Available</TxServer>
                 </span>
               </div>
               <ButtonLink href={contact.mapsUrl} variant="underline" external className="shrink-0">
-                Directions
+                <TxServer>Directions</TxServer>
                 <Icon name="external" className="h-3.5 w-3.5" />
               </ButtonLink>
             </div>

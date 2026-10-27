@@ -1,3 +1,4 @@
+import { TxServer } from "@/components/i18n/tx-server";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
@@ -32,7 +33,7 @@ export function TxotxExperienceSection() {
             </p>
             <div className="flex flex-col gap-space-xs rounded-xl bg-surface p-space-md shadow-sm">
               <span className="font-label-sm text-label-sm font-semibold tracking-wider text-primary uppercase">
-                The Unwritten Cellar Etiquette
+                <TxServer>The Unwritten Cellar Etiquette</TxServer>
               </span>
               <ul className="flex flex-col gap-1.5 font-body-sm text-body-sm text-on-surface-variant">
                 {etiquette.map((item) => (
@@ -45,7 +46,7 @@ export function TxotxExperienceSection() {
             </div>
             <div className="pt-space-xs">
               <ButtonLink href="/our-farm" variant="editorial">
-                Discover Our Farm & Orchard History
+                <TxServer>Discover Our Farm & Orchard History</TxServer>
                 <Icon name="arrow-right" className="h-4 w-4" />
               </ButtonLink>
             </div>
@@ -61,7 +62,7 @@ export function TxotxExperienceSection() {
             </div>
             <blockquote className="absolute right-4 bottom-0 left-4 flex max-w-none flex-col gap-1 rounded-xl bg-primary p-space-md text-surface shadow-lg sm:right-6 sm:left-auto sm:max-w-[280px]">
               <span className="font-label-sm text-label-sm tracking-wider text-secondary-fixed uppercase">
-                The Living Barrel
+                <TxServer>The Living Barrel</TxServer>
               </span>
               <p className="font-body-sm text-body-sm leading-tight text-on-primary-container">
                 &quot;No two kupelak taste identical. Each tree, parcel, and cask
