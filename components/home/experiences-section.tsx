@@ -4,12 +4,9 @@ import { Icon } from "@/components/ui/icon";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
 import { SiteContainer } from "@/components/ui/site-container";
 import { cn } from "@/lib/cn";
-import { getMessages } from "next-intl/server";
-import { getContentMessages } from "@/lib/i18n/content";
+import { experiences } from "@/lib/site-config";
 
 export async function ExperiencesSection() {
-  const messages = await getMessages();
-  const { experiences } = getContentMessages(messages);
   return (
     <section id="experiences" className="w-full scroll-mt-24 bg-surface py-space-2xl">
       <SiteContainer className="flex flex-col gap-space-2xl">
