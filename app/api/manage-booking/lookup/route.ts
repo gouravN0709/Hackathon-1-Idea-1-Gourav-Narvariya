@@ -24,7 +24,7 @@ export async function POST(request: Request) {
   await connection();
 
   const ip = clientIpFromRequest(request);
-  const rate = checkRateLimit(`manage-booking:lookup:${ip}`, LOOKUP_LIMIT, LOOKUP_WINDOW_MS);
+  const rate = await checkRateLimit(`manage-booking:lookup:${ip}`, LOOKUP_LIMIT, LOOKUP_WINDOW_MS);
   if (!rate.ok) {
     return NextResponse.json(
       {

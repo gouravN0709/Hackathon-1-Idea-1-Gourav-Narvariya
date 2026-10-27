@@ -1,3 +1,8 @@
+import {
+  createUpstashRateLimitStore,
+  readUpstashRedisConfig,
+} from "@/lib/api/rate-limit-upstash";
+
 /**
  * Rate-limit storage backends.
  *
@@ -14,7 +19,12 @@ export type RateLimitStoreResult =
   | { ok: false; retryAfterSeconds: number };
 
 export type RateLimitStore = {
-  check(key: string, limit: number, windowMs: number, now: number): RateLimitStoreResult;
+  check(
+    key: string,
+    limit: number,
+    windowMs: number,
+    now: number,
+  ): RateLimitStoreResult | Promise<RateLimitStoreResult>;
 };
 
 type Bucket = {
@@ -48,6 +58,7 @@ export function createInMemoryRateLimitStore(): RateLimitStore {
 
 export type RateLimitBackendReport =
   | { mode: "memory" }
+  | { mode: "distributed"; backend: "upstash_redis" }
   | { mode: "distributed_requested"; effective: "memory"; note: string };
 
 /** For health checks and ops docs — no credentials exposed. */
@@ -59,26 +70,27 @@ export function describeRateLimitBackend(): RateLimitBackendReport {
       return {
         mode: "distributed_requested",
         effective: "memory",
-        note: "RATE_LIMIT_BACKEND=distributed is set but no shared store is wired; limits are per instance.",
+        note:
+          "RATE_LIMIT_BACKEND=distributed is set but UPSTASH_REDIS_REST_URL/TOKEN are missing; limits are per instance.",
       };
     }
-    return {
-      mode: "distributed_requested",
-      effective: "memory",
-      note: "Distributed store returned unexpectedly; verify adapter configuration.",
-    };
+    return { mode: "distributed", backend: "upstash_redis" };
   }
   return { mode: "memory" };
 }
 
-/** Placeholder for a future Redis/KV adapter — not active without env + credentials. */
+/** Upstash Redis when `RATE_LIMIT_BACKEND=distributed` and REST credentials are set. */
 export function createDistributedRateLimitStore(): RateLimitStore | null {
   const flag = process.env.RATE_LIMIT_BACKEND?.trim();
   if (flag !== "distributed") {
     return null;
   }
-  // No shared store is wired yet; fall back safely rather than failing open with a stub network call.
-  return null;
+
+  const config = readUpstashRedisConfig();
+  if (!config) {
+    return null;
+  }
+  return createUpstashRateLimitStore(config);
 }
 
 let defaultStore: RateLimitStore | null = null;

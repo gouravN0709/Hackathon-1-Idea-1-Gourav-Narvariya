@@ -19,6 +19,7 @@ Coverage highlights:
 | Guest cancel + ownership | `lib/manage-booking/lookup-reservation.test.ts`, `lib/manage-booking/guest-cancel-flow.test.ts` |
 | Staff authorization | `lib/staff/staff-access.test.ts`, `lib/staff/staff-manager-access.test.ts`, `lib/staff/staff-mutation-access.test.ts` |
 | Booking conflicts | `lib/booking/create-reservation.test.ts`, `lib/booking/map-db-error.test.ts` |
+| Booking RPC grants | `lib/booking/booking-rpc-grants.test.ts` (migration SQL contract; optional live anon RPC with `RUN_LIVE_SUPABASE_TESTS=true`) |
 | Notifications (disabled paths) | `lib/notifications/dispatch.test.ts` |
 
 ## Browser E2E (Playwright)
@@ -31,7 +32,7 @@ Coverage highlights:
 
 ## Manual staging E2E
 
-Live booking, manage-booking, and operations against a seeded Supabase project are documented in [STAGING-E2E-TEST-PLAN.md](./STAGING-E2E-TEST-PLAN.md). Run only on approved staging; do not treat Vitest green as proof of live RPC/RLS behaviour.
+Live booking, manage-booking, and operations against a seeded Supabase project are documented in [STAGING-E2E-TEST-PLAN.md](./STAGING-E2E-TEST-PLAN.md). Record outcomes in [STAGING-E2E-RESULTS.md](./STAGING-E2E-RESULTS.md). Run only on approved staging; do not treat Vitest green as proof of live RPC/RLS behaviour.
 
 ## Locale catalogs
 
@@ -39,7 +40,9 @@ After adding or changing `<Tx>` / `<TxServer>` strings in components, run `npm r
 
 ## CI checks
 
-GitHub Actions (`.github/workflows/ci.yml`) runs: `npm run test`, `npm run lint`, `npm run typecheck`, `npm run build`. Playwright is not in CI by default (heavier, env-dependent).
+GitHub Actions (`.github/workflows/ci.yml`) runs five parallel jobs: `test`, `lint`, `typecheck`, `build`, and `e2e` (Playwright Chromium). Placeholder Supabase env is used for build/e2e.
+
+**Staging HTTP checks** (partial [STAGING-E2E-TEST-PLAN.md](./STAGING-E2E-TEST-PLAN.md)): with `npm run dev` running, `npm run test:staging-e2e` (optional `STAGING_E2E_BASE_URL`, `STAGING_E2E_SERVICE_DATE`).
 
 ## Real-time updates
 

@@ -26,7 +26,7 @@ You can deploy to production with credentials set and **`GET /api/bookings/statu
 **Optional (leave unset until approved):**
 
 - `NOTIFICATIONS_*` — sending stays off; health reports `readyToSend: false`
-- `RATE_LIMIT_BACKEND=distributed` — falls back to in-memory until a shared store is wired
+- `RATE_LIMIT_BACKEND=distributed` + `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` — shared limits across instances (falls back to in-memory if URL/token missing)
 - `STAFF_DEMO_RESERVATIONS=true` — **do not enable in production**
 
 After deploy, verify:

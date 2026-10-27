@@ -1,6 +1,6 @@
 # SAGARDI master roadmap (Iturrieta Sagardotegia)
 
-Last updated: **2026-10-27** (completion sprint audit). **No live E2E** against production Supabase unless explicitly recorded in your deployment log. Staging manual script: [STAGING-E2E-TEST-PLAN.md](./STAGING-E2E-TEST-PLAN.md).
+Last updated: **2026-10-27** (scorecard completion sprint). Staging manual script: [STAGING-E2E-TEST-PLAN.md](./STAGING-E2E-TEST-PLAN.md). Latest run log: [STAGING-E2E-RESULTS.md](./STAGING-E2E-RESULTS.md) (live booking **not yet proven** on staging in this workspace).
 
 ## Status legend
 
@@ -16,34 +16,36 @@ Last updated: **2026-10-27** (completion sprint audit). **No live E2E** against 
 | # | Area | Status | Notes |
 |---|------|--------|-------|
 | 1 | Marketing site | ✅ | Static pages complete |
-| 2 | Booking + DB | 🟡 | Code path complete; live requires migration + seed + service role |
+| 2 | Booking + DB | 🟡 | Code path complete; live requires migration apply + seed + service role |
 | 3 | Manage booking | 🟡 | Lookup/cancel wired; no guest date/party edits (by design) |
 | 4 | Staff auth + reservations | ✅ | Mutations via server actions + RLS |
-| 5 | Restaurant ops DB | 🟡 | Migration in repo; applied on linked staging project when `live: true` locally |
-| 6 | Staff operations UI | ✅ | Hours, shifts, closures, tables, owner timezone editor |
+| 5 | Restaurant ops DB | ✅ | Migrations in repo through `20261027170000_fix_capacity_coalesce.sql`; apply on target project |
+| 6 | Staff operations UI | ✅ | Hours, shifts, closures, tables, floor plan, owner timezone editor |
 | 7 | Closure-aware booking | ✅ | Server pre-check + `/api/bookings/availability`; RPC final |
 | 8 | Customer copy alignment | ✅ | Book, FAQ, home CTA use readiness |
 | 9 | Runbook + launch checklist | ✅ | `docs/operations-setup.md`, `docs/LAUNCH-CHECKLIST.md` |
 | 10 | Notifications | 🟡 | Provider boundary + tests; **no outbound send** until Resend (or other) implemented |
-| 11 | Distributed rate limits | 🟡 | In-memory default; `RATE_LIMIT_BACKEND=distributed` falls back until KV/Redis wired |
-| 12 | Automated flow tests | 🟡 | Vitest for booking, availability, lookup, cancel, dispatch, rate limits; no live DB E2E |
-| 12b | E2E test suite | 🟡 | Vitest unit tests + Playwright `e2e/`; layout in `docs/TESTING.md`; staging manual in `STAGING-E2E-TEST-PLAN.md` |
+| 11 | Distributed rate limits | 🟡 | Upstash Redis adapter wired; needs REST URL/token in deploy |
+| 12 | Automated flow tests | 🟡 | Vitest incl. booking RPC grant contract + live optional; no staging E2E pass recorded |
+| 12b | E2E test suite | 🟡 | Vitest + Playwright `e2e/`; CI runs unit/lint/tsc/build (4 jobs) |
 | 13 | Legal / privacy page | 🟡 | Draft at `/legal` with farm facts; binding text needs legal review |
+| 14 | CI / hardening | ✅ | GitHub Actions (test, lint, typecheck, build); security headers in `next.config.ts` |
 
 ## Completed application work (recent)
 
-- **2026-10-27:** Removed `__MACOSX` zip debris; `.gitignore` + Vitest/ESLint excludes; restored green `npm run test` / `lint` / `build`; added missing `.env.example`; staging E2E test plan doc.
+- **2026-10-27:** Parallel CI jobs; HTTP security headers; booking RPC `REVOKE`/`GRANT` documented ([booking-rpc-grants.md](./booking-rpc-grants.md)) + Vitest contract; Upstash Redis rate-limit store; staging E2E results log (blocked pending credentials).
+- **2026-10-27:** Removed `__MACOSX` zip debris; Vitest/ESLint excludes; `.env.example`; staging E2E test plan doc.
 - Operations forms: inline server-action errors, preserved create values, pending states, delete/toggle via `useActionState`.
 - Owner-only **business timezone** editor (`business_settings.timezone`) with IANA validation.
 - Notification **provider boundary** (`lib/notifications/provider.ts`, Resend stub) + dispatch tests.
-- Rate-limit **store adapter** (`lib/api/rate-limit-store.ts`) with production limitations documented.
+- Rate-limit **store adapter** (`lib/api/rate-limit-store.ts`, `lib/api/rate-limit-upstash.ts`).
 - `/legal` draft using `site-config` contact/address; explicit list of owner/legal gaps.
 
 ## Flow audit (application code)
 
 | Flow | Authorization | Validation / concurrency | Gaps |
 |------|---------------|---------------------------|------|
-| `POST /api/bookings` | Service role server-only | Rate limit, `validateBookingRequest`, readiness, closure pre-check, RPC + DB locks | No live E2E; in-memory rate limit |
+| `POST /api/bookings` | Service role server-only | Rate limit, `validateBookingRequest`, readiness, closure pre-check, RPC + DB locks | No staging E2E pass logged |
 | `GET /api/bookings/availability` | Public read | Rate limit, closure + readiness | Same |
 | Manage lookup/cancel | Service role | Rate limit, contact match, cancel eligibility, optimistic `updated_at` | No email proof of cancel |
 | Staff reservations | Auth + staff profile + RLS | Server actions, status rules | Demo route separate |
@@ -56,8 +58,9 @@ Last updated: **2026-10-27** (completion sprint audit). **No live E2E** against 
 
 - [x] App returns 503 when service role missing.
 - [x] Readiness and closure checks before RPC.
+- [x] Booking RPC EXECUTE grants documented and covered by Vitest (optional live anon test).
 - [ ] `GET /api/bookings/status` → `live: true` on seeded DB (manual).
-- [ ] Successful book returns `ITU-…` reference (manual).
+- [ ] Successful book returns `ITU-…` reference (manual — see [STAGING-E2E-RESULTS.md](./STAGING-E2E-RESULTS.md)).
 
 ### Operations
 
@@ -77,17 +80,19 @@ Last updated: **2026-10-27** (completion sprint audit). **No live E2E** against 
 
 - [x] Guest errors avoid PII and closure reasons.
 - [x] Health endpoint for config smoke test.
-- [ ] Distributed rate limiting for multi-instance (shared store not wired).
+- [x] Response security headers (Next.js `headers()`).
+- [x] CI: test, lint, typecheck, build.
+- [ ] Upstash credentials on multi-instance deploy (adapter ready).
 - [ ] Final legal/privacy text on `/legal`.
 
 ## Critical path to live booking
 
-1. ⛔ Approve and apply migrations through `20261027170000_fix_capacity_coalesce.sql` (includes operations schema, floor plan, capacity coalesce fix).
-2. ⛔ Seed `business_settings`, `weekly_hours`, `service_shifts`, `restaurant_tables` (farm-confirmed values).
+1. ⛔ Approve and apply migrations through `20261027170000_fix_capacity_coalesce.sql` on target Supabase project.
+2. ⛔ Seed `business_settings`, `weekly_hours`, `service_shifts`, `restaurant_tables` (farm-confirmed values or guarded staging demo).
 3. ⛔ Set `SUPABASE_SECRET_KEY` on server (legacy `SUPABASE_SERVICE_ROLE_KEY` still read if present).
 4. ⛔ Create staff Auth user(s) + `staff_profiles`.
 5. 🟡 Verify `GET /api/bookings/status` → `live: true`.
-6. 📋 Staging manual checklist (`docs/operations-setup.md` §7).
+6. 📋 Complete staging manual checklist and record in [STAGING-E2E-RESULTS.md](./STAGING-E2E-RESULTS.md).
 
 ## Remaining blockers (exact)
 
@@ -95,10 +100,11 @@ Last updated: **2026-10-27** (completion sprint audit). **No live E2E** against 
 |---------|----------------|
 | Migration not on target DB | Approve SQL apply |
 | No operational seed | Run reviewed seed SQL |
-| Missing service role in deploy env | Configure secret |
+| Missing service role in deploy env | Configure `SUPABASE_SECRET_KEY` |
 | No staff profiles | Auth user + profile row |
 | Email confirmations | Approve provider + finish Resend send |
-| Multi-instance rate limit | Implement shared store behind `RATE_LIMIT_BACKEND` |
+| Multi-instance rate limit | Set Upstash REST env vars with `RATE_LIMIT_BACKEND=distributed` |
+| Staging E2E proof | Run plan on approved staging; update results log |
 | Legal copy | Farm/legal review of `/legal` checklist items |
 
 ## Admin UI audit (hours, shifts, closures, tables)
@@ -114,6 +120,5 @@ Last updated: **2026-10-27** (completion sprint audit). **No live E2E** against 
 ## Next safe code tasks
 
 - Resend HTTP implementation once credentials and templates exist.
-- Wire Redis/KV into `createDistributedRateLimitStore` when infrastructure is chosen.
+- Playwright guest booking against staging (optional CI job with secrets).
 - Middleware → proxy codemod when upgrading Next.js deploy pipeline.
-- Automated E2E against staging Supabase (optional CI job).

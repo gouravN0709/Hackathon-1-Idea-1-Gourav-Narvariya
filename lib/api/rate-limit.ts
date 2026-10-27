@@ -4,13 +4,13 @@ export type RateLimitResult =
   | { ok: true }
   | { ok: false; retryAfterSeconds: number };
 
-export function checkRateLimit(
+export async function checkRateLimit(
   key: string,
   limit: number,
   windowMs: number,
   now = Date.now(),
-): RateLimitResult {
-  return getRateLimitStore().check(key, limit, windowMs, now);
+): Promise<RateLimitResult> {
+  return await getRateLimitStore().check(key, limit, windowMs, now);
 }
 
 export function clientIpFromRequest(request: Request): string {
