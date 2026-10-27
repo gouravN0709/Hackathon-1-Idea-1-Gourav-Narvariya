@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Iturrieta Sagardotegia — Complete Brand Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+
+:root {
+  --surface: #fff8f0;
+  --surface-container-low: #fbf3e5;
+  --surface-container: #f5eddf;
+  --primary: #132f1d;
+  --primary-container: #294632;
+  --secondary: #875124;
+  --on-surface: #1e1b13;
+  --on-surface-variant: #424842;
+  --outline-variant: #c2c8c0;
+  --font-serif: "Newsreader", "Times New Roman", serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --max-width: 48rem;
+  --page-max: 1280px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--on-surface);
+  background: var(--surface);
+}
+:focus-visible {
+  outline: 2px solid var(--primary-container);
+  outline-offset: 3px;
+}
+.doc-site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid color-mix(in srgb, var(--primary-container) 12%, transparent);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(12px);
+}
+.doc-site-header__inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.doc-wordmark { text-decoration: none; color: inherit; }
+.doc-wordmark__name {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+.doc-wordmark__descriptor {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+.doc-nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; font-size: 13px; }
+.doc-nav a { color: var(--on-surface-variant); text-decoration: none; }
+.doc-nav a:hover { color: var(--primary); }
+.doc-article { max-width: var(--max-width); }
+.doc-article h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--primary);
+  margin: 0 0 1rem;
+}
+.doc-article h2 {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--primary);
+  margin: 2.5rem 0 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--outline-variant);
+}
+.doc-article h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--primary);
+  margin: 1.75rem 0 0.5rem;
+}
+.doc-article p { margin: 0 0 1rem; }
+.doc-article ul, .doc-article ol { margin: 0 0 1rem; padding-left: 1.35rem; }
+.doc-article li { margin-bottom: 0.35rem; }
+.doc-article a { color: var(--secondary); text-decoration: underline; text-underline-offset: 3px; }
+.doc-article a:hover { color: var(--primary); }
+.doc-article hr { border: none; border-top: 1px solid var(--outline-variant); margin: 2rem 0; }
+.doc-article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+  font-size: 14px;
+}
+.doc-article th, .doc-article td {
+  border: 1px solid var(--outline-variant);
+  padding: 0.5rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+.doc-article th { background: var(--surface-container); font-weight: 600; color: var(--primary); }
+.doc-article tr:nth-child(even) td { background: var(--surface-container-low); }
+.doc-article code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.88em;
+  background: var(--surface-container);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+.doc-article pre {
+  overflow-x: auto;
+  background: var(--primary);
+  color: #f5eddf;
+  padding: 1rem 1.15rem;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 1rem 0 1.5rem;
+}
+.doc-article pre code { background: none; padding: 0; color: inherit; }
+.doc-footer {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 2.5rem;
+  border-top: 1px solid var(--outline-variant);
+  font-size: 13px;
+  color: var(--on-surface-variant);
+}
+
+.doc-layout {
+  display: grid;
+  gap: 2rem;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+@media (min-width: 960px) {
+  .doc-layout {
+    grid-template-columns: 220px minmax(0, 1fr);
+    align-items: start;
+  }
+  .doc-toc {
+    position: sticky;
+    top: 5rem;
+  }
+}
+
+.doc-toc {
+  padding: 1rem;
+  border-radius: 12px;
+  background: var(--surface-container-low);
+  border: 1px solid color-mix(in srgb, var(--outline-variant) 55%, transparent);
+  font-size: 14px;
+}
+
+.doc-toc__title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin: 0 0 0.75rem;
+}
+
+.doc-toc ol {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.doc-toc li {
+  margin-bottom: 0.4rem;
+}
+
+.doc-toc a {
+  color: var(--on-surface-variant);
+  text-decoration: none;
+}
+
+.doc-toc a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.doc-part {
+  scroll-margin-top: 5.5rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--outline-variant);
+}
+
+.doc-part:last-child {
+  border-bottom: none;
+}
+
+.doc-part__banner {
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.15rem;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #f5eddf;
+}
+
+.doc-part__banner h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+.doc-part__banner p {
+  margin: 0.35rem 0 0;
+  font-size: 14px;
+  color: #e9e2d4;
+}
+
+.doc-hero {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 0;
+}
+
+.doc-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-weight: 400;
+  color: var(--primary);
+  margin: 0 0 0.5rem;
+}
+
+.doc-hero__tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.125rem;
+  color: var(--secondary);
+  margin: 0 0 1rem;
+}
+
+.doc-hero__lead {
+  max-width: 40rem;
+  color: var(--on-surface-variant);
+  margin: 0;
+}
+
+.doc-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.doc-swatch {
+  width: 3.5rem;
+  height: 2.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--outline-variant);
+}
+
+    </style>
+  </head>
+  <body>
+    <header class="doc-site-header">
+      <div class="doc-site-header__inner">
+        <a class="doc-wordmark" href="#top">
+          <span class="doc-wordmark__name">Iturrieta</span>
+          <span class="doc-wordmark__descriptor">Sagardotegia · Basque Country</span>
+        </a>
+        <nav class="doc-nav" aria-label="Sections">
+          <a href="#quick-reference">Quick</a>
+          <a href="#guidelines">Guidelines</a>
+          <a href="#audit">Audit</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="doc-hero">
+      <h1>Complete brand guide</h1>
+      <p class="doc-hero__tagline">Rooted in the land. Made to be shared.</p>
+      <p class="doc-hero__lead">
+        One document: identity, colors, typography, voice, UI rules, and implementation audit for the
+        Iturrieta website. October 2026.
+      </p>
+      <div class="doc-swatches" aria-hidden="true">
+        <div class="doc-swatch" style="background:#fff8f0" title="surface"></div>
+        <div class="doc-swatch" style="background:#132f1d" title="primary"></div>
+        <div class="doc-swatch" style="background:#294632" title="primary-container"></div>
+        <div class="doc-swatch" style="background:#875124" title="secondary"></div>
+        <div class="doc-swatch" style="background:#e0e4d3" title="tertiary-fixed"></div>
+      </div>
+    </div>
+
+    <div class="doc-layout">
+      <aside class="doc-toc" aria-label="Table of contents">
+        <p class="doc-toc__title">Contents</p>
+        <ol>
+              <li><a href="#quick-reference">Quick reference</a></li>
+              <li><a href="#guidelines">Full guidelines</a></li>
+              <li><a href="#audit">Audit & gaps</a></li>
+        </ol>
+      </aside>
+      <div class="doc-sections">
+        
+        <section class="doc-part" id="quick-reference" aria-labelledby="quick-reference-heading">
+          <div class="doc-part__banner">
+            <h2 id="quick-reference-heading">Quick reference</h2>
+            <p>At-a-glance reference for daily work.</p>
+          </div>
+          <article class="doc-article doc-content">
+<hr>
+<h2>Identity</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Name</strong></td>
+<td>Iturrieta</td>
+</tr>
+<tr>
+<td><strong>Full name</strong></td>
+<td>Iturrieta Sagardotegia</td>
+</tr>
+<tr>
+<td><strong>Descriptor</strong></td>
+<td>Sagardotegia · Basque Country</td>
+</tr>
+<tr>
+<td><strong>Business</strong></td>
+<td>Family-run Basque cider house and farm, Caserío Goikola, Aramaio, Spain</td>
+</tr>
+<tr>
+<td><strong>Tagline</strong></td>
+<td>Rooted in the land. Made to be shared.</td>
+</tr>
+<tr>
+<td><strong>Hero line</strong></td>
+<td>From our apple trees to your table.</td>
+</tr>
+<tr>
+<td><strong>Positioning</strong></td>
+<td>Authentic, grounded, welcoming, artisanal, nature-connected, contemporary heritage</td>
+</tr>
+</tbody></table>
+<p><strong>Config source:</strong> <code>lib/site-config.ts</code></p>
+<hr>
+<h2>Colors (implemented tokens)</h2>
+<p>Use Tailwind semantic classes from <code>app/globals.css</code> — not raw hex in components.</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Class examples</th>
+<th>Hex (token)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Page background</td>
+<td><code>bg-surface</code></td>
+<td><code>#fff8f0</code></td>
+</tr>
+<tr>
+<td>Primary text</td>
+<td><code>text-on-surface</code></td>
+<td><code>#1e1b13</code></td>
+</tr>
+<tr>
+<td>Muted text</td>
+<td><code>text-on-surface-variant</code></td>
+<td><code>#424842</code></td>
+</tr>
+<tr>
+<td>Deep green (hero, dark bands)</td>
+<td><code>bg-primary</code>, <code>text-primary</code></td>
+<td><code>#132f1d</code></td>
+</tr>
+<tr>
+<td>Forest green (primary CTA)</td>
+<td><code>bg-primary-container</code></td>
+<td><code>#294632</code> ✓ brief match</td>
+</tr>
+<tr>
+<td>Amber / cider accent</td>
+<td><code>text-secondary</code>, <code>bg-secondary</code></td>
+<td><code>#875124</code></td>
+</tr>
+<tr>
+<td>Light amber highlight</td>
+<td><code>text-secondary-fixed-dim</code></td>
+<td><code>#ffb781</code></td>
+</tr>
+<tr>
+<td>Sage panels</td>
+<td><code>bg-tertiary-fixed</code>, <code>bg-surface-container-*</code></td>
+<td><code>#e0e4d3</code>, <code>#f5eddf</code>, etc.</td>
+</tr>
+<tr>
+<td>Errors</td>
+<td><code>text-error</code>, <code>bg-error-container</code></td>
+<td><code>#ba1a1a</code>, <code>#ffdad6</code></td>
+</tr>
+</tbody></table>
+<p><strong>Brief palette note:</strong> <code>#F3EBDD</code>, <code>#B77948</code>, <code>#D8DCCB</code>, <code>#292B25</code> are <strong>not</strong> exact token values today; <code>#294632</code> matches <strong>primary-container</strong>.</p>
+<hr>
+<h2>Typography</h2>
+<table>
+<thead>
+<tr>
+<th>Use</th>
+<th>Font</th>
+<th>Utility</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>H1 hero, H2 sections</td>
+<td>Newsreader</td>
+<td><code>font-display-hero</code>, <code>font-headline-lg</code></td>
+</tr>
+<tr>
+<td>Body</td>
+<td>Manrope</td>
+<td><code>font-body-md</code>, <code>font-body-lg</code></td>
+</tr>
+<tr>
+<td>Eyebrows, buttons, labels</td>
+<td>Manrope</td>
+<td><code>font-label-sm</code>, <code>font-label-lg</code> (uppercase + tracking)</td>
+</tr>
+<tr>
+<td>Wordmark (header)</td>
+<td>Newsreader editorial</td>
+<td><code>font-title-editorial</code></td>
+</tr>
+</tbody></table>
+<p>Loaded in <code>app/layout.tsx</code> via <code>next/font/google</code>.</p>
+<hr>
+<h2>Logo</h2>
+<p><strong>Text wordmark only</strong> (no logo file in repo): name + descriptor in header; legal name in footer. Do not invent logo variants until assets exist.</p>
+<hr>
+<h2>Voice (short)</h2>
+<ul>
+<li>Warm, clear, grounded, confident, welcoming.</li>
+<li>Prefer concrete place and experience words (valley, cellar, txotx, orchard) over luxury hype.</li>
+<li>No fake urgency; no unverified organic/certification claims in <strong>new</strong> copy.</li>
+<li>Primary CTA: <strong>Book a Visit</strong>.</li>
+</ul>
+<hr>
+<h2>UI essentials</h2>
+<ul>
+<li><strong>Container:</strong> max 1280px — <code>SiteContainer</code></li>
+<li><strong>Section padding:</strong> <code>py-space-2xl</code></li>
+<li><strong>Corners:</strong> <code>rounded-lg</code> / <code>rounded-xl</code> / <code>rounded-2xl</code></li>
+<li><strong>Primary button:</strong> <code>ButtonLink</code> variant <code>primary</code> or <code>hero</code> on dark hero</li>
+<li><strong>Images:</strong> <code>ResponsiveImage</code>, descriptive <code>alt</code>, <code>object-cover</code></li>
+<li><strong>Focus:</strong> global <code>:focus-visible</code> + component rings</li>
+<li><strong>Motion:</strong> wrap decorative motion in <code>motion-safe:</code>; respect <code>prefers-reduced-motion</code></li>
+</ul>
+<hr>
+<h2>Imagery direction</h2>
+<p>Orchards and limestone valley; cellar barrels and txotx pour; hearth food and communal tables; seasonal Basque countryside. Captions optional on blurred cream chips. Stock or placeholder photos must not be presented as verified people or locations without approval.</p>
+<hr>
+<h2>Staff vs guest</h2>
+<p>Guest = editorial + photography. Staff = same tokens, banners (<code>StaffContextBanner</code>), dense forms/tables, status badges — clarity over decoration.</p>
+<hr>
+<h2>Do / Don’t</h2>
+<table>
+<thead>
+<tr>
+<th>Do</th>
+<th>Don’t</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Use semantic color tokens</td>
+<td>Hard-code one-off hex in components</td>
+</tr>
+<tr>
+<td>Keep Manrope for UI, Newsreader for headlines</td>
+<td>Mix arbitrary third fonts</td>
+</tr>
+<tr>
+<td>Label preview/demo booking states honestly</td>
+<td>Imply reservations are saved when preview-only</td>
+</tr>
+<tr>
+<td>Confirm certifications/dates with owner</td>
+<td>Add new DOP/organic claims without approval</td>
+</tr>
+</tbody></table>
+
+</article>
+        </section>
+
+        <section class="doc-part" id="guidelines" aria-labelledby="guidelines-heading">
+          <div class="doc-part__banner">
+            <h2 id="guidelines-heading">Full guidelines</h2>
+            <p>Complete brand system for the website and staff tools.</p>
+          </div>
+          <article class="doc-article doc-content"><p><strong>Version:</strong> 1.0 (repository audit, October 2026)<br><strong>Audience:</strong> Designers, developers, copywriters, and contributors to the public website and staff tools.</p>
+<p>These guidelines describe the brand <strong>as implemented</strong> in this Next.js project, plus <strong>recommendations</strong> where the codebase and a simplified marketing palette diverge. They are not a legal document and do not certify organic status, DOP membership, or historical facts unless the business owner confirms them.</p>
+<p><strong>Sections in this document:</strong> <a href="#quick-reference">Quick reference</a>, <a href="#guidelines">Full guidelines</a>, <a href="#audit">Audit &amp; gaps</a>.</p>
+<hr>
+<h2>1. Brand foundation</h2>
+<h3>1.1 Name and descriptor</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Brand name</td>
+<td><strong>Iturrieta</strong></td>
+<td><code>lib/site-config.ts</code> → <code>siteConfig.name</code></td>
+</tr>
+<tr>
+<td>Legal / formal name</td>
+<td><strong>Iturrieta Sagardotegia</strong></td>
+<td><code>siteConfig.legalName</code></td>
+</tr>
+<tr>
+<td>Descriptor</td>
+<td><strong>Sagardotegia · Basque Country</strong></td>
+<td><code>siteConfig.descriptor</code></td>
+</tr>
+<tr>
+<td>Browser title</td>
+<td>Iturrieta Sagardotegia | Basque Cider House</td>
+<td><code>siteConfig.title</code></td>
+</tr>
+</tbody></table>
+<p><strong>Typography in UI:</strong> The header stacks the name (editorial serif) above the descriptor (small caps Manrope, uppercase tracking). Footer uses the legal name as a headline-sized line.</p>
+<h3>1.2 Business facts (from configuration)</h3>
+<ul>
+<li><strong>Type:</strong> Family-run Basque cider house (<em>sagardotegia</em>) and farm  </li>
+<li><strong>Location:</strong> Caserío Goikola, Barrio Barajuen 12, 01169 Aramaio, Araba/Álava, Basque Country, Spain  </li>
+<li><strong>Contact:</strong> Phone and emails in <code>lib/site-config.ts</code> → <code>contact</code> (use config, not hard-coded duplicates)  </li>
+<li><strong>Service:</strong> Dining <strong>Thursday – Sunday</strong>, <strong>13:00 – 16:00</strong> (<code>diningHours</code>)  </li>
+<li><strong>Txotx season label:</strong> <strong>January 15 – May 18</strong> (<code>txotxSeasonLabel</code>)</li>
+</ul>
+<h3>1.3 Positioning and principles</h3>
+<p><strong>Established positioning (creative brief + site tone):</strong></p>
+<ul>
+<li>Authentic, grounded, welcoming, artisanal, connected to land and season  </li>
+<li>Contemporary presentation without losing heritage  </li>
+<li>Shared meals, natural cider, orchard-to-table storytelling  </li>
+<li>The <strong>txotx</strong> ritual as a defining seasonal hospitality experience</li>
+</ul>
+<p><strong>Design principles derived from the UI:</strong></p>
+<ol>
+<li><strong>Land and light</strong> — Warm off-white surfaces, deep greens, amber accents, photography of valley and cellar.  </li>
+<li><strong>Editorial hospitality</strong> — Serif headlines, generous whitespace, chapter-style eyebrows.  </li>
+<li><strong>Honest utility</strong> — Booking and staff tools state preview/live/demo modes clearly.  </li>
+<li><strong>Accessible calm</strong> — Readable type, visible focus, reduced-motion respect, 44px-ish touch targets on primary controls.</li>
+</ol>
+<h3>1.4 Approved headline copy (existing)</h3>
+<table>
+<thead>
+<tr>
+<th>Use</th>
+<th>Copy</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Homepage hero</td>
+<td><strong>From our apple trees</strong> / <em>to your table.</em> (second line italic)</td>
+</tr>
+<tr>
+<td>Tagline</td>
+<td><strong>Rooted in the land. Made to be shared.</strong></td>
+</tr>
+<tr>
+<td>Meta description</td>
+<td>Family cider house, farm, natural cider, txotx, visit info (<code>siteConfig.description</code>)</td>
+</tr>
+</tbody></table>
+<h3>1.5 Story themes (from site content — not independently verified)</h3>
+<p>The site narrates organic/biodynamic orchards, wild fermentation, Basque cultivars, family stewardship, and txotx conviviality. Treat detailed claims (certifications, cultivar counts, named generations, equipment dates) as <strong>marketing copy</strong> until the owner confirms them. See <a href="#12-owner-confirmation-required">Section 12</a>.</p>
+<hr>
+<h2>2. Logo and brand marks</h2>
+<h3>2.1 Current implementation</h3>
+<p>There is <strong>no standalone logo file</strong> in <code>public/</code>. The brand mark is a <strong>text wordmark</strong>:</p>
+<pre><code>        &lt;Link href=&quot;/&quot; className=&quot;group flex flex-col text-left&quot;&gt;
+          &lt;span className=&quot;font-title-editorial text-title-editorial font-medium tracking-tight text-primary transition-colors group-hover:text-primary-container&quot;&gt;
+            {siteConfig.name}
+          &lt;/span&gt;
+          &lt;span className=&quot;font-label-sm text-label-sm tracking-widest text-secondary uppercase&quot;&gt;
+            {siteConfig.descriptor}
+          &lt;/span&gt;
+        &lt;/Link&gt;
+</code></pre>
+<h3>2.2 Usage rules (inferred from code)</h3>
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Treatment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Header</td>
+<td>Name <code>text-primary</code>, hover <code>text-primary-container</code>; descriptor uppercase amber (<code>text-secondary</code>)</td>
+</tr>
+<tr>
+<td>Footer</td>
+<td>Legal name in <code>headline-sm</code>, <code>text-primary</code></td>
+</tr>
+<tr>
+<td>Backgrounds</td>
+<td>Wordmark on <code>bg-surface/90</code> blurred header; ensure contrast on cream, not on busy photos without a plate</td>
+</tr>
+</tbody></table>
+<h3>2.3 Recommendations (not yet in repo)</h3>
+<ul>
+<li>Add primary logo artwork (SVG preferred) and define minimum clear space, minimum size, and reversed/monochrome rules.  </li>
+<li>Until then, do not fabricate logo variants in documentation or marketing exports.</li>
+</ul>
+<hr>
+<h2>3. Color palette</h2>
+<p>Colors are defined in <code>app/globals.css</code> as CSS variables consumed by Tailwind 4 (<code>@theme inline</code>). <strong>Always use semantic utilities</strong> (<code>bg-primary-container</code>, <code>text-on-surface</code>, etc.) in components.</p>
+<h3>3.1 Mapping: marketing brief → implementation</h3>
+<table>
+<thead>
+<tr>
+<th>Brief name</th>
+<th>Brief hex</th>
+<th>Role in brand language</th>
+<th>Implemented token</th>
+<th>Actual hex</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Forest green</td>
+<td><code>#294632</code></td>
+<td>Primary brand green, CTAs, focus</td>
+<td><code>primary-container</code></td>
+<td><strong>#294632</strong> ✓</td>
+</tr>
+<tr>
+<td>Warm cream</td>
+<td><code>#F3EBDD</code></td>
+<td>Page warmth, hospitality</td>
+<td><code>surface</code>, <code>background</code></td>
+<td><strong>#fff8f0</strong> (lighter)</td>
+</tr>
+<tr>
+<td>Cider amber</td>
+<td><code>#B77948</code></td>
+<td>Accents, eyebrows, links</td>
+<td><code>secondary</code></td>
+<td><strong>#875124</strong> (deeper)</td>
+</tr>
+<tr>
+<td>Soft sage</td>
+<td><code>#D8DCCB</code></td>
+<td>Panels, badges</td>
+<td><code>tertiary-fixed</code>, <code>surface-container-*</code></td>
+<td><strong>#e0e4d3</strong>, <strong>#f5eddf</strong>, etc.</td>
+</tr>
+<tr>
+<td>Dark text</td>
+<td><code>#292B25</code></td>
+<td>Body copy</td>
+<td><code>on-surface</code></td>
+<td><strong>#1e1b13</strong> (deeper)</td>
+</tr>
+</tbody></table>
+<p><strong>Recommendation (P1):</strong> Either update tokens to match the brief hex set or publish this mapping as the official “digital palette” so designers do not fight the codebase.</p>
+<h3>3.2 Core semantic colors (use daily)</h3>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Hex</th>
+<th>Typical use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>primary</code></td>
+<td><code>#132f1d</code></td>
+<td>Hero overlays, dark section backgrounds, hover on solid buttons</td>
+</tr>
+<tr>
+<td><code>primary-container</code></td>
+<td><code>#294632</code></td>
+<td>Primary buttons, selected radio chips, skip-link background</td>
+</tr>
+<tr>
+<td><code>secondary</code></td>
+<td><code>#875124</code></td>
+<td>Eyebrows, active nav underline, accent labels</td>
+</tr>
+<tr>
+<td><code>secondary-fixed-dim</code></td>
+<td><code>#ffb781</code></td>
+<td>Hero CTA (<code>variant=&quot;hero&quot;</code>), txotx accents on dark green</td>
+</tr>
+<tr>
+<td><code>surface</code></td>
+<td><code>#fff8f0</code></td>
+<td>Default page background</td>
+</tr>
+<tr>
+<td><code>surface-container-low</code></td>
+<td><code>#fbf3e5</code></td>
+<td>Footer, form fields, soft panels</td>
+</tr>
+<tr>
+<td><code>surface-container</code></td>
+<td><code>#f5eddf</code></td>
+<td>Cards, inset areas</td>
+</tr>
+<tr>
+<td><code>on-surface</code></td>
+<td><code>#1e1b13</code></td>
+<td>Primary body text</td>
+</tr>
+<tr>
+<td><code>on-surface-variant</code></td>
+<td><code>#424842</code></td>
+<td>Secondary paragraphs, nav default</td>
+</tr>
+<tr>
+<td><code>outline</code> / <code>outline-variant</code></td>
+<td><code>#727972</code> / <code>#c2c8c0</code></td>
+<td>Borders, placeholders</td>
+</tr>
+<tr>
+<td><code>error</code> / <code>error-container</code></td>
+<td><code>#ba1a1a</code> / <code>#ffdad6</code></td>
+<td>Validation, destructive staff states</td>
+</tr>
+</tbody></table>
+<h3>3.3 Contrast and pairing</h3>
+<p><strong>Current behavior:</strong></p>
+<ul>
+<li>Light sections: <code>text-primary</code> or <code>text-on-surface</code> on <code>surface</code> / <code>surface-container-*</code>.  </li>
+<li>Dark sections (<code>bg-primary</code>): <code>text-surface</code>, <code>text-surface-container-high</code> for body.  </li>
+<li>Primary buttons: <code>bg-primary-container</code> + <code>text-surface</code>.  </li>
+<li>Global focus: <code>outline: 2px solid primary-container</code> with offset (<code>globals.css</code>).</li>
+</ul>
+<p><strong>Target:</strong> WCAG 2.2 Level AA for text and interactive components. Contrast has <strong>not</strong> been formally certified in this repo; run checks when changing tokens.</p>
+<h3>3.4 Colors to avoid introducing</h3>
+<ul>
+<li>Neon or high-saturation accents outside the amber/green family  </li>
+<li>Pure <code>#000</code> body text on cream (use <code>on-surface</code>)  </li>
+<li>One-off hex in TSX when a semantic token exists</li>
+</ul>
+<hr>
+<h2>4. Typography</h2>
+<h3>4.1 Typefaces</h3>
+<table>
+<thead>
+<tr>
+<th>Family</th>
+<th>Role</th>
+<th>Loading</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Newsreader</strong></td>
+<td>Display hero, section headlines, editorial titles</td>
+<td><code>app/layout.tsx</code>, variable <code>--font-newsreader</code>, weights 400/500, italic allowed</td>
+</tr>
+<tr>
+<td><strong>Manrope</strong></td>
+<td>Body, labels, navigation, buttons</td>
+<td><code>--font-manrope</code>, weights 400/500/600</td>
+</tr>
+</tbody></table>
+<p>Fallbacks: <code>&quot;Times New Roman&quot;, serif</code> and system sans in token definitions.</p>
+<h3>4.2 Scale (from <code>@theme</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Desktop</th>
+<th>Mobile</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>display-hero</code></td>
+<td>64px / 72px lh</td>
+<td>40px / 48px lh</td>
+<td>Homepage H1</td>
+</tr>
+<tr>
+<td><code>headline-lg</code></td>
+<td>44px</td>
+<td>32px</td>
+<td>Section H2 (<code>SectionHeading</code>)</td>
+</tr>
+<tr>
+<td><code>headline-md</code></td>
+<td>30px</td>
+<td>—</td>
+<td>Stat numbers in hero strip</td>
+</tr>
+<tr>
+<td><code>headline-sm</code></td>
+<td>22px</td>
+<td>—</td>
+<td>Accordion questions, footer name</td>
+</tr>
+<tr>
+<td><code>body-lg</code></td>
+<td>18px</td>
+<td>—</td>
+<td>Lead paragraphs</td>
+</tr>
+<tr>
+<td><code>body-md</code></td>
+<td>15px</td>
+<td>—</td>
+<td>Default body (<code>body</code> class on layout)</td>
+</tr>
+<tr>
+<td><code>body-sm</code></td>
+<td>13px</td>
+<td>—</td>
+<td>Captions, hints</td>
+</tr>
+<tr>
+<td><code>label-lg</code></td>
+<td>13px, 0.06em tracking</td>
+<td>—</td>
+<td>Buttons, form labels (often uppercase)</td>
+</tr>
+<tr>
+<td><code>label-sm</code></td>
+<td>11px, 0.08em tracking</td>
+<td>—</td>
+<td>Eyebrows, meta</td>
+</tr>
+<tr>
+<td><code>title-editorial</code></td>
+<td>18px, 0.02em tracking</td>
+<td>—</td>
+<td>Header wordmark</td>
+</tr>
+</tbody></table>
+<h3>4.3 Hierarchy patterns</h3>
+<ol>
+<li><strong>Eyebrow</strong> — <code>font-label-sm</code>, uppercase, <code>text-secondary</code> (light) or <code>text-secondary-fixed-dim</code> (dark).  </li>
+<li><strong>Title</strong> — Newsreader, <code>headline-lg</code>, <code>font-normal</code>, tight leading.  </li>
+<li><strong>Body</strong> — Manrope <code>body-md</code> or <code>body-lg</code>, <code>text-on-surface-variant</code> for supporting copy.  </li>
+<li><strong>CTA</strong> — Manrope <code>label-lg</code>, uppercase, wide tracking.</li>
+</ol>
+<p><strong>Component:</strong> <code>SectionHeading</code> encodes eyebrows + H2 + description for marketing sections.</p>
+<h3>4.4 Recommendations</h3>
+<ul>
+<li>Align header wordmark weight with token (currently <code>font-medium</code> on a 400-weight token).  </li>
+<li>Do not add a third typeface without updating <code>globals.css</code> and this document.</li>
+</ul>
+<hr>
+<h2>5. Photography and imagery</h2>
+<h3>5.1 Direction (from asset usage)</h3>
+<p>Subjects reflected in <code>public/images/</code> and <code>site-config.ts</code>:</p>
+<ul>
+<li>Apple orchards, mist, limestone valley (<code>gallery-valley</code>, orchard stages)  </li>
+<li>Cellar barrels, txotx pour, cider production (<code>txotx.jpg</code>, <code>orchard-cellar</code>, menu gallery)  </li>
+<li>Food and fire: txuleton, table settings, Idiazabal (<code>gallery-txuleton</code>, menu images)  </li>
+<li>Guest experiences: orchard walks, harvest press, celebrations  </li>
+<li>Farm story portrait and family narrative (<code>farm-portrait.jpg</code>, our-farm section)</li>
+</ul>
+<h3>5.2 Technical treatment</h3>
+<ul>
+<li><strong>Component:</strong> <code>ResponsiveImage</code> — Next.js Image, cover crop, required <code>alt</code>.  </li>
+<li><strong>Hero:</strong> Low-opacity desaturated photo + green gradient (<code>hero-section</code>).  </li>
+<li><strong>Cards:</strong> <code>rounded-lg</code> / <code>rounded-xl</code>, subtle shadow, optional hover scale with <code>motion-safe</code>.  </li>
+<li><strong>Captions:</strong> Small label on <code>bg-surface/80</code> + backdrop blur (<code>gallery-section</code>).  </li>
+<li><strong>Aspect ratios:</strong> Mixed — portrait <code>4/5</code> in farm story, fixed heights in gallery grid, full-bleed heroes.</li>
+</ul>
+<h3>5.3 Accessibility and ethics</h3>
+<ul>
+<li>Write <strong>specific</strong> alt text (subject, place, action) as in existing config strings.  </li>
+<li>Do not state that imagery depicts verified real individuals unless the business confirms releases.  </li>
+<li>Avoid text baked into images for critical information.</li>
+</ul>
+<hr>
+<h2>6. Layout, spacing, and UI principles</h2>
+<h3>6.1 Grid and width</h3>
+<ul>
+<li><strong>Max content width:</strong> 1280px (<code>SiteContainer</code>, header inner wrapper).  </li>
+<li><strong>Horizontal padding:</strong> <code>px-margin-mobile</code> → <code>md:px-margin-tablet</code> → <code>lg:px-margin</code>.  </li>
+<li><strong>Section vertical rhythm:</strong> <code>py-space-2xl</code> common; hero uses <code>min-h-[92vh]</code>.  </li>
+<li><strong>Anchors:</strong> <code>scroll-mt-24</code> on sections linked from nav (<code>#story</code>, <code>#txotx</code>, etc.).</li>
+</ul>
+<h3>6.2 Spacing tokens</h3>
+<p>From <code>globals.css</code>: <code>space-xs</code> through <code>space-2xl</code>, plus <code>gutter</code>, <code>margin</code> breakpoints. Prefer these over arbitrary Tailwind spacing when extending the system.</p>
+<h3>6.3 Radius and elevation</h3>
+<ul>
+<li>Buttons: <code>rounded</code> or <code>rounded-lg</code>.  </li>
+<li>Cards/panels: <code>rounded-xl</code> / <code>rounded-2xl</code>.  </li>
+<li>Shadows: soft green-tinted rgba shadows on header, footer, primary buttons — keep subtle.</li>
+</ul>
+<h3>6.4 Icons</h3>
+<ul>
+<li><strong>Set:</strong> <code>components/ui/icon.tsx</code> — stroke SVGs (navigation, food, nature, service).  </li>
+<li><strong>Size:</strong> Often <code>h-4 w-4</code> to <code>h-6 w-6</code> beside labels.  </li>
+<li>Do not mix unrelated icon libraries without a migration plan.</li>
+</ul>
+<hr>
+<h2>7. Website UI by surface</h2>
+<h3>7.1 Header and navigation</h3>
+<ul>
+<li>Fixed top, blurred cream background, light shadow.  </li>
+<li>Desktop nav from <code>xl</code>; items from <code>navItems</code> in site config.  </li>
+<li>Active page: semibold + amber bottom border.  </li>
+<li>Primary CTA: <code>ButtonLink</code> <code>primary</code> — “Book a Visit”.  </li>
+<li>Mobile: hamburger, full-width panel, same links + CTA + tagline.</li>
+</ul>
+<h3>7.2 Homepage</h3>
+<p>Sections in order: Hero → Farm story → Orchard → Txotx → Menu teaser → Experiences → Gallery → Visit → Booking CTA (with readiness wrapper).</p>
+<h3>7.3 Marketing pages</h3>
+<ul>
+<li><strong>Our Farm:</strong> Breadcrumb, hero, heritage/process/family/orchard chapters, map.  </li>
+<li><strong>Menu &amp; Cider:</strong> Hero, dining courses, txotx experience, natural cider, galleries, booking CTA.  </li>
+<li><strong>Visit:</strong> Hero, hours, season, directions, contact, inquiry form (client-side validation).  </li>
+<li><strong>FAQ:</strong> Accordion-driven topics.  </li>
+<li><strong>Legal:</strong> Policy text (not redesigned in brand pass).</li>
+</ul>
+<h3>7.4 Booking (<code>/book</code>)</h3>
+<ul>
+<li>Hero reflects live vs preview readiness.  </li>
+<li>Form: date, arrival windows, party counters, contact fields, consent, preview/review tabs.  </li>
+<li><strong>Preview mode:</strong> Copy states live submission is off until backend readiness.  </li>
+<li><strong>Live mode:</strong> Copy explains secure save and reference issuance.  </li>
+<li>Errors: summary in <code>error-container</code>; field-level <code>text-error</code>.  </li>
+<li>Success: reference number focus management (see component implementation).</li>
+</ul>
+<h3>7.5 Manage booking</h3>
+<ul>
+<li>Lookup by reference + contact; multi-step panel with hero imagery.  </li>
+<li>Reuses staff status labels for display; guest cancel flow with reasons.  </li>
+<li>Input focus uses custom ring shadow (slightly different from booking form — harmonization recommended P2).</li>
+</ul>
+<h3>7.6 Staff operations</h3>
+<ul>
+<li>Routes under <code>/staff/*</code>; layout metadata sets <code>robots: noindex</code>.  </li>
+<li>Uses same global header/footer as public site (known UX quirk).  </li>
+<li><code>StaffContextBanner</code> communicates demo, staging, live, denied, info.  </li>
+<li>Dashboards: bordered panels, filters, status badges (<code>reservation-status.ts</code>), action forms.  </li>
+<li>Bilingual eyebrow example: “Staff · Langileak” on operations heading.</li>
+</ul>
+<p><strong>Staff design intent:</strong> Clarity, scanability, honest mode banners — minimal decoration, same color tokens.</p>
+<hr>
+<h2>8. Components and variants</h2>
+<h3>8.1 Buttons (<code>ButtonLink</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>hero</code></td>
+<td>Amber CTA on dark hero</td>
+</tr>
+<tr>
+<td><code>primary</code></td>
+<td>Header and mobile book CTA</td>
+</tr>
+<tr>
+<td><code>solid</code></td>
+<td>Dark green compact actions</td>
+</tr>
+<tr>
+<td><code>amber</code></td>
+<td>Accent on green panels (txotx)</td>
+</tr>
+<tr>
+<td><code>soft</code></td>
+<td>Neutral secondary on light bg</td>
+</tr>
+<tr>
+<td><code>ghost</code></td>
+<td>Text CTA on dark imagery</td>
+</tr>
+<tr>
+<td><code>underline</code> / <code>editorial</code></td>
+<td>Footer and inline text links with amber underline</td>
+</tr>
+<tr>
+<td><code>glass</code></td>
+<td>Frosted on imagery</td>
+</tr>
+</tbody></table>
+<p>All use uppercase label typography unless noted.</p>
+<h3>8.2 Forms</h3>
+<p><strong>Booking pattern:</strong></p>
+<ul>
+<li>Labels: uppercase <code>label-lg</code>, <code>text-primary</code>.  </li>
+<li>Inputs: <code>min-h-11</code>, <code>rounded-lg</code>, <code>bg-surface-container-low</code>, focus ring <code>primary</code>.  </li>
+<li>Invalid: <code>ring-error</code>, <code>aria-invalid</code>, linked error text.</li>
+</ul>
+<p><strong>Recommendation:</strong> Extract shared <code>inputClass</code> for booking, visit inquiry, manage-booking, staff forms.</p>
+<h3>8.3 Cards and content blocks</h3>
+<ul>
+<li>Split layouts: image + copy in <code>grid-cols-12</code>.  </li>
+<li>Dark feature band: <code>bg-primary</code> + <code>text-surface</code> (txotx block).  </li>
+<li>Footer contact card: <code>bg-surface-container</code> inset.</li>
+</ul>
+<hr>
+<h2>9. Brand voice and copywriting</h2>
+<h3>9.1 Personality</h3>
+<p>Warm, clear, grounded, confident, welcoming — like a host explaining the valley, not a luxury resort brochure.</p>
+<h3>9.2 Vocabulary</h3>
+<p><strong>Prefer:</strong> orchard, cellar, kupela, txotx, sagardoa, hearth, valley, season, share, gather, family farm, Aramaio.<br><strong>Use carefully:</strong> organic, biodynamic, DOP, certified — only if owner-approved and legally accurate.<br><strong>Avoid:</strong> “Exclusive luxury escape”, “once-in-a-lifetime”, fake countdown urgency, unsupported superlatives.</p>
+<h3>9.3 Patterns</h3>
+<ul>
+<li><strong>Eyebrows:</strong> Chapter or category + optional middot separator (<code>01 · Flora</code>, <code>Chapter I · The Guardians</code>).  </li>
+<li><strong>Headings:</strong> Sentence case or natural phrases; Newsreader does not need ALL CAPS.  </li>
+<li><strong>CTAs:</strong> Verb-first, short — “Book a Visit”, “Explore the Txotx Ritual”, “View Directions &amp; Shuttle Service”.  </li>
+<li><strong>Booking honesty:</strong> Distinguish preview vs live (existing strings in <code>booking-form.tsx</code> — reuse tone for new messages).</li>
+</ul>
+<h3>9.4 Suggested examples (not on site — for future copy)</h3>
+<ul>
+<li>Slot unavailable: “That arrival time is full. Try another window or call us — we keep a few tables for walk-ins when we can.”  </li>
+<li>Txotx off-season: “Txotx runs January 15 – May 18. You can still book a cellar table or orchard walk outside the season.”</li>
+</ul>
+<p>Label these as <strong>suggestions</strong> when adding to the product.</p>
+<h3>9.5 Accessibility in writing</h3>
+<ul>
+<li>Plain language for errors (“Choose an arrival time” vs codes).  </li>
+<li>Front-load important info in headings.  </li>
+<li>Do not rely on color alone for state (pair with text — already done for errors).</li>
+</ul>
+<hr>
+<h2>10. Accessibility and consistency</h2>
+<p><strong>Target standard:</strong> WCAG 2.2 Level AA (goal, not a compliance certificate).</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Current implementation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Skip link</td>
+<td>To <code>#main</code>, visible on focus</td>
+</tr>
+<tr>
+<td>Focus</td>
+<td>Global <code>:focus-visible</code>; component rings on inputs and peer radios</td>
+</tr>
+<tr>
+<td>Headings</td>
+<td>Logical H1 per page; sections use H2 via <code>SectionHeading</code></td>
+</tr>
+<tr>
+<td>Landmarks</td>
+<td><code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>, <code>nav</code> with <code>aria-label</code></td>
+</tr>
+<tr>
+<td>Forms</td>
+<td>Labels, <code>aria-describedby</code>, error summaries with <code>role=&quot;alert&quot;</code></td>
+</tr>
+<tr>
+<td>Motion</td>
+<td><code>prefers-reduced-motion</code> reduces scroll and transitions</td>
+</tr>
+<tr>
+<td>Touch</td>
+<td><code>min-h-11</code> on many buttons, inputs, accordion summaries</td>
+</tr>
+<tr>
+<td>Images</td>
+<td><code>alt</code> required on <code>ResponsiveImage</code></td>
+</tr>
+</tbody></table>
+<p><strong>When adding UI:</strong> Keep 44×44px minimum touch targets, maintain focus visibility, test keyboard path through modals/menus.</p>
+<hr>
+<h2>11. Responsive behavior</h2>
+<table>
+<thead>
+<tr>
+<th>Breakpoint</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Default</td>
+<td>Single column, mobile margins</td>
+</tr>
+<tr>
+<td><code>sm</code> / <code>md</code></td>
+<td>Multi-column forms, stat grids</td>
+</tr>
+<tr>
+<td><code>lg</code></td>
+<td>12-column splits, txotx side-by-side image</td>
+</tr>
+<tr>
+<td><code>xl</code></td>
+<td>Full horizontal nav visible</td>
+</tr>
+</tbody></table>
+<p>Images use responsive <code>sizes</code> attributes — preserve when adding new photography.</p>
+<hr>
+<h2>12. Owner confirmation required</h2>
+<p>Before treating as factual in external marketing:</p>
+<ol>
+<li>Establishment date (<strong>1882</strong> in hero vs <strong>1894</strong> in footer).  </li>
+<li>Footer badges: <strong>Euskal Sagardoa DOP</strong>, <strong>Ekolur Organic Certified</strong>.  </li>
+<li>Orchard “Biodynamic Certified” and cultivar claims in <code>orchardStages</code>.  </li>
+<li>Named family members and generation labels in farm story.  </li>
+<li>Menu pricing and course descriptions as operational truth (<code>menuPrices</code>, <code>menuCourses</code>).</li>
+</ol>
+<hr>
+<h2>13. Do’s and don’ts</h2>
+<h3>Do</h3>
+<ul>
+<li>Pull business strings from <code>lib/site-config.ts</code>.  </li>
+<li>Use semantic colors and type tokens from <code>globals.css</code>.  </li>
+<li>State booking preview/live status explicitly.  </li>
+<li>Write descriptive alt text.  </li>
+<li>Use <code>SectionHeading</code>, <code>SiteContainer</code>, <code>ButtonLink</code> for new marketing sections.</li>
+</ul>
+<h3>Don’t</h3>
+<ul>
+<li>Redesign completed guest pages unless tasked (see <code>AGENTS.md</code>).  </li>
+<li>Invent logo files, awards, or certification marks.  </li>
+<li>Commit secrets or env values to docs.  </li>
+<li>Use the brief hex palette in code without aligning tokens.  </li>
+<li>Imply WCAG compliance without testing.</li>
+</ul>
+<hr>
+<h2>14. Examples of correct application</h2>
+<p><strong>Header wordmark + descriptor</strong> — config-driven, cream header, amber descriptor.<br><strong>Txotx section</strong> — <code>bg-primary</code> panel, photography left, amber CTA, season line from config.<br><strong>Booking error summary</strong> — <code>bg-error-container</code>, list of plain-language fixes.<br><strong>Staff banner</strong> — mode-specific border/background; explicit “demo” vs “live” titles.</p>
+<p>Apply colors and buttons using the tokens and <code>ButtonLink</code> variants described in sections 3 and 8.</p>
+<hr>
+<h2>15. Current inconsistencies and prioritized recommendations</h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Item</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>P0</td>
+<td>Conflicting dates and certification badges</td>
+<td>Owner review</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>Brief vs token hex palette</td>
+<td>Align tokens or official mapping doc (Section 3.1)</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>No logo asset</td>
+<td>Commission/add SVG + rules</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Form focus styles differ across flows</td>
+<td>Shared input component</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Public chrome on staff routes</td>
+<td>Optional staff-only layout</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Non-functional EN label</td>
+<td>Implement i18n or remove</td>
+</tr>
+</tbody></table>
+<p>Full audit trail: <a href="#audit">Audit &amp; gaps</a> section below.</p>
+<hr>
+<h2>16. Changelog</h2>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2026-10-27</td>
+<td>Initial guidelines from codebase audit</td>
+</tr>
+</tbody></table>
+
+</article>
+        </section>
+
+        <section class="doc-part" id="audit" aria-labelledby="audit-heading">
+          <div class="doc-part__banner">
+            <h2 id="audit-heading">Audit & gaps</h2>
+            <p>Implementation audit and prioritized fixes.</p>
+          </div>
+          <article class="doc-article doc-content"><p><strong>Audit date:</strong> 27 October 2026<br><strong>Scope:</strong> Public website, booking/manage-booking flows, staff tools (visual layer only). No live database or env inspection.</p>
+<p>This audit records what exists in the repository today. It does not assert legal certifications, historical dates, or photographic authenticity unless those claims appear in code and are flagged for owner verification.</p>
+<hr>
+<h2>Files and areas inspected</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Paths</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Business &amp; copy config</td>
+<td><code>lib/site-config.ts</code>, <code>lib/sample-booking.ts</code> (referenced, not fully re-read)</td>
+</tr>
+<tr>
+<td>Global tokens &amp; base styles</td>
+<td><code>app/globals.css</code>, <code>app/layout.tsx</code></td>
+</tr>
+<tr>
+<td>Routing &amp; pages</td>
+<td><code>app/page.tsx</code>, <code>app/book/</code>, <code>app/manage-booking/</code>, <code>app/visit/</code>, <code>app/menu/</code>, <code>app/our-farm/</code>, <code>app/faq/</code>, <code>app/legal/</code>, <code>app/staff/**</code></td>
+</tr>
+<tr>
+<td>Layout</td>
+<td><code>components/layout/site-header.tsx</code>, <code>site-footer.tsx</code>, <code>mobile-navigation.tsx</code></td>
+</tr>
+<tr>
+<td>Home</td>
+<td><code>components/home/*</code></td>
+</tr>
+<tr>
+<td>Marketing surfaces</td>
+<td><code>components/menu/</code>, <code>our-farm/</code>, <code>visit/</code>, <code>faq/</code></td>
+</tr>
+<tr>
+<td>Booking</td>
+<td><code>components/book/*</code>, <code>lib/booking/validate-request.ts</code></td>
+</tr>
+<tr>
+<td>Manage booking</td>
+<td><code>components/manage-booking/*</code></td>
+</tr>
+<tr>
+<td>Staff UI</td>
+<td><code>components/staff/*</code>, <code>lib/staff/reservation-status.ts</code></td>
+</tr>
+<tr>
+<td>Shared UI</td>
+<td><code>components/ui/button-link.tsx</code>, <code>section-heading.tsx</code>, <code>site-container.tsx</code>, <code>responsive-image.tsx</code>, <code>icon.tsx</code>, <code>accordion-item.tsx</code>, <code>page-breadcrumb.tsx</code></td>
+</tr>
+<tr>
+<td>Imagery</td>
+<td><code>public/images/**</code> (inventory via glob; representative paths in <code>site-config.ts</code>)</td>
+</tr>
+<tr>
+<td>Docs</td>
+<td><code>README.md</code>, <code>AGENTS.md</code>, <code>docs/SAGARDI-ROADMAP.md</code>, <code>docs/operations-setup.md</code> (not brand-focused)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Brand naming (as implemented)</h2>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Source</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Short name</td>
+<td><code>siteConfig.name</code></td>
+<td><strong>Iturrieta</strong></td>
+</tr>
+<tr>
+<td>Legal / full name</td>
+<td><code>siteConfig.legalName</code></td>
+<td><strong>Iturrieta Sagardotegia</strong></td>
+</tr>
+<tr>
+<td>Descriptor</td>
+<td><code>siteConfig.descriptor</code></td>
+<td><strong>Sagardotegia · Basque Country</strong> (title case in UI, not all caps)</td>
+</tr>
+<tr>
+<td>Tagline</td>
+<td><code>siteConfig.tagline</code></td>
+<td><strong>Rooted in the land. Made to be shared.</strong></td>
+</tr>
+<tr>
+<td>Homepage H1</td>
+<td><code>components/home/hero-section.tsx</code></td>
+<td><strong>From our apple trees / to your table.</strong> (second line italic)</td>
+</tr>
+<tr>
+<td>Txotx season label</td>
+<td><code>txotxSeasonLabel</code> + txotx section</td>
+<td><strong>January 15 – May 18</strong> (UI also shows “Jan 15 – May 18”)</td>
+</tr>
+</tbody></table>
+<p><strong>Note:</strong> Task materials use “SAGARDOEGIA”; the codebase consistently uses <strong>Sagardotegia</strong> (Basque cider-house spelling).</p>
+<hr>
+<h2>Color system (actual)</h2>
+<p>Primary source: <code>app/globals.css</code> (<code>@theme inline</code> + <code>:root</code> legacy aliases).</p>
+<h3>Brief palette vs code</h3>
+<table>
+<thead>
+<tr>
+<th>Brief label</th>
+<th>Brief hex</th>
+<th>Found in code?</th>
+<th>Implementation token(s)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Forest green</td>
+<td><code>#294632</code></td>
+<td><strong>Yes</strong></td>
+<td><code>--color-primary-container</code>, <code>--iturrieta-primary-container</code></td>
+</tr>
+<tr>
+<td>Warm cream</td>
+<td><code>#F3EBDD</code></td>
+<td><strong>No</strong></td>
+<td>Closest: <code>--color-surface</code> / <code>--color-background</code> <strong><code>#fff8f0</code></strong>, <code>--color-surface-container-low</code> <strong><code>#fbf3e5</code></strong></td>
+</tr>
+<tr>
+<td>Cider amber</td>
+<td><code>#B77948</code></td>
+<td><strong>No</strong></td>
+<td><code>--color-secondary</code> <strong><code>#875124</code></strong>; accents <strong><code>#ffb781</code></strong> (<code>secondary-fixed-dim</code>), <strong><code>#ffdcc4</code></strong> (<code>secondary-fixed</code>)</td>
+</tr>
+<tr>
+<td>Soft sage</td>
+<td><code>#D8DCCB</code></td>
+<td><strong>No</strong></td>
+<td><code>--color-tertiary-fixed</code> <strong><code>#e0e4d3</code></strong>, <code>--color-tertiary-fixed-dim</code> <strong><code>#c4c8b8</code></strong>, <code>--color-surface-variant</code> <strong><code>#e9e2d4</code></strong></td>
+</tr>
+<tr>
+<td>Dark text</td>
+<td><code>#292B25</code></td>
+<td><strong>No</strong></td>
+<td><code>--color-on-surface</code> <strong><code>#1e1b13</code></strong>, <code>--color-tertiary</code> <strong><code>#272b20</code></strong> (near brief)</td>
+</tr>
+</tbody></table>
+<h3>Additional tokens in active use</h3>
+<ul>
+<li><strong>Deep green surfaces:</strong> <code>--color-primary</code> <strong><code>#132f1d</code></strong> (hero overlays, dark sections, solid buttons).</li>
+<li><strong>Error:</strong> <code>--color-error</code> <strong><code>#ba1a1a</code></strong>, <code>--color-error-container</code> <strong><code>#ffdad6</code></strong> (forms, staff denied banner).</li>
+<li><strong>Outlines / muted text:</strong> <code>--color-outline</code> <strong><code>#727972</code></strong>, <code>--color-on-surface-variant</code> <strong><code>#424842</code></strong>.</li>
+<li><strong>Shadows:</strong> rgba based on forest green <strong><code>rgba(41,70,50,…)</code></strong> in header, footer, buttons.</li>
+</ul>
+<p><strong>Consistency:</strong> Guest UI overwhelmingly uses Tailwind theme classes (<code>bg-primary-container</code>, <code>text-secondary</code>, etc.), not raw hex in components. The five brief hex values are <strong>partially aligned</strong> with the implemented Material-style scale.</p>
+<hr>
+<h2>Typography (actual)</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Font</th>
+<th>Loading</th>
+<th>Weights used</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Display, headlines, editorial titles</td>
+<td><strong>Newsreader</strong> (Google)</td>
+<td><code>next/font/google</code> → <code>--font-newsreader</code></td>
+<td>400, 500; italic on hero second line</td>
+</tr>
+<tr>
+<td>Body, labels, UI</td>
+<td><strong>Manrope</strong> (Google)</td>
+<td><code>--font-manrope</code></td>
+<td>400, 500, 600</td>
+</tr>
+</tbody></table>
+<p>Tokenized sizes in <code>@theme</code>: <code>display-hero</code> (64/40 mobile), <code>headline-lg/md/sm</code>, <code>body-lg/md/sm</code>, <code>label-lg/sm</code>, <code>title-editorial</code>. Applied via Tailwind utilities (<code>font-display-hero</code>, <code>text-body-md</code>, etc.).</p>
+<p><strong>Patterns:</strong></p>
+<ul>
+<li>Eyebrows: <code>font-label-sm</code>, uppercase, wide tracking, <code>text-secondary</code> (light sections) or <code>text-secondary-fixed-dim</code> (dark).</li>
+<li>Section titles: <code>SectionHeading</code> → Newsreader <code>headline-lg</code>.</li>
+<li>Navigation: Manrope <code>body-md</code>; active link underline <code>border-secondary</code>.</li>
+<li>Buttons: Manrope <code>label-lg</code>, uppercase, wide tracking.</li>
+</ul>
+<p><strong>Inconsistency:</strong> Header wordmark uses <code>font-title-editorial</code> with <strong><code>font-medium</code></strong> while token defines editorial weight 400.</p>
+<hr>
+<h2>Logo and marks</h2>
+<ul>
+<li><strong>No logo SVG/PNG</strong> in <code>public/</code> (grep for logo/wordmark: none).</li>
+<li><strong>Wordmark:</strong> text-only in <code>SiteHeader</code> — <code>siteConfig.name</code> + descriptor stack.</li>
+<li><strong>Footer:</strong> <code>legalName</code> in <code>headline-sm</code>.</li>
+<li><strong>Favicon:</strong> not audited in depth (default Next assets may exist under <code>app/</code>).</li>
+</ul>
+<p><strong>Gap:</strong> No clear minimum size, exclusion zone, or monochrome/reversed rules — only live usage on cream header and footer.</p>
+<hr>
+<h2>Photography and assets</h2>
+<p>Images live under <code>public/images/</code> with page-specific subfolders (<code>menu/</code>, <code>our-farm/</code>, <code>book/</code>, <code>visit/</code>, <code>faq/</code>, <code>manage/</code>).</p>
+<p><strong>Implementation patterns:</strong></p>
+<ul>
+<li><code>ResponsiveImage</code> → Next <code>Image</code>, <code>fill</code>, <code>object-cover</code>.</li>
+<li>Hero: desaturated overlay (<code>mix-blend-luminosity</code>, green gradient).</li>
+<li>Galleries: rounded corners (<code>rounded-lg</code> / <code>rounded-xl</code>), optional hover scale (<code>motion-safe</code>), captions on <code>bg-surface/80</code> blur.</li>
+<li>Alt text: descriptive strings in components and <code>site-config.ts</code> (orchard, txotx, food, valley).</li>
+</ul>
+<p><strong>Owner confirmation needed:</strong> Copy references specific people (e.g. Mikel &amp; Ane Goikoetxea), dates (1882 hero vs 1894 footer), certifications (footer badges), and cultivar counts — treat as <strong>site content</strong>, not verified facts in this audit.</p>
+<hr>
+<h2>UI components (consistent patterns)</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Location</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ButtonLink</code></td>
+<td><code>components/ui/button-link.tsx</code></td>
+<td>Variants: <code>hero</code>, <code>primary</code>, <code>solid</code>, <code>amber</code>, <code>soft</code>, <code>ghost</code>, <code>text</code>, <code>underline</code>, <code>editorial</code>, <code>glass</code></td>
+</tr>
+<tr>
+<td><code>SiteContainer</code></td>
+<td>max-width <strong>1280px</strong>, responsive horizontal margins</td>
+<td></td>
+</tr>
+<tr>
+<td><code>SectionHeading</code></td>
+<td>eyebrow + h2 + optional description; <code>tone</code> light/dark</td>
+<td></td>
+</tr>
+<tr>
+<td>Forms</td>
+<td>Shared <code>min-h-11</code> controls; booking uses <code>inputClass</code> with ring focus; manage-booking uses custom focus shadow</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Icon</code></td>
+<td>Inline SVG stroke icons, fixed set of names</td>
+<td></td>
+</tr>
+<tr>
+<td>Accordion</td>
+<td>Native <code>&lt;details&gt;</code> / <code>&lt;summary&gt;</code>, min-height 44px summary</td>
+<td></td>
+</tr>
+<tr>
+<td>Cards / panels</td>
+<td><code>rounded-xl</code> / <code>rounded-2xl</code>, <code>bg-surface-container-*</code>, light borders <code>border-outline-variant/30</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Layout and responsive behavior</h2>
+<ul>
+<li>Fixed header <strong>h-20</strong>, main <code>pt-20</code>; hero uses <strong>negative margin</strong> <code>-mt-20</code> for full-bleed.</li>
+<li>Primary nav hidden below <strong><code>xl</code></strong>; mobile drawer from <code>top-20</code>.</li>
+<li>Grids: common <strong>12-column</strong> splits on <code>lg</code>, stacked on mobile.</li>
+<li>Spacing scale: <code>--spacing-space-*</code>, <code>--spacing-margin*</code> (mobile/tablet/desktop gutters).</li>
+</ul>
+<hr>
+<h2>Guest vs staff visual language</h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Guest (public)</th>
+<th>Staff</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tone</td>
+<td>Editorial serif + warm surfaces, photography-led</td>
+<td>Same tokens; utilitarian layouts</td>
+</tr>
+<tr>
+<td>Structure</td>
+<td>Marketing sections, CTAs</td>
+<td><code>SectionHeading</code>, <code>SiteContainer</code>, dashboards</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>None</td>
+<td><code>StaffContextBanner</code> (demo/staging/live/denied/info)</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Booking live vs preview banners in book flow</td>
+<td>Reservation status badge colors in <code>reservation-status.ts</code></td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>Public header/footer on <strong>all routes</strong> including <code>/staff/*</code></td>
+<td>No separate staff shell layout</td>
+</tr>
+</tbody></table>
+<p>Staff prioritizes filters, tables, forms, and explicit banners over imagery.</p>
+<hr>
+<h2>Accessibility (observed)</h2>
+<ul>
+<li>Skip link in root layout (<code>#main</code>).</li>
+<li><code>:focus-visible</code> outline on global base styles.</li>
+<li>Forms: <code>aria-invalid</code>, <code>aria-describedby</code>, error <code>role=&quot;alert&quot;</code>, booking tab pattern.</li>
+<li>Mobile menu: <code>aria-expanded</code>, Escape to close, <code>min-h-11</code> targets.</li>
+<li><code>prefers-reduced-motion</code>: scroll behavior, accordion transition, many <code>motion-safe:</code> hover effects.</li>
+</ul>
+<p><strong>Not verified:</strong> WCAG 2.2 AA contrast ratios or full keyboard audits.</p>
+<hr>
+<h2>Copy and claims requiring owner confirmation</h2>
+<p>These appear in the live UI/config but were <strong>not</strong> independently verified:</p>
+<ul>
+<li>Hero stat <strong>1882</strong> vs footer <strong>Est. 1894</strong></li>
+<li>Footer badges: <strong>Euskal Sagardoa DOP</strong>, <strong>Ekolur Organic Certified</strong></li>
+<li>Orchard notes: <strong>Biodynamic Certified Orchards</strong>, <strong>14 rare Basque cultivars</strong></li>
+<li>Family names and generation claims in farm story</li>
+<li>Certification-style language across menu/orchard copy</li>
+</ul>
+<p>Document guidelines should treat these as <strong>existing site copy</strong> pending business approval.</p>
+<hr>
+<h2>What is already consistent</h2>
+<ul>
+<li>Single token file (<code>globals.css</code>) drives Tailwind semantic colors.</li>
+<li>Typography pairing (Newsreader + Manrope) used site-wide.</li>
+<li>Header/footer/container width aligned at 1280px.</li>
+<li>Section rhythm: <code>py-space-2xl</code>, <code>scroll-mt-24</code> for anchored sections.</li>
+<li>CTA language: <strong>Book a Visit</strong> primary action.</li>
+<li>Txotx season dates aligned between config and txotx section (minor format difference only).</li>
+</ul>
+<hr>
+<h2>Inconsistencies and gaps</h2>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Severity</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Brief brand hex palette ≠ implemented cream/amber/sage/text hex</td>
+<td><strong>P1</strong> — document mapping or align tokens</td>
+</tr>
+<tr>
+<td>No vector logo or usage rules</td>
+<td><strong>P1</strong></td>
+</tr>
+<tr>
+<td>Conflicting establishment dates (1882 vs 1894)</td>
+<td><strong>P0</strong> — owner must pick one</td>
+</tr>
+<tr>
+<td>Unverified certification badges in footer</td>
+<td><strong>P0</strong> — legal/compliance</td>
+</tr>
+<tr>
+<td>Form focus styles differ (booking ring vs manage-booking box-shadow)</td>
+<td><strong>P2</strong></td>
+</tr>
+<tr>
+<td>Header editorial weight vs token</td>
+<td><strong>P2</strong></td>
+</tr>
+<tr>
+<td>Staff pages use public marketing header/footer</td>
+<td><strong>P2</strong> — may confuse staff UX</td>
+</tr>
+<tr>
+<td><code>EN</code> language label is non-functional placeholder</td>
+<td><strong>P2</strong></td>
+</tr>
+<tr>
+<td>README still generic “Hackathon App”</td>
+<td><strong>P2</strong> — not brand-facing but confusing for contributors</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Recommended improvements (prioritized)</h2>
+<h3>P0 — Owner / legal</h3>
+<ol>
+<li>Confirm establishment date, organic/DOP/biodynamic claims, and footer badges.</li>
+<li>Approve or revise family narrative and named individuals in copy.</li>
+</ol>
+<h3>P1 — Design system</h3>
+<ol>
+<li>Either adopt brief hex values in <code>@theme</code> or publish official mapping from brief → tokens (see <a href="#guidelines">Full guidelines</a>, section 3).</li>
+<li>Add logo assets and usage rules when available.</li>
+<li>Centralize form control styles (shared input component).</li>
+</ol>
+<h3>P2 — Polish</h3>
+<ol>
+<li>Resolve hero <code>font-medium</code> on wordmark vs design tokens.</li>
+<li>Consider staff route layout without public nav (optional product decision).</li>
+<li>Wire language selector or remove until i18n exists.</li>
+<li>Add contributor-facing brand pointer in README.</li>
+</ol>
+<hr>
+
+</article>
+        </section>
+      </div>
+    </div>
+
+    <footer class="doc-footer">
+      <p>Iturrieta Sagardotegia · Brand guide (HTML) · October 2026</p>
+    </footer>
+  </body>
+</html>

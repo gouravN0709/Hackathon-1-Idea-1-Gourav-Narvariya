@@ -1,6 +1,6 @@
 # SAGARDI master roadmap (Iturrieta Sagardotegia)
 
-Last updated from implementation work in-repo. **No live E2E** against production Supabase unless explicitly recorded in your deployment log.
+Last updated: **2026-10-27** (completion sprint audit). **No live E2E** against production Supabase unless explicitly recorded in your deployment log. Staging manual script: [STAGING-E2E-TEST-PLAN.md](./STAGING-E2E-TEST-PLAN.md).
 
 ## Status legend
 
@@ -19,7 +19,7 @@ Last updated from implementation work in-repo. **No live E2E** against productio
 | 2 | Booking + DB | 🟡 | Code path complete; live requires migration + seed + service role |
 | 3 | Manage booking | 🟡 | Lookup/cancel wired; no guest date/party edits (by design) |
 | 4 | Staff auth + reservations | ✅ | Mutations via server actions + RLS |
-| 5 | Restaurant ops DB | ⛔ | Migration in repo; not applied here |
+| 5 | Restaurant ops DB | 🟡 | Migration in repo; applied on linked staging project when `live: true` locally |
 | 6 | Staff operations UI | ✅ | Hours, shifts, closures, tables, owner timezone editor |
 | 7 | Closure-aware booking | ✅ | Server pre-check + `/api/bookings/availability`; RPC final |
 | 8 | Customer copy alignment | ✅ | Book, FAQ, home CTA use readiness |
@@ -27,11 +27,12 @@ Last updated from implementation work in-repo. **No live E2E** against productio
 | 10 | Notifications | 🟡 | Provider boundary + tests; **no outbound send** until Resend (or other) implemented |
 | 11 | Distributed rate limits | 🟡 | In-memory default; `RATE_LIMIT_BACKEND=distributed` falls back until KV/Redis wired |
 | 12 | Automated flow tests | 🟡 | Vitest for booking, availability, lookup, cancel, dispatch, rate limits; no live DB E2E |
-| 12b | E2E test suite | 📋 | Manual checklist in runbook §7 / LAUNCH-CHECKLIST |
+| 12b | E2E test suite | 🟡 | Vitest 150 tests; staging manual plan in `STAGING-E2E-TEST-PLAN.md` |
 | 13 | Legal / privacy page | 🟡 | Draft at `/legal` with farm facts; binding text needs legal review |
 
 ## Completed application work (recent)
 
+- **2026-10-27:** Removed `__MACOSX` zip debris; `.gitignore` + Vitest/ESLint excludes; restored green `npm run test` / `lint` / `build`; added missing `.env.example`; staging E2E test plan doc.
 - Operations forms: inline server-action errors, preserved create values, pending states, delete/toggle via `useActionState`.
 - Owner-only **business timezone** editor (`business_settings.timezone`) with IANA validation.
 - Notification **provider boundary** (`lib/notifications/provider.ts`, Resend stub) + dispatch tests.

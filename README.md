@@ -1,6 +1,6 @@
-# Hackathon App
+# Iturrieta Sagardotegia — public website
 
-Minimal Next.js (App Router) starter with TypeScript, Tailwind CSS, and Supabase PostgreSQL.
+Next.js (App Router) site with TypeScript, Tailwind CSS, guest booking APIs, manage-booking, and staff operations backed by Supabase PostgreSQL.
 
 ## Prerequisites
 
