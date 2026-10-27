@@ -1,4 +1,5 @@
 import { connection } from "next/server";
+import { headers } from "next/headers";
 import { signOutAdmin } from "@/app/admin/login/actions";
 
 export const instant = false;
@@ -6,6 +7,10 @@ export const instant = false;
 import { AdminShell } from "@/components/admin/admin-shell";
 import { ADMIN_HOME_PATH } from "@/lib/admin/admin-routes";
 import { requireAdminAccess } from "@/lib/admin/require-admin-access";
+import {
+  readIntendedPathFromHeaders,
+  REQUEST_PATHNAME_HEADER,
+} from "@/lib/request-path";
 
 export default async function AdminPanelLayout({
   children,
@@ -13,7 +18,12 @@ export default async function AdminPanelLayout({
   children: React.ReactNode;
 }) {
   await connection();
-  const gate = await requireAdminAccess(ADMIN_HOME_PATH);
+  const headerStore = await headers();
+  const intendedPath = readIntendedPathFromHeaders(
+    headerStore.get(REQUEST_PATHNAME_HEADER),
+    ADMIN_HOME_PATH,
+  );
+  const gate = await requireAdminAccess(intendedPath);
 
   if (gate.status === "denied") {
     return (

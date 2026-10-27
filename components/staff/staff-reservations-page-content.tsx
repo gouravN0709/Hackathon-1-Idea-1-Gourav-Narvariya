@@ -10,6 +10,7 @@ import { requireStaffAccess } from "@/lib/staff/require-staff-access";
 import { resolveStaffReservationViewState } from "@/lib/staff/reservation-view-state";
 import {
   staffPathFromRequest,
+  STAFF_FLOOR_PATH,
   STAFF_OPERATIONS_PATH,
   STAFF_RESERVATIONS_PATH,
 } from "@/lib/staff/staff-routes";
@@ -113,6 +114,12 @@ export async function StaffReservationsPageContent({
           description="Filter by service date, status, and reference."
         />
         <div className="flex flex-wrap gap-space-sm">
+          <Link
+            href={STAFF_FLOOR_PATH}
+            className="rounded-lg border border-outline-variant/50 px-space-md py-space-sm font-body-md text-body-md text-primary"
+          >
+            <TxServer>Floor</TxServer>
+          </Link>
           {gate.session.role !== "staff" ? (
             <Link
               href={STAFF_OPERATIONS_PATH}

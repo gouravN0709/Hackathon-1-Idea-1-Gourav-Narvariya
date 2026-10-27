@@ -10,9 +10,22 @@ import {
   isStaffPathRequiringAuthSession,
   staffPathFromRequest,
 } from "@/lib/staff/staff-routes";
+import {
+  intendedPathFromUrl,
+  REQUEST_PATHNAME_HEADER,
+} from "@/lib/request-path";
+
+function nextWithRequestPath(request: NextRequest): NextResponse {
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set(
+    REQUEST_PATHNAME_HEADER,
+    intendedPathFromUrl(request.nextUrl.pathname, request.nextUrl.search),
+  );
+  return NextResponse.next({ request: { headers: requestHeaders } });
+}
 
 export async function updateSession(request: NextRequest) {
-  let supabaseResponse = NextResponse.next({ request });
+  let supabaseResponse = nextWithRequestPath(request);
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim() ?? "";
   const publishableKey =
@@ -41,7 +54,7 @@ export async function updateSession(request: NextRequest) {
         cookiesToSet.forEach(({ name, value }) => {
           request.cookies.set(name, value);
         });
-        supabaseResponse = NextResponse.next({ request });
+        supabaseResponse = nextWithRequestPath(request);
         cookiesToSet.forEach(({ name, value, options }) => {
           supabaseResponse.cookies.set(name, value, options);
         });

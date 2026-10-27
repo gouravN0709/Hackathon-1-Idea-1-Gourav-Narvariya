@@ -4,6 +4,7 @@ export const ADMIN_RESERVATIONS_PATH = "/admin/reservations";
 export const ADMIN_CUSTOMERS_PATH = "/admin/customers";
 export const ADMIN_AVAILABILITY_PATH = "/admin/availability";
 export const ADMIN_OPERATIONS_PATH = "/admin/operations";
+export const ADMIN_FLOOR_PLAN_PATH = "/admin/floor-plan";
 export const ADMIN_SETTINGS_PATH = "/admin/settings";
 export const ADMIN_STAFF_PATH = "/admin/staff";
 
@@ -13,6 +14,7 @@ export const ADMIN_PANEL_PATHS = [
   ADMIN_CUSTOMERS_PATH,
   ADMIN_AVAILABILITY_PATH,
   ADMIN_OPERATIONS_PATH,
+  ADMIN_FLOOR_PLAN_PATH,
   ADMIN_SETTINGS_PATH,
   ADMIN_STAFF_PATH,
 ] as const;

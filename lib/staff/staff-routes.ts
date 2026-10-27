@@ -1,6 +1,7 @@
 export const STAFF_LOGIN_PATH = "/staff/login";
 export const STAFF_RESERVATIONS_PATH = "/staff/reservations";
 export const STAFF_OPERATIONS_PATH = "/staff/operations";
+export const STAFF_FLOOR_PATH = "/staff/floor";
 export const STAFF_DEMO_RESERVATIONS_PATH = "/staff/demo/reservations";
 
 /** Server-only. Enables the labelled demo route with fictional reservations. */

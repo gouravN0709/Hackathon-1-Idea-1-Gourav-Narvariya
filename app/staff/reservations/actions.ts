@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { applyReservationMutation } from "@/lib/staff/apply-reservation-mutation";
 import { requireStaffMutationAccess } from "@/lib/staff/staff-mutation-access";
 import { revalidateAdminPanelPaths } from "@/lib/admin/admin-routes";
-import { STAFF_RESERVATIONS_PATH } from "@/lib/staff/staff-routes";
+import { STAFF_FLOOR_PATH, STAFF_RESERVATIONS_PATH } from "@/lib/staff/staff-routes";
 import {
   businessDateInMadrid,
   parseMutationAction,
@@ -80,6 +80,7 @@ export async function runStaffReservationMutation(
   }
 
   revalidatePath(STAFF_RESERVATIONS_PATH);
+  revalidatePath(STAFF_FLOOR_PATH);
   for (const path of revalidateAdminPanelPaths()) {
     revalidatePath(path);
   }
